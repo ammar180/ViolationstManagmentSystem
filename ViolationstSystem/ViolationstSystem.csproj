@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4D44DB9-42D8-4E12-A126-3BBE8D776FCF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ViolationstSystem</RootNamespace>
+    <AssemblyName>ViolationstSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Presenter\HomePresenter.cs" />
+    <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Presenter\SendTrafficPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\HomeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interfaces\IHomeView.cs" />
+    <Compile Include="Views\Interfaces\IMainView.cs" />
+    <Compile Include="Views\Interfaces\IManageDataView.cs" />
+    <Compile Include="Views\Interfaces\ISearchAndRecordView.cs" />
+    <Compile Include="Views\Interfaces\ISendTrafficView.cs" />
+    <Compile Include="Views\Interfaces\ISettingsView.cs" />
+    <Compile Include="Views\Interfaces\TemplateView.cs" />
+    <Compile Include="Views\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendTrafficView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SendTrafficView.Designer.cs">
+      <DependentUpon>SendTrafficView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\TrafficReport.rdlc" />
+    <EmbeddedResource Include="Views\HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SendTrafficView.resx">
+      <DependentUpon>SendTrafficView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\ViolationSystem.Data.Entities.Truck.datasource" />
+    <None Include="Properties\DataSources\ViolationSystem.Data.Entities.Violation.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List View_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search Property_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Template_1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms">
+      <Version>150.1652.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViolationSystem.Data\ViolationSystem.Data.csproj">
+      <Project>{126cf25a-6920-48a0-b94e-2a9d21f2f684}</Project>
+      <Name>ViolationSystem.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
