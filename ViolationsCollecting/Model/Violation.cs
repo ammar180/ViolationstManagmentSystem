@@ -18,7 +18,6 @@ namespace ViolationsCollecting.Model.Entities
 	{
 		public int Id { get; set; }
 		public System.DateTime ViolationDate { get; set; }
-        public virtual Truck Truck { get; set; }
 		[DisplayName("رقم الشاحنة")]
 		[NotMapped]
 		public string TruckCode { get => Truck?.Code; set => Truck.Code = value; }
