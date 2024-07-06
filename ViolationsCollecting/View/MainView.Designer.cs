@@ -1,4 +1,5 @@
-﻿using ViolationsCollecting.View.CustomeComponants;
+﻿using System;
+using ViolationsCollecting.View.CustomeComponants;
 
 namespace ViolationsCollecting.View
 {
@@ -31,64 +32,69 @@ namespace ViolationsCollecting.View
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panelHeader = new System.Windows.Forms.Panel();
 			this.labelHeader = new System.Windows.Forms.Label();
 			this.EditTimer = new System.Windows.Forms.Timer(this.components);
 			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btnSave = new System.Windows.Forms.Button();
-			this.DateGroupBox = new System.Windows.Forms.GroupBox();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.yearNum = new System.Windows.Forms.NumericUpDown();
-			this.label2 = new System.Windows.Forms.Label();
-			this.NumMonth = new System.Windows.Forms.NumericUpDown();
-			this.label3 = new System.Windows.Forms.Label();
-			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.MakerGroupBox = new System.Windows.Forms.GroupBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.UnitGroupBox = new System.Windows.Forms.GroupBox();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.TruckCodeGroupBox = new System.Windows.Forms.GroupBox();
-			this.txtCode = new System.Windows.Forms.TextBox();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.txtSearch = new System.Windows.Forms.TextBox();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.btnEditMode = new System.Windows.Forms.Button();
-			this.btnAddMode = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.txtPyload = new System.Windows.Forms.TextBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.txtWeight = new System.Windows.Forms.TextBox();
-			this.ReportNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.DateGroupBox = new System.Windows.Forms.GroupBox();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.YearNum = new System.Windows.Forms.NumericUpDown();
+			this.label2 = new System.Windows.Forms.Label();
+			this.MonthNum = new System.Windows.Forms.NumericUpDown();
+			this.label3 = new System.Windows.Forms.Label();
+			this.DayNum = new System.Windows.Forms.NumericUpDown();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.MakerGroupBox = new System.Windows.Forms.GroupBox();
+			this.txtElmanfath = new System.Windows.Forms.TextBox();
+			this.UnitGroupBox = new System.Windows.Forms.GroupBox();
+			this.comboUnit = new System.Windows.Forms.ComboBox();
+			this.TruckCodeGroupBox = new System.Windows.Forms.GroupBox();
+			this.txtCode = new System.Windows.Forms.TextBox();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.SearchBar = new System.Windows.Forms.TextBox();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.btnEditMode = new System.Windows.Forms.Button();
+			this.btnAddMode = new System.Windows.Forms.Button();
+			this.violationLayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.truckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.truckCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TruckCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.violationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.responsibleUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.elManfathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ReportNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.timeCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.payloadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.truckIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.reportNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.truckIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.blockDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.truckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panelHeader.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
 			this.splitContainer.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.panel3.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			this.groupBox5.SuspendLayout();
 			this.DateGroupBox.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.yearNum)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NumMonth)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.YearNum)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MonthNum)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DayNum)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.MakerGroupBox.SuspendLayout();
 			this.UnitGroupBox.SuspendLayout();
@@ -97,10 +103,7 @@ namespace ViolationsCollecting.View
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			this.panel3.SuspendLayout();
-			this.groupBox4.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationLayerBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panelHeader
@@ -147,8 +150,8 @@ namespace ViolationsCollecting.View
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.btnSave);
-			this.panel1.Controls.Add(this.DateGroupBox);
 			this.panel1.Controls.Add(this.panel3);
+			this.panel1.Controls.Add(this.DateGroupBox);
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Controls.Add(this.TruckCodeGroupBox);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,27 +172,75 @@ namespace ViolationsCollecting.View
 			this.btnSave.TabIndex = 5;
 			this.btnSave.Text = "حفظ";
 			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.groupBox4);
+			this.panel3.Controls.Add(this.groupBox5);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel3.Location = new System.Drawing.Point(0, 399);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(515, 132);
+			this.panel3.TabIndex = 3;
+			this.panel3.Visible = false;
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this.txtPyload);
+			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
+			this.groupBox4.Location = new System.Drawing.Point(0, 0);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(270, 132);
+			this.groupBox4.TabIndex = 1;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "الحمولة";
+			// 
+			// txtPyload
+			// 
+			this.txtPyload.Location = new System.Drawing.Point(102, 51);
+			this.txtPyload.Name = "txtPyload";
+			this.txtPyload.Size = new System.Drawing.Size(100, 45);
+			this.txtPyload.TabIndex = 3;
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Controls.Add(this.txtWeight);
+			this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
+			this.groupBox5.Location = new System.Drawing.Point(270, 0);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(245, 132);
+			this.groupBox5.TabIndex = 0;
+			this.groupBox5.TabStop = false;
+			this.groupBox5.Text = "الوزن";
+			// 
+			// txtWeight
+			// 
+			this.txtWeight.Location = new System.Drawing.Point(42, 44);
+			this.txtWeight.Name = "txtWeight";
+			this.txtWeight.Size = new System.Drawing.Size(100, 45);
+			this.txtWeight.TabIndex = 4;
 			// 
 			// DateGroupBox
 			// 
 			this.DateGroupBox.Controls.Add(this.flowLayoutPanel1);
 			this.DateGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.DateGroupBox.Location = new System.Drawing.Point(0, 423);
+			this.DateGroupBox.Location = new System.Drawing.Point(0, 291);
 			this.DateGroupBox.Name = "DateGroupBox";
 			this.DateGroupBox.Size = new System.Drawing.Size(515, 108);
 			this.DateGroupBox.TabIndex = 4;
 			this.DateGroupBox.TabStop = false;
-			this.DateGroupBox.Text = "التاريخ";
+			this.DateGroupBox.Text = "التاريخ {يوم / شهر / سنه}";
 			this.DateGroupBox.Enter += new System.EventHandler(this.DateGroupBox_Enter);
 			// 
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.Controls.Add(this.label1);
-			this.flowLayoutPanel1.Controls.Add(this.yearNum);
+			this.flowLayoutPanel1.Controls.Add(this.YearNum);
 			this.flowLayoutPanel1.Controls.Add(this.label2);
-			this.flowLayoutPanel1.Controls.Add(this.NumMonth);
+			this.flowLayoutPanel1.Controls.Add(this.MonthNum);
 			this.flowLayoutPanel1.Controls.Add(this.label3);
-			this.flowLayoutPanel1.Controls.Add(this.numericUpDown3);
+			this.flowLayoutPanel1.Controls.Add(this.DayNum);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(58, 41);
@@ -207,20 +258,20 @@ namespace ViolationsCollecting.View
 			this.label1.TabIndex = 0;
 			this.label1.Text = "20";
 			// 
-			// yearNum
+			// YearNum
 			// 
-			this.yearNum.Location = new System.Drawing.Point(57, 3);
-			this.yearNum.Minimum = new decimal(new int[] {
+			this.YearNum.Location = new System.Drawing.Point(57, 3);
+			this.YearNum.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-			this.yearNum.Name = "yearNum";
-			this.yearNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.yearNum.Size = new System.Drawing.Size(74, 45);
-			this.yearNum.TabIndex = 2;
-			this.yearNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.yearNum.Value = new decimal(new int[] {
+			this.YearNum.Name = "YearNum";
+			this.YearNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.YearNum.Size = new System.Drawing.Size(74, 45);
+			this.YearNum.TabIndex = 2;
+			this.YearNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.YearNum.Value = new decimal(new int[] {
             24,
             0,
             0,
@@ -236,26 +287,26 @@ namespace ViolationsCollecting.View
 			this.label2.TabIndex = 2;
 			this.label2.Text = "/";
 			// 
-			// NumMonth
+			// MonthNum
 			// 
-			this.NumMonth.Location = new System.Drawing.Point(176, 3);
-			this.NumMonth.Maximum = new decimal(new int[] {
+			this.MonthNum.Location = new System.Drawing.Point(176, 3);
+			this.MonthNum.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-			this.NumMonth.Minimum = new decimal(new int[] {
+			this.MonthNum.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-			this.NumMonth.Name = "NumMonth";
-			this.NumMonth.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.NumMonth.Size = new System.Drawing.Size(74, 45);
-			this.NumMonth.TabIndex = 1;
-			this.NumMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.NumMonth.Value = new decimal(new int[] {
-            1,
+			this.MonthNum.Name = "MonthNum";
+			this.MonthNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.MonthNum.Size = new System.Drawing.Size(74, 45);
+			this.MonthNum.TabIndex = 1;
+			this.MonthNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.MonthNum.Value = new decimal(new int[] {
+            7,
             0,
             0,
             0});
@@ -270,26 +321,26 @@ namespace ViolationsCollecting.View
 			this.label3.TabIndex = 3;
 			this.label3.Text = "/";
 			// 
-			// numericUpDown3
+			// DayNum
 			// 
-			this.numericUpDown3.Location = new System.Drawing.Point(295, 3);
-			this.numericUpDown3.Maximum = new decimal(new int[] {
+			this.DayNum.Location = new System.Drawing.Point(295, 3);
+			this.DayNum.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-			this.numericUpDown3.Minimum = new decimal(new int[] {
+			this.DayNum.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-			this.numericUpDown3.Name = "numericUpDown3";
-			this.numericUpDown3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.numericUpDown3.Size = new System.Drawing.Size(74, 45);
-			this.numericUpDown3.TabIndex = 0;
-			this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.numericUpDown3.Value = new decimal(new int[] {
-            1,
+			this.DayNum.Name = "DayNum";
+			this.DayNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.DayNum.Size = new System.Drawing.Size(74, 45);
+			this.DayNum.TabIndex = 0;
+			this.DayNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.DayNum.Value = new decimal(new int[] {
+            7,
             0,
             0,
             0});
@@ -306,7 +357,7 @@ namespace ViolationsCollecting.View
 			// 
 			// MakerGroupBox
 			// 
-			this.MakerGroupBox.Controls.Add(this.textBox1);
+			this.MakerGroupBox.Controls.Add(this.txtElmanfath);
 			this.MakerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.MakerGroupBox.Location = new System.Drawing.Point(0, 0);
 			this.MakerGroupBox.Name = "MakerGroupBox";
@@ -315,16 +366,16 @@ namespace ViolationsCollecting.View
 			this.MakerGroupBox.TabStop = false;
 			this.MakerGroupBox.Text = "المنفذ";
 			// 
-			// textBox1
+			// txtElmanfath
 			// 
-			this.textBox1.Location = new System.Drawing.Point(102, 51);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 45);
-			this.textBox1.TabIndex = 3;
+			this.txtElmanfath.Location = new System.Drawing.Point(102, 51);
+			this.txtElmanfath.Name = "txtElmanfath";
+			this.txtElmanfath.Size = new System.Drawing.Size(100, 45);
+			this.txtElmanfath.TabIndex = 3;
 			// 
 			// UnitGroupBox
 			// 
-			this.UnitGroupBox.Controls.Add(this.comboBox1);
+			this.UnitGroupBox.Controls.Add(this.comboUnit);
 			this.UnitGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
 			this.UnitGroupBox.Location = new System.Drawing.Point(270, 0);
 			this.UnitGroupBox.Name = "UnitGroupBox";
@@ -333,25 +384,26 @@ namespace ViolationsCollecting.View
 			this.UnitGroupBox.TabStop = false;
 			this.UnitGroupBox.Text = "الوحدة";
 			// 
-			// comboBox1
+			// comboUnit
 			// 
-			this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
-			"كرداسة",
-			"البدرشين",
-			"الصف",
-			"العياط"});
-			this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
+			this.comboUnit.AutoCompleteCustomSource.AddRange(new string[] {
             "كرداسة",
             "البدرشين",
             "الصف",
             "العياط"});
-			this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-			this.comboBox1.Location = new System.Drawing.Point(54, 44);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 45);
-			this.comboBox1.TabIndex = 2;
+			this.comboUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+			this.comboUnit.DisplayMember = "كرداسة";
+			this.comboUnit.FormattingEnabled = true;
+			this.comboUnit.Items.AddRange(new object[] {
+            "كرداسة",
+            "البدرشين",
+            "الصف",
+            "العياط"});
+			this.comboUnit.Location = new System.Drawing.Point(54, 44);
+			this.comboUnit.Name = "comboUnit";
+			this.comboUnit.Size = new System.Drawing.Size(121, 45);
+			this.comboUnit.TabIndex = 2;
 			// 
 			// TruckCodeGroupBox
 			// 
@@ -390,29 +442,30 @@ namespace ViolationsCollecting.View
 			this.dataGridView.AllowUserToOrderColumns = true;
 			this.dataGridView.AutoGenerateColumns = false;
 			this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.truckDataGridViewTextBoxColumn,
-            this.truckCodeDataGridViewTextBoxColumn,
+            this.TruckCode,
             this.violationDateDataGridViewTextBoxColumn,
             this.responsibleUnitDataGridViewTextBoxColumn,
             this.elManfathDataGridViewTextBoxColumn,
+            this.ReportNumber,
+            this.timeCreationDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.payloadDataGridViewTextBoxColumn,
-            this.truckIdDataGridViewTextBoxColumn,
-            this.ReportNumber,
+            this.reportNumberDataGridViewTextBoxColumn,
             this.paymentDateDataGridViewTextBoxColumn,
-            this.blockDateDataGridViewTextBoxColumn});
-			this.dataGridView.DataSource = this.violationBindingSource;
+            this.truckIdDataGridViewTextBoxColumn,
+            this.blockDateDataGridViewTextBoxColumn,
+            this.truckDataGridViewTextBoxColumn});
+			this.dataGridView.DataSource = this.violationLayerBindingSource;
 			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridView.Location = new System.Drawing.Point(5, 43);
 			this.dataGridView.MultiSelect = false;
@@ -421,11 +474,11 @@ namespace ViolationsCollecting.View
 			this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
 			this.dataGridView.RowTemplate.Height = 24;
 			this.dataGridView.Size = new System.Drawing.Size(533, 351);
-			this.dataGridView.TabIndex = 12;
+			this.dataGridView.TabIndex = 0;
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.txtSearch);
+			this.groupBox2.Controls.Add(this.SearchBar);
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.groupBox2.Location = new System.Drawing.Point(0, 116);
 			this.groupBox2.Name = "groupBox2";
@@ -435,13 +488,13 @@ namespace ViolationsCollecting.View
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "بحث برقم السيارة";
 			// 
-			// txtSearch
+			// SearchBar
 			// 
-			this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtSearch.Location = new System.Drawing.Point(5, 43);
-			this.txtSearch.Name = "txtSearch";
-			this.txtSearch.Size = new System.Drawing.Size(533, 45);
-			this.txtSearch.TabIndex = 11;
+			this.SearchBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.SearchBar.Location = new System.Drawing.Point(5, 43);
+			this.SearchBar.Name = "SearchBar";
+			this.SearchBar.Size = new System.Drawing.Size(533, 45);
+			this.SearchBar.TabIndex = 11;
 			// 
 			// groupBox1
 			// 
@@ -469,6 +522,7 @@ namespace ViolationsCollecting.View
 			this.btnEditMode.TabIndex = 10;
 			this.btnEditMode.Text = "وضع التعديل";
 			this.btnEditMode.UseVisualStyleBackColor = true;
+			this.btnEditMode.Click += new System.EventHandler(this.btnEditMode_Click);
 			// 
 			// btnAddMode
 			// 
@@ -483,62 +537,11 @@ namespace ViolationsCollecting.View
 			this.btnAddMode.TabIndex = 9;
 			this.btnAddMode.Text = "وضع الإضافة";
 			this.btnAddMode.UseVisualStyleBackColor = false;
+			this.btnAddMode.Click += new System.EventHandler(this.btnAddMode_Click);
 			// 
-			// panel3
+			// violationLayerBindingSource
 			// 
-			this.panel3.Controls.Add(this.groupBox4);
-			this.panel3.Controls.Add(this.groupBox5);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(0, 291);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(515, 132);
-			this.panel3.TabIndex = 3;
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.Controls.Add(this.txtPyload);
-			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox4.Location = new System.Drawing.Point(0, 0);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(270, 132);
-			this.groupBox4.TabIndex = 1;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "الحمولة";
-			// 
-			// txtPyload
-			// 
-			this.txtPyload.Location = new System.Drawing.Point(102, 51);
-			this.txtPyload.Name = "txtPyload";
-			this.txtPyload.Size = new System.Drawing.Size(100, 45);
-			this.txtPyload.TabIndex = 3;
-			// 
-			// groupBox5
-			// 
-			this.groupBox5.Controls.Add(this.txtWeight);
-			this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.groupBox5.Location = new System.Drawing.Point(270, 0);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(245, 132);
-			this.groupBox5.TabIndex = 0;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "الوزن";
-			// 
-			// txtWeight
-			// 
-			this.txtWeight.Location = new System.Drawing.Point(42, 44);
-			this.txtWeight.Name = "txtWeight";
-			this.txtWeight.Size = new System.Drawing.Size(100, 45);
-			this.txtWeight.TabIndex = 4;
-			// 
-			// ReportNumber
-			// 
-			this.ReportNumber.DataPropertyName = "ReportNumber";
-			this.ReportNumber.HeaderText = "ReportNumber";
-			this.ReportNumber.MinimumWidth = 6;
-			this.ReportNumber.Name = "ReportNumber";
-			this.ReportNumber.ReadOnly = true;
-			this.ReportNumber.Visible = false;
-			this.ReportNumber.Width = 125;
+			this.violationLayerBindingSource.DataSource = typeof(ViolationsSystem.Presenter.ViolationLayer);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -550,79 +553,91 @@ namespace ViolationsCollecting.View
 			this.idDataGridViewTextBoxColumn.Visible = false;
 			this.idDataGridViewTextBoxColumn.Width = 125;
 			// 
-			// truckDataGridViewTextBoxColumn
+			// TruckCode
 			// 
-			this.truckDataGridViewTextBoxColumn.DataPropertyName = "Truck";
-			this.truckDataGridViewTextBoxColumn.HeaderText = "Truck";
-			this.truckDataGridViewTextBoxColumn.MinimumWidth = 6;
-			this.truckDataGridViewTextBoxColumn.Name = "truckDataGridViewTextBoxColumn";
-			this.truckDataGridViewTextBoxColumn.ReadOnly = true;
-			this.truckDataGridViewTextBoxColumn.Visible = false;
-			this.truckDataGridViewTextBoxColumn.Width = 125;
-			// 
-			// truckCodeDataGridViewTextBoxColumn
-			// 
-			this.truckCodeDataGridViewTextBoxColumn.DataPropertyName = "TruckCode";
-			this.truckCodeDataGridViewTextBoxColumn.HeaderText = "رقم الشاحنة";
-			this.truckCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
-			this.truckCodeDataGridViewTextBoxColumn.Name = "truckCodeDataGridViewTextBoxColumn";
-			this.truckCodeDataGridViewTextBoxColumn.ReadOnly = true;
-			this.truckCodeDataGridViewTextBoxColumn.Width = 125;
+			this.TruckCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.TruckCode.DataPropertyName = "TruckCode";
+			this.TruckCode.HeaderText = "رقم السيارة";
+			this.TruckCode.MinimumWidth = 100;
+			this.TruckCode.Name = "TruckCode";
+			this.TruckCode.ReadOnly = true;
 			// 
 			// violationDateDataGridViewTextBoxColumn
 			// 
+			this.violationDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.violationDateDataGridViewTextBoxColumn.DataPropertyName = "ViolationDate";
 			this.violationDateDataGridViewTextBoxColumn.HeaderText = "تاريخ المخالفة";
 			this.violationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.violationDateDataGridViewTextBoxColumn.Name = "violationDateDataGridViewTextBoxColumn";
 			this.violationDateDataGridViewTextBoxColumn.ReadOnly = true;
-			this.violationDateDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// responsibleUnitDataGridViewTextBoxColumn
 			// 
+			this.responsibleUnitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.responsibleUnitDataGridViewTextBoxColumn.DataPropertyName = "ResponsibleUnit";
 			this.responsibleUnitDataGridViewTextBoxColumn.HeaderText = "الوحدة";
 			this.responsibleUnitDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.responsibleUnitDataGridViewTextBoxColumn.Name = "responsibleUnitDataGridViewTextBoxColumn";
 			this.responsibleUnitDataGridViewTextBoxColumn.ReadOnly = true;
-			this.responsibleUnitDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// elManfathDataGridViewTextBoxColumn
 			// 
+			this.elManfathDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.elManfathDataGridViewTextBoxColumn.DataPropertyName = "elManfath";
 			this.elManfathDataGridViewTextBoxColumn.HeaderText = "المنفذ";
 			this.elManfathDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.elManfathDataGridViewTextBoxColumn.Name = "elManfathDataGridViewTextBoxColumn";
 			this.elManfathDataGridViewTextBoxColumn.ReadOnly = true;
-			this.elManfathDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// ReportNumber
+			// 
+			this.ReportNumber.DataPropertyName = "ReportNumber";
+			this.ReportNumber.HeaderText = "ReportNumber";
+			this.ReportNumber.MinimumWidth = 6;
+			this.ReportNumber.Name = "ReportNumber";
+			this.ReportNumber.ReadOnly = true;
+			this.ReportNumber.Visible = false;
+			this.ReportNumber.Width = 125;
+			// 
+			// timeCreationDataGridViewTextBoxColumn
+			// 
+			this.timeCreationDataGridViewTextBoxColumn.DataPropertyName = "TimeCreation";
+			this.timeCreationDataGridViewTextBoxColumn.HeaderText = "TimeCreation";
+			this.timeCreationDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.timeCreationDataGridViewTextBoxColumn.Name = "timeCreationDataGridViewTextBoxColumn";
+			this.timeCreationDataGridViewTextBoxColumn.ReadOnly = true;
+			this.timeCreationDataGridViewTextBoxColumn.Visible = false;
+			this.timeCreationDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// weightDataGridViewTextBoxColumn
 			// 
 			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-			this.weightDataGridViewTextBoxColumn.HeaderText = "الوزن";
+			this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
 			this.weightDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
 			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
+			this.weightDataGridViewTextBoxColumn.Visible = false;
 			this.weightDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// payloadDataGridViewTextBoxColumn
 			// 
 			this.payloadDataGridViewTextBoxColumn.DataPropertyName = "Payload";
-			this.payloadDataGridViewTextBoxColumn.HeaderText = "الحمولة";
+			this.payloadDataGridViewTextBoxColumn.HeaderText = "Payload";
 			this.payloadDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.payloadDataGridViewTextBoxColumn.Name = "payloadDataGridViewTextBoxColumn";
 			this.payloadDataGridViewTextBoxColumn.ReadOnly = true;
+			this.payloadDataGridViewTextBoxColumn.Visible = false;
 			this.payloadDataGridViewTextBoxColumn.Width = 125;
 			// 
-			// truckIdDataGridViewTextBoxColumn
+			// reportNumberDataGridViewTextBoxColumn
 			// 
-			this.truckIdDataGridViewTextBoxColumn.DataPropertyName = "TruckId";
-			this.truckIdDataGridViewTextBoxColumn.HeaderText = "TruckId";
-			this.truckIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-			this.truckIdDataGridViewTextBoxColumn.Name = "truckIdDataGridViewTextBoxColumn";
-			this.truckIdDataGridViewTextBoxColumn.ReadOnly = true;
-			this.truckIdDataGridViewTextBoxColumn.Visible = false;
-			this.truckIdDataGridViewTextBoxColumn.Width = 125;
+			this.reportNumberDataGridViewTextBoxColumn.DataPropertyName = "ReportNumber";
+			this.reportNumberDataGridViewTextBoxColumn.HeaderText = "ReportNumber";
+			this.reportNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.reportNumberDataGridViewTextBoxColumn.Name = "reportNumberDataGridViewTextBoxColumn";
+			this.reportNumberDataGridViewTextBoxColumn.ReadOnly = true;
+			this.reportNumberDataGridViewTextBoxColumn.Visible = false;
+			this.reportNumberDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// paymentDateDataGridViewTextBoxColumn
 			// 
@@ -634,6 +649,16 @@ namespace ViolationsCollecting.View
 			this.paymentDateDataGridViewTextBoxColumn.Visible = false;
 			this.paymentDateDataGridViewTextBoxColumn.Width = 125;
 			// 
+			// truckIdDataGridViewTextBoxColumn
+			// 
+			this.truckIdDataGridViewTextBoxColumn.DataPropertyName = "TruckId";
+			this.truckIdDataGridViewTextBoxColumn.HeaderText = "TruckId";
+			this.truckIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.truckIdDataGridViewTextBoxColumn.Name = "truckIdDataGridViewTextBoxColumn";
+			this.truckIdDataGridViewTextBoxColumn.ReadOnly = true;
+			this.truckIdDataGridViewTextBoxColumn.Visible = false;
+			this.truckIdDataGridViewTextBoxColumn.Width = 125;
+			// 
 			// blockDateDataGridViewTextBoxColumn
 			// 
 			this.blockDateDataGridViewTextBoxColumn.DataPropertyName = "BlockDate";
@@ -644,9 +669,15 @@ namespace ViolationsCollecting.View
 			this.blockDateDataGridViewTextBoxColumn.Visible = false;
 			this.blockDateDataGridViewTextBoxColumn.Width = 125;
 			// 
-			// violationBindingSource
+			// truckDataGridViewTextBoxColumn
 			// 
-			this.violationBindingSource.DataSource = typeof(ViolationsCollecting.Model.Entities.Violation);
+			this.truckDataGridViewTextBoxColumn.DataPropertyName = "Truck";
+			this.truckDataGridViewTextBoxColumn.HeaderText = "Truck";
+			this.truckDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.truckDataGridViewTextBoxColumn.Name = "truckDataGridViewTextBoxColumn";
+			this.truckDataGridViewTextBoxColumn.ReadOnly = true;
+			this.truckDataGridViewTextBoxColumn.Visible = false;
+			this.truckDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// MainView
 			// 
@@ -668,12 +699,17 @@ namespace ViolationsCollecting.View
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
 			this.splitContainer.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox5.PerformLayout();
 			this.DateGroupBox.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.yearNum)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NumMonth)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.YearNum)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MonthNum)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DayNum)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.MakerGroupBox.ResumeLayout(false);
 			this.MakerGroupBox.PerformLayout();
@@ -685,12 +721,7 @@ namespace ViolationsCollecting.View
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
-			this.panel3.ResumeLayout(false);
-			this.groupBox4.ResumeLayout(false);
-			this.groupBox4.PerformLayout();
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationLayerBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -709,38 +740,41 @@ namespace ViolationsCollecting.View
 		private System.Windows.Forms.Button btnEditMode;
 		private System.Windows.Forms.Button btnAddMode;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.TextBox txtSearch;
+		private System.Windows.Forms.TextBox SearchBar;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.DataGridView dataGridView;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.TextBox txtElmanfath;
 		private System.Windows.Forms.TextBox txtCode;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-		private System.Windows.Forms.NumericUpDown yearNum;
+		private System.Windows.Forms.NumericUpDown YearNum;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.NumericUpDown numericUpDown3;
-		private System.Windows.Forms.NumericUpDown NumMonth;
-		private System.Windows.Forms.BindingSource violationBindingSource;
+		private System.Windows.Forms.NumericUpDown DayNum;
+		private System.Windows.Forms.NumericUpDown MonthNum;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.TextBox txtPyload;
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.TextBox txtWeight;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn truckDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn truckCodeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.ComboBox comboUnit;
+		private System.Windows.Forms.BindingSource violationLayerBindingSource;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TruckCode;
 		private System.Windows.Forms.DataGridViewTextBoxColumn violationDateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn responsibleUnitDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn elManfathDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ReportNumber;
+		private System.Windows.Forms.DataGridViewTextBoxColumn timeCreationDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn truckIdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ReportNumber;
+		private System.Windows.Forms.DataGridViewTextBoxColumn reportNumberDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn paymentDateDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn truckIdDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn blockDateDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn truckDataGridViewTextBoxColumn;
 	}
 }

@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
-using ViolationsCollecting.Model.Entities;
+using ViolationsCollecting.Model;
 
 namespace ViolationsCollecting.Model.Repositories
 {
 	public class Repository : IRepository
 	{
-		private readonly ViolationsDB db = new ViolationsDB();
-		private static Repository instance;
-
-		public void AddViolation(Violation violationModel, string prevCode = "ع")
+		private readonly ViolationEntities db = new ViolationEntities();
+		public void AddViolation(Violation violationModel)
 		{
-			if (violationModel != null)
+			try
 			{
-				// handel in Presenter:-
-				if(prevCode != violationModel.Truck.Code) // truck NOT exest
-					violationModel.TruckId = TryAddTruckAndGetId(new Truck { Code = violationModel.Truck.Code });
-				else
-					violationModel.TruckId = GetTruckId(violationModel.Truck.Code);
-
-
-				db.Violations.Add(violationModel);
-				db.SaveChanges();
+				if (violationModel != null)
+				{
+					db.Violations.Add(violationModel);
+					db.SaveChanges();
+				}
 			}
+			catch { }
 		}
 
-		public int GetTruckId(string truckCode)
+		public int GetTruckIdByCode(string truckCode)
 		{
 			return db.Trucks.First(x => x.Code == truckCode).TruckId;
 		}
@@ -48,72 +44,32 @@ namespace ViolationsCollecting.Model.Repositories
 			}
 		}
 
-		public void DeleteViolation(int id)
-		{
-			throw new NotImplementedException();
-		}
 
 		public void EditViolation(Violation violationModel)
 		{
-			db.Violations.Add(violationModel);
-			db.SaveChanges();
+			try
+			{
+				db.Violations.AddOrUpdate(violationModel);
+				db.SaveChanges();
+
+			}
+			catch { }
 		}
 
 		public ICollection<Violation> GetAllViolations()
 		{
 			return db.Violations.ToList();
 		}
-
-		public List<string> GetNumTrucksByS_E_Date(int TrucksCount, DateTime startDate, DateTime endDate)
-		{
-			try
-			{
-				return db.Trucks.Where(x => 
-				x.Violations
-				.OrderBy(d => d.ViolationDate).First()
-				.ViolationDate >= startDate
-				&&
-				x.Violations
-				.OrderBy(d => d.ViolationDate).Last()
-				.ViolationDate <= endDate
-				).Take(TrucksCount)
-				.Select(x => x.Code).ToList();
-			}catch 
-			{
-			    return db.Trucks.Select(x => x.Code).Take(TrucksCount).ToList();
-			}
-		}
-		public ICollection<Violation> GetViolationsForOneTruck(string TruckCode)
-		{
-			try
-			{
-				return db.Trucks.First(t => t.Code.Contains(TruckCode)).Violations;
-			}catch
-			{
-				return new List<Violation>();
-			}
-		}
-		public List<ICollection<Violation>> GetViolationsForTrucks(string TruckCode)
+		public List<ICollection<Violation>> GetViolationsForTrucksByCode(string TruckCode)
 		{
 			try
 			{
 				return db.Trucks.Where(t => t.Code.Contains(TruckCode)).Select(x => x.Violations).ToList();
-			}catch
+			}
+			catch
 			{
 				return new List<ICollection<Violation>>();
 			}
-		}
-
-		public bool IsCanConnect()
-		{
-			return true;
-		}
-
-		public static Repository GetInstance()
-		{
-			if (instance == null)
-				instance = new Repository();
-			return instance;
 		}
 	}
 }

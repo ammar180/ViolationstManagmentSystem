@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.ViolationsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Trucks">
           <Key>
             <PropertyRef Name="TruckId" />
           </Key>
           <Property Name="TruckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsExplored" Type="bit" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
@@ -41,7 +42,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelViolationsDBModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Trucks" EntityType="Self.Trucks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Violations" EntityType="Self.Violations" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Violations_Trucks_TruckId" Association="Self.FK_Violations_Trucks_TruckId">
@@ -53,13 +54,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model.ViolationsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Truck">
           <Key>
             <PropertyRef Name="TruckId" />
           </Key>
           <Property Name="TruckId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsExplored" Type="Boolean" />
           <NavigationProperty Name="Violations" Relationship="Self.FK_Violations_Trucks_TruckId" FromRole="Trucks" ToRole="Violations" />
         </EntityType>
         <EntityType Name="Violation">
@@ -92,7 +94,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ViolationsDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ViolationEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Trucks" EntityType="Self.Truck" />
           <EntitySet Name="Violations" EntityType="Self.Violation" />
           <AssociationSet Name="FK_Violations_Trucks_TruckId" Association="Self.FK_Violations_Trucks_TruckId">
@@ -105,17 +107,18 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelViolationsDBModelStoreContainer" CdmEntityContainer="ViolationsDBEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ViolationEntities">
           <EntitySetMapping Name="Trucks">
-            <EntityTypeMapping TypeName="Model.ViolationsDBModel.Truck">
+            <EntityTypeMapping TypeName="Model.Truck">
               <MappingFragment StoreEntitySet="Trucks">
                 <ScalarProperty Name="TruckId" ColumnName="TruckId" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IsExplored" ColumnName="IsExplored" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Violations">
-            <EntityTypeMapping TypeName="Model.ViolationsDBModel.Violation">
+            <EntityTypeMapping TypeName="Model.Violation">
               <MappingFragment StoreEntitySet="Violations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ViolationDate" ColumnName="ViolationDate" />

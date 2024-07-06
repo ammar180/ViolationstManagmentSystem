@@ -12,17 +12,17 @@ namespace ViolationsCollecting.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-	using ViolationsCollecting.Model.Entities;
-
-	public partial class ViolationsDB : DbContext
+    
+    public partial class ViolationEntities : DbContext
     {
-        public ViolationsDB()
-            : base("name=ViolationsDB")
+        public ViolationEntities()
+            : base("name=ViolationEntities")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Truck> Trucks { get; set; }

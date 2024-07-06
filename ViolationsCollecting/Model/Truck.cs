@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ViolationsCollecting.Model.Entities
+namespace ViolationsCollecting.Model
 {
     using System;
     using System.Collections.Generic;
@@ -22,6 +22,7 @@ namespace ViolationsCollecting.Model.Entities
     
         public int TruckId { get; set; }
         public string Code { get; set; }
+        public Nullable<bool> IsExplored { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Violation> Violations { get; set; }

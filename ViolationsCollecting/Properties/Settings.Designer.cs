@@ -22,5 +22,14 @@ namespace ViolationsCollecting.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("02:00:00")]
+        public global::System.TimeSpan TimeToExpired {
+            get {
+                return ((global::System.TimeSpan)(this["TimeToExpired"]));
+            }
+        }
     }
 }

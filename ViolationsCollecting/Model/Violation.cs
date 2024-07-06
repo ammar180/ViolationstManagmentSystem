@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ViolationsCollecting.Model.Entities
+namespace ViolationsCollecting.Model
 {
     using System;
     using System.Collections.Generic;
@@ -15,13 +15,13 @@ namespace ViolationsCollecting.Model.Entities
 	using System.ComponentModel.DataAnnotations.Schema;
 
 	public partial class Violation
-	{
-		public int Id { get; set; }
-		public System.DateTime ViolationDate { get; set; }
+    {
+        public int Id { get; set; }
+        public System.DateTime ViolationDate { get; set; }
 		[DisplayName("رقم الشاحنة")]
 		[NotMapped]
 		public string TruckCode { get => Truck?.Code; set => Truck.Code = value; }
-		public string Weight { get; set; }
+        public string Weight { get; set; }
         public string Payload { get; set; }
         public string ReportNumber { get; set; }
         public Nullable<System.DateTime> PaymentDate { get; set; }
@@ -30,5 +30,6 @@ namespace ViolationsCollecting.Model.Entities
         public string ResponsibleUnit { get; set; }
         public string elManfath { get; set; }
     
+        public virtual Truck Truck { get; set; }
     }
 }

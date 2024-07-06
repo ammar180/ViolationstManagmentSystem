@@ -1,27 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using ViolationsCollecting.Model.Entities;
+using ViolationsCollecting.Model;
 
 namespace ViolationsCollecting.Model.Repositories
 {
 	public interface IRepository
 	{
-	    // Search Engin
-	    List<string> GetNumTrucksByS_E_Date(int TrucksCount, DateTime startDate, DateTime endDate);
-
-	    ICollection<Violation> GetViolationsForOneTruck(string TruckCode);
-		List<ICollection<Violation>> GetViolationsForTrucks(string TruckCode);
-
-
-		ICollection<Violation> GetAllViolations();
-
+		// Search Engin
+		List<ICollection<Violation>> GetViolationsForTrucksByCode(string TruckCode);
 		// Oprations:
-		void AddViolation(Violation violationModel, string prevCode = "ع");
+		ICollection<Violation> GetAllViolations();
+		void AddViolation(Violation violationModel);
 		int TryAddTruckAndGetId(Truck truckModel);
-		int GetTruckId(string truckCode);
+		int GetTruckIdByCode(string truckCode);
 		void EditViolation(Violation violationModel);
-		void DeleteViolation(int id);
-
-		bool IsCanConnect();
 	}
 }
