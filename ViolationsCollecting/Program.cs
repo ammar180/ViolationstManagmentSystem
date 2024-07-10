@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ViolationsCollecting.Model.Repositories;
+﻿using ViolationsCollecting.Model.Repositories;
+using ViolationsCollecting.Presenter;
 using ViolationsCollecting.View;
-using ViolationsSystem.Presenter;
 
 namespace ViolationsCollecting
 {
@@ -19,12 +14,12 @@ namespace ViolationsCollecting
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			
+
 			IMainView mainView = new MainView();
 			IRepository repository = new Repository();
 			new MainPresenter(mainView, repository);
-			
-			Application.Run((Form) mainView);
+
+			Application.Run((Form)mainView);
 		}
 	}
 }

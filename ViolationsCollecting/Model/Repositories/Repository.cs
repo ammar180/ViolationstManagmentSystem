@@ -1,75 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using ViolationsCollecting.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using ViolationsCollecting.Model.Entities;
 
 namespace ViolationsCollecting.Model.Repositories
 {
 	public class Repository : IRepository
 	{
-		private readonly ViolationEntities db = new ViolationEntities();
-		public void AddViolation(Violation violationModel)
+		private readonly ViolationsEntities db = new ViolationsEntities();
+
+		public async Task<bool> EditViolation(Violation violationModel)
 		{
 			try
 			{
-				if (violationModel != null)
-				{
-					db.Violations.Add(violationModel);
-					db.SaveChanges();
-				}
+				db.Entry(violationModel).State = EntityState.Modified;
+				await db.SaveChangesAsync();
+				return true;
 			}
-			catch { }
-		}
-
-		public int GetTruckIdByCode(string truckCode)
-		{
-			return db.Trucks.First(x => x.Code == truckCode).TruckId;
-		}
-
-		public int TryAddTruckAndGetId(Truck truckModel)
-		{
-			// Add Truck to db || Handel in the presenter
-			try
+			catch (Exception ex)
 			{
-				db.Trucks.Add(truckModel);
-				db.SaveChanges();
-			
-				return truckModel.TruckId;
-			}
-			catch
-			{
-				// if any error, that mean Truck Exest
-				return db.Trucks.First(x => x.Code == truckModel.Code).TruckId;
+				// Log exception
+				return false;
+				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
 			}
 		}
 
-
-		public void EditViolation(Violation violationModel)
+		public async Task<bool> AddViolation(Violation violationModel)
 		{
 			try
 			{
-				db.Violations.AddOrUpdate(violationModel);
-				db.SaveChanges();
-
+				db.Violations.Add(violationModel);
+				await db.SaveChangesAsync();
+				return true;
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				// Log exception
+				return false;
+				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
+			}
 		}
 
-		public ICollection<Violation> GetAllViolations()
+		public async Task<ICollection<Violation>> GetAllViolations()
 		{
-			return db.Violations.ToList();
+			return await db.Violations.ToListAsync();
 		}
-		public List<ICollection<Violation>> GetViolationsForTrucksByCode(string TruckCode)
+		public async Task<List<ICollection<Violation>>> GetViolationsForTrucksByCode(string TruckCode)
 		{
 			try
 			{
-				return db.Trucks.Where(t => t.Code.Contains(TruckCode)).Select(x => x.Violations).ToList();
+				return await db.Trucks.Where(t => t.TruckCode.Contains(TruckCode)).Select(x => x.Violations).ToListAsync();
 			}
 			catch
 			{
 				return new List<ICollection<Violation>>();
 			}
+		}
+
+		public async Task<bool> CheckTruckExest(string Code)
+		{
+			return await db.Trucks.AnyAsync(x => x.TruckCode == Code);
+		}
+
+		public async Task<bool> AddTruck(Truck truckModel)
+		{
+			try
+			{
+				db.Trucks.Add(truckModel);
+				await db.SaveChangesAsync();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				// Log exception
+				return false;
+				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
+			}
+		}
+		public bool CanConnect()
+		{
+			return db.Database.CanConnect();
+		}
+
+		public async Task<ICollection<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate)
+		{
+			return await db.Violations.Where(x =>
+					x.RegistrationDate >= StartDate
+					&& x.RegistrationDate <= EndDate).ToListAsync();
 		}
 	}
 }

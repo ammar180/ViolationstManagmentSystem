@@ -31,5 +31,65 @@ namespace ViolationsCollecting.Properties {
                 return ((global::System.TimeSpan)(this["TimeToExpired"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowWeightAndPyload {
+            get {
+                return ((bool)(this["ShowWeightAndPyload"]));
+            }
+            set {
+                this["ShowWeightAndPyload"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ViolationsDB;Integrated Securi" +
+            "ty=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Applicat" +
+            "ion Intent=ReadWrite;Multi Subnet Failover=False")]
+        public string SQLconnection {
+            get {
+                return ((string)(this["SQLconnection"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int DayToExport {
+            get {
+                return ((int)(this["DayToExport"]));
+            }
+            set {
+                this["DayToExport"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int MonthToExport {
+            get {
+                return ((int)(this["MonthToExport"]));
+            }
+            set {
+                this["MonthToExport"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExportPath {
+            get {
+                return ((string)(this["ExportPath"]));
+            }
+            set {
+                this["ExportPath"] = value;
+            }
+        }
     }
 }
