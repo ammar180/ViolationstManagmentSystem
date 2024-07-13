@@ -1,4 +1,7 @@
-﻿using ViolationsCollecting.Model.Entities;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System.Collections.Generic;
+using System.Data;
+using ViolationsCollecting.Model.Entities;
 using ViolationsCollecting.Model.Repositories;
 using ViolationsCollecting.View;
 
@@ -21,36 +24,54 @@ namespace ViolationsCollecting.Presenter
 
 			ViolationsLayer = new List<Violation>();
 			validation = new Validation<Violation>();
-
+			
 			view.Save += SaveViolationAsync;
 			view.SearchItems += SearchViolations;
 			view.OnTimerTick += HandleEditingTimeLimitation;
-
-			ExtractData();
+			view.ExportEvent += ExtractData;
 		}
 
-		private bool CheckExport(int dayToExport, int monthToExport)
+		
+		private async Task ExtractData()
 		{
-			// check is day to extrackt && NotExtraktd
-			return (dayToExport >= DateTime.Now.Day
-				&& dayToExport <= (DateTime.Now.Day + 3)
-				&& monthToExport == DateTime.Now.Month);
-		}
+			int monthToExport = view.MonthToExport;
 
-		private void ExtractData()
-		{
-			int dayToExport = Properties.Settings.Default.DayToExport;
-			int monthToExport = Properties.Settings.Default.MonthToExport;
 
-			if (CheckExport(dayToExport, monthToExport))
+			if (Properties.Settings.Default.ExportPath == "")
+			{
+				if (MessageBoxHelper.SelectBath())
+				{
+					Properties.Settings.Default.ExportPath = ExcelHelper.GetPath();
+					Properties.Settings.Default.Save();
+					ExtractData();
+				}
+			}
+			else
 			{
 				// extrackt...
-				DateTime StartDate = new DateTime(DateTime.Now.Year, monthToExport -1, dayToExport );
-				DateTime EndDate = new DateTime(DateTime.Now.Year, monthToExport, dayToExport);
 
-				var ViolationsToExport = repository.GetViolationsInDateRange(StartDate, EndDate).Result;
+				if (MessageBoxHelper.AlertExportDate(monthToExport))
+				{
+					// sitting up Arguments..
+					var ViolationsToExport = await repository.GetViolationsInMonth(monthToExport);
+					
+					string u = Properties.Settings.Default.AppUnit;
+					string exportName = $"({DateTime.Now.Year}-{monthToExport})_{u}";
 
-				Properties.Settings.Default.MonthToExport++;
+					DataTable dataTable = new DataTable();
+					using (var reader = FastMember.ObjectReader.Create(ViolationsToExport))
+					{
+						dataTable.Load(reader);
+					}
+					dataTable = ExcelHelper.ArrangeDataTable(dataTable);
+
+					ExcelHelper.Export(dataTable, exportName, Properties.Settings.Default.ExportPath);
+
+					MessageBoxHelper.ExtrationDone();
+					ExcelHelper.OpenDir(Properties.Settings.Default.ExportPath);
+
+					//await repository.RemoveViolationsRange(ViolationsToExport);
+				}
 			}
 		}
 
@@ -69,43 +90,43 @@ namespace ViolationsCollecting.Presenter
 
 		private async Task SaveViolationAsync()
 		{
+			Properties.Settings.Default.AppUnit = view.ResponableUnit;
+			Properties.Settings.Default.Save();
+
 			try
 			{
 				// assosiat data on object
 				var violation = new Violation()
 				{
 					ViolationDate = view.TheDate,
-					Unit = view.ResponableUnit,
+					Unit = Properties.Settings.Default.AppUnit,
 					ElManfaz = view.ElManfaz,
 					TruckCode = view.TruckCode,
 					RegistrationDate = DateTime.Now,
 				};
 
-				var truck = new Truck()
-				{
-					TruckCode = view.TruckCode,
-					IsExplored = false,
-				};
+				
 
 				view.Message = "";
 				view.Message += string.Join(Environment.NewLine, validation.GetValidationResult(violation).Select(vr => vr.ErrorMessage));
-				
+
 				if (!repository.CanConnect())
 					throw new Exception("لا يمكن الوصول لقاعدة البينات، يرجى التحقق من الاتصال من ثم اعادة المحاولة");
-				
+
 				if (validation.IsValid )
 				{
 					view.loading.Show();
 					if (view.IsInAddingMode)
 					{
 						//Check Truck Exest
-						if (!await repository.CheckTruckExest(view.TruckCode))
-							await repository.AddTruck(truck);
+						//if (!await repository.CheckTruckExest(view.TruckCode))
+						//	await repository.AddTruck(truck);
 
 
 						// Add violation
-						violation.Id = new int();
-						if (await repository.AddViolation(violation))
+						if (await repository.CheckViolationInsertedBefore(violation.TruckCode))
+							throw new Exception("عذرا! لا يمكن تسجيل مخالفة لنفس السيارة اكثر من مرة في اليوم");
+						else if (await repository.AddViolation(violation))
 						{
 							ViolationsLayer.Add(violation);
 							view.ClearTextBoxes();
@@ -125,17 +146,17 @@ namespace ViolationsCollecting.Presenter
 							ViolationsLayer[index] = violation;
 					}
 					view.MainViewBS.DataSource = ViolationsLayer.ToList();
-					view.SetDeafultSelectedRow();
-
 					view.loading.Hide();
 				}
+				
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "خطأ أثناء العملية", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "خطأ أثناء العملية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				view.loading.Hide();
 			}
 
-			
+
 		}
 
 	}

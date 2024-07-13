@@ -7,18 +7,18 @@
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(Properties.Settings.Default.SQLconnection);
+			optionsBuilder.UseSqlServer(Properties.Settings.Default.SQLconnectionFile);
 			//optionsBuilder.UseSqlite("Data Source=ViolationsCollector.db");
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Truck>()
-				.HasMany(e => e.Violations)
-				.WithOne(e => e.Truck)
-				.HasForeignKey(e => e.TruckCode)
-				.IsRequired();
+			//modelBuilder.Entity<Truck>()
+			//	.HasMany(e => e.Violations)
+			//	.WithOne(e => e.Truck)
+			//	.HasForeignKey(e => e.TruckCode)
+			//	.IsRequired();
 		}
-		public virtual DbSet<Truck> Trucks { get; set; }
+		//public virtual DbSet<Truck> Trucks { get; set; }
 		public virtual DbSet<Violation> Violations { get; set; }
 	}
 }

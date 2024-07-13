@@ -283,7 +283,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 		#endregion
 
 		private FlowLayoutPanel AlphaflowLayoutPanel;
-		private TextBox a1;
+		public TextBox a1;
 		private Label label1;
 		private TextBox a2;
 		private Label label2;
@@ -299,7 +299,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 		private Label label4;
 		private TextBox n3;
 		private Label label5;
-		private TextBox n4;
+		public TextBox n4;
 		private FlowLayoutPanel flowLayoutPanel;
 
 		public TextBox FirstNumberTextBox { get; set; }

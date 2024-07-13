@@ -22,16 +22,16 @@ namespace ViolationsCollecting.View
 		string Message { get; set; }
 		int UpdatedViolationId { get; set; }
 		BindingSource MainViewBS { get; set; }
+		int MonthToExport { get;}
 
 		// events
 		event EventHandler SearchItems;
 
 		delegate Task AsyncEventHandler();
 		event AsyncEventHandler Save;
-
 		event EventHandler OnTimerTick;
+		event AsyncEventHandler ExportEvent;
 		// methods
 		void ClearTextBoxes();
-		void SetDeafultSelectedRow();
 	}
 }

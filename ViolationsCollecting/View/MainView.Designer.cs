@@ -33,8 +33,14 @@ namespace ViolationsCollecting.View
 		{
 			components = new System.ComponentModel.Container();
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
 			panelHeader = new Panel();
 			labelHeader = new Label();
+			groupBox6 = new GroupBox();
+			NumMonthToExport = new NumericUpDown();
+			btnExport = new Button();
+			pictureBox1 = new PictureBox();
 			EditTimer = new System.Windows.Forms.Timer(components);
 			splitContainer = new SplitContainer();
 			panel1 = new Panel();
@@ -72,14 +78,16 @@ namespace ViolationsCollecting.View
 			registrationDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			weightDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			payloadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-			truckDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			violationBindingSource = new BindingSource(components);
-			groupBox2 = new GroupBox();
-			SearchBar = new TextBox();
 			groupBox1 = new GroupBox();
 			btnEditMode = new Button();
 			btnAddMode = new Button();
+			groupBox7 = new GroupBox();
+			truckCodeBoxSearch = new TruckCodeBodx();
 			panelHeader.SuspendLayout();
+			groupBox6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)NumMonthToExport).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
 			splitContainer.Panel1.SuspendLayout();
 			splitContainer.Panel2.SuspendLayout();
@@ -102,29 +110,77 @@ namespace ViolationsCollecting.View
 			groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
 			((System.ComponentModel.ISupportInitialize)violationBindingSource).BeginInit();
-			groupBox2.SuspendLayout();
 			groupBox1.SuspendLayout();
+			groupBox7.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panelHeader
 			// 
+			panelHeader.BackColor = Color.White;
 			panelHeader.Controls.Add(labelHeader);
+			panelHeader.Controls.Add(groupBox6);
+			panelHeader.Controls.Add(pictureBox1);
 			panelHeader.Dock = DockStyle.Top;
 			panelHeader.Location = new Point(0, 0);
 			panelHeader.Name = "panelHeader";
-			panelHeader.Size = new Size(1062, 64);
+			panelHeader.Size = new Size(1062, 140);
 			panelHeader.TabIndex = 1;
 			// 
 			// labelHeader
 			// 
 			labelHeader.Dock = DockStyle.Fill;
 			labelHeader.Font = new Font("Cairo", 22F);
-			labelHeader.Location = new Point(0, 0);
+			labelHeader.Location = new Point(261, 0);
 			labelHeader.Name = "labelHeader";
-			labelHeader.Size = new Size(1062, 64);
+			labelHeader.Size = new Size(562, 140);
 			labelHeader.TabIndex = 0;
 			labelHeader.Text = "مخالفات السيارات الهاربة من منافذ التحصيل";
 			labelHeader.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// groupBox6
+			// 
+			groupBox6.Controls.Add(NumMonthToExport);
+			groupBox6.Controls.Add(btnExport);
+			groupBox6.Dock = DockStyle.Left;
+			groupBox6.Location = new Point(0, 0);
+			groupBox6.Name = "groupBox6";
+			groupBox6.Size = new Size(261, 140);
+			groupBox6.TabIndex = 12;
+			groupBox6.TabStop = false;
+			groupBox6.Text = "استخراج ابيانات لشهر محدد";
+			// 
+			// NumMonthToExport
+			// 
+			NumMonthToExport.Location = new Point(161, 44);
+			NumMonthToExport.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+			NumMonthToExport.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			NumMonthToExport.Name = "NumMonthToExport";
+			NumMonthToExport.RightToLeft = RightToLeft.No;
+			NumMonthToExport.Size = new Size(94, 45);
+			NumMonthToExport.TabIndex = 12;
+			NumMonthToExport.TextAlign = HorizontalAlignment.Center;
+			NumMonthToExport.Value = new decimal(new int[] { 7, 0, 0, 0 });
+			// 
+			// btnExport
+			// 
+			btnExport.CausesValidation = false;
+			btnExport.Location = new Point(0, 44);
+			btnExport.Name = "btnExport";
+			btnExport.Size = new Size(127, 45);
+			btnExport.TabIndex = 11;
+			btnExport.Text = "استخراج";
+			btnExport.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Dock = DockStyle.Right;
+			pictureBox1.Image = Properties.Resources.الشعار;
+			pictureBox1.Location = new Point(823, 0);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(239, 140);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 1;
+			pictureBox1.TabStop = false;
 			// 
 			// EditTimer
 			// 
@@ -133,7 +189,7 @@ namespace ViolationsCollecting.View
 			// splitContainer
 			// 
 			splitContainer.Dock = DockStyle.Fill;
-			splitContainer.Location = new Point(0, 64);
+			splitContainer.Location = new Point(0, 140);
 			splitContainer.Name = "splitContainer";
 			// 
 			// splitContainer.Panel1
@@ -144,10 +200,10 @@ namespace ViolationsCollecting.View
 			// splitContainer.Panel2
 			// 
 			splitContainer.Panel2.Controls.Add(groupBox3);
-			splitContainer.Panel2.Controls.Add(groupBox2);
+			splitContainer.Panel2.Controls.Add(groupBox7);
 			splitContainer.Panel2.Controls.Add(groupBox1);
 			splitContainer.Panel2.RightToLeft = RightToLeft.Yes;
-			splitContainer.Size = new Size(1062, 668);
+			splitContainer.Size = new Size(1062, 592);
 			splitContainer.SplitterDistance = 531;
 			splitContainer.TabIndex = 8;
 			// 
@@ -162,7 +218,7 @@ namespace ViolationsCollecting.View
 			panel1.Dock = DockStyle.Fill;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(531, 668);
+			panel1.Size = new Size(531, 592);
 			panel1.TabIndex = 5;
 			// 
 			// labelMessage
@@ -172,7 +228,7 @@ namespace ViolationsCollecting.View
 			labelMessage.ForeColor = Color.Red;
 			labelMessage.Location = new Point(0, 519);
 			labelMessage.Name = "labelMessage";
-			labelMessage.Size = new Size(531, 149);
+			labelMessage.Size = new Size(531, 73);
 			labelMessage.TabIndex = 0;
 			labelMessage.TextAlign = ContentAlignment.TopCenter;
 			// 
@@ -432,10 +488,10 @@ namespace ViolationsCollecting.View
 			// 
 			groupBox3.Controls.Add(dataGridView);
 			groupBox3.Dock = DockStyle.Fill;
-			groupBox3.Location = new Point(0, 198);
+			groupBox3.Location = new Point(0, 257);
 			groupBox3.Name = "groupBox3";
 			groupBox3.Padding = new Padding(5);
-			groupBox3.Size = new Size(527, 470);
+			groupBox3.Size = new Size(527, 335);
 			groupBox3.TabIndex = 6;
 			groupBox3.TabStop = false;
 			groupBox3.Text = "اختر الصف للتعديل";
@@ -455,7 +511,7 @@ namespace ViolationsCollecting.View
 			dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
 			dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, truckCodeDataGridViewTextBoxColumn, violationDateDataGridViewTextBoxColumn, unitDataGridViewTextBoxColumn, elManfazDataGridViewTextBoxColumn, registrationDateDataGridViewTextBoxColumn, weightDataGridViewTextBoxColumn, payloadDataGridViewTextBoxColumn, truckDataGridViewTextBoxColumn });
+			dataGridView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, truckCodeDataGridViewTextBoxColumn, violationDateDataGridViewTextBoxColumn, unitDataGridViewTextBoxColumn, elManfazDataGridViewTextBoxColumn, registrationDateDataGridViewTextBoxColumn, weightDataGridViewTextBoxColumn, payloadDataGridViewTextBoxColumn });
 			dataGridView.DataSource = violationBindingSource;
 			dataGridView.Dock = DockStyle.Fill;
 			dataGridView.Location = new Point(5, 43);
@@ -465,7 +521,7 @@ namespace ViolationsCollecting.View
 			dataGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
 			dataGridView.RowTemplate.Height = 24;
 			dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dataGridView.Size = new Size(517, 422);
+			dataGridView.Size = new Size(517, 287);
 			dataGridView.TabIndex = 0;
 			// 
 			// idDataGridViewTextBoxColumn
@@ -491,6 +547,9 @@ namespace ViolationsCollecting.View
 			// 
 			violationDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 			violationDateDataGridViewTextBoxColumn.DataPropertyName = "ViolationDate";
+			dataGridViewCellStyle2.Format = "yy/MM/dd";
+			dataGridViewCellStyle2.NullValue = null;
+			violationDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
 			violationDateDataGridViewTextBoxColumn.HeaderText = "تاريخ المخالفة";
 			violationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			violationDateDataGridViewTextBoxColumn.Name = "violationDateDataGridViewTextBoxColumn";
@@ -543,39 +602,9 @@ namespace ViolationsCollecting.View
 			payloadDataGridViewTextBoxColumn.ReadOnly = true;
 			payloadDataGridViewTextBoxColumn.Visible = false;
 			// 
-			// truckDataGridViewTextBoxColumn
-			// 
-			truckDataGridViewTextBoxColumn.DataPropertyName = "Truck";
-			truckDataGridViewTextBoxColumn.HeaderText = "Truck";
-			truckDataGridViewTextBoxColumn.MinimumWidth = 6;
-			truckDataGridViewTextBoxColumn.Name = "truckDataGridViewTextBoxColumn";
-			truckDataGridViewTextBoxColumn.ReadOnly = true;
-			truckDataGridViewTextBoxColumn.Visible = false;
-			truckDataGridViewTextBoxColumn.Width = 125;
-			// 
 			// violationBindingSource
 			// 
 			violationBindingSource.DataSource = typeof(Model.Entities.Violation);
-			// 
-			// groupBox2
-			// 
-			groupBox2.Controls.Add(SearchBar);
-			groupBox2.Dock = DockStyle.Top;
-			groupBox2.Location = new Point(0, 104);
-			groupBox2.Name = "groupBox2";
-			groupBox2.Padding = new Padding(5);
-			groupBox2.Size = new Size(527, 94);
-			groupBox2.TabIndex = 5;
-			groupBox2.TabStop = false;
-			groupBox2.Text = "بحث برقم السيارة";
-			// 
-			// SearchBar
-			// 
-			SearchBar.Dock = DockStyle.Fill;
-			SearchBar.Location = new Point(5, 43);
-			SearchBar.Name = "SearchBar";
-			SearchBar.Size = new Size(517, 45);
-			SearchBar.TabIndex = 11;
 			// 
 			// groupBox1
 			// 
@@ -620,6 +649,31 @@ namespace ViolationsCollecting.View
 			btnAddMode.UseVisualStyleBackColor = false;
 			btnAddMode.Click += btnAddMode_Click;
 			// 
+			// groupBox7
+			// 
+			groupBox7.Controls.Add(truckCodeBoxSearch);
+			groupBox7.Dock = DockStyle.Top;
+			groupBox7.Location = new Point(0, 104);
+			groupBox7.Name = "groupBox7";
+			groupBox7.RightToLeft = RightToLeft.Yes;
+			groupBox7.Size = new Size(527, 153);
+			groupBox7.TabIndex = 7;
+			groupBox7.TabStop = false;
+			groupBox7.Text = "رقم السيارة";
+			// 
+			// truckCodeBoxSearch
+			// 
+			truckCodeBoxSearch.AutoSize = true;
+			truckCodeBoxSearch.Dock = DockStyle.Fill;
+			truckCodeBoxSearch.FirstNumberTextBox = null;
+			truckCodeBoxSearch.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			truckCodeBoxSearch.Location = new Point(3, 41);
+			truckCodeBoxSearch.Name = "truckCodeBoxSearch";
+			truckCodeBoxSearch.RightToLeft = RightToLeft.Yes;
+			truckCodeBoxSearch.Size = new Size(521, 109);
+			truckCodeBoxSearch.TabIndex = 1;
+			truckCodeBoxSearch.txtTruckCode = "";
+			// 
 			// MainView
 			// 
 			AutoScaleMode = AutoScaleMode.None;
@@ -627,6 +681,7 @@ namespace ViolationsCollecting.View
 			Controls.Add(splitContainer);
 			Controls.Add(panelHeader);
 			Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			MinimumSize = new Size(1080, 720);
 			Name = "MainView";
 			RightToLeft = RightToLeft.Yes;
@@ -635,6 +690,9 @@ namespace ViolationsCollecting.View
 			Text = "برنامج تسجيل المخالفات";
 			WindowState = FormWindowState.Maximized;
 			panelHeader.ResumeLayout(false);
+			groupBox6.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)NumMonthToExport).EndInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			splitContainer.Panel1.ResumeLayout(false);
 			splitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
@@ -662,9 +720,9 @@ namespace ViolationsCollecting.View
 			groupBox3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
 			((System.ComponentModel.ISupportInitialize)violationBindingSource).EndInit();
-			groupBox2.ResumeLayout(false);
-			groupBox2.PerformLayout();
 			groupBox1.ResumeLayout(false);
+			groupBox7.ResumeLayout(false);
+			groupBox7.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -681,8 +739,6 @@ namespace ViolationsCollecting.View
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button btnEditMode;
 		private System.Windows.Forms.Button btnAddMode;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.TextBox SearchBar;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.DataGridView dataGridView;
 		private System.Windows.Forms.Panel panel1;
@@ -705,6 +761,7 @@ namespace ViolationsCollecting.View
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label labelMessage;
 		private BindingSource violationBindingSource;
+		private PictureBox pictureBox1;
 		private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn truckCodeDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn violationDateDataGridViewTextBoxColumn;
@@ -714,6 +771,11 @@ namespace ViolationsCollecting.View
 		private DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn truckDataGridViewTextBoxColumn;
+		private Button btnExport;
+		private GroupBox groupBox6;
+		private NumericUpDown NumMonthToExport;
 		private TruckCodeBodx truckCodeBodx1;
+		private GroupBox groupBox7;
+		private TruckCodeBodx truckCodeBoxSearch;
 	}
 }

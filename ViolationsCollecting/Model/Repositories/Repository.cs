@@ -43,38 +43,38 @@ namespace ViolationsCollecting.Model.Repositories
 		{
 			return await db.Violations.ToListAsync();
 		}
-		public async Task<List<ICollection<Violation>>> GetViolationsForTrucksByCode(string TruckCode)
-		{
-			try
-			{
-				return await db.Trucks.Where(t => t.TruckCode.Contains(TruckCode)).Select(x => x.Violations).ToListAsync();
-			}
-			catch
-			{
-				return new List<ICollection<Violation>>();
-			}
-		}
+		//public async Task<List<ICollection<Violation>>> GetViolationsForTrucksByCode(string TruckCode)
+		//{
+		//	try
+		//	{
+		//		return await db.Trucks.Where(t => t.TruckCode.Contains(TruckCode)).Select(x => x.Violations).ToListAsync();
+		//	}
+		//	catch
+		//	{
+		//		return new List<ICollection<Violation>>();
+		//	}
+		//}
 
-		public async Task<bool> CheckTruckExest(string Code)
-		{
-			return await db.Trucks.AnyAsync(x => x.TruckCode == Code);
-		}
+		//public async Task<bool> CheckTruckExest(string Code)
+		//{
+		//	return await db.Trucks.AnyAsync(x => x.TruckCode == Code);
+		//}
 
-		public async Task<bool> AddTruck(Truck truckModel)
-		{
-			try
-			{
-				db.Trucks.Add(truckModel);
-				await db.SaveChangesAsync();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				// Log exception
-				return false;
-				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
-			}
-		}
+		//public async Task<bool> AddTruck(Truck truckModel)
+		//{
+		//	try
+		//	{
+		//		db.Trucks.Add(truckModel);
+		//		await db.SaveChangesAsync();
+		//		return true;
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		// Log exception
+		//		return false;
+		//		throw new InvalidOperationException("An error occurred while editing the violation.", ex);
+		//	}
+		//}
 		public bool CanConnect()
 		{
 			return db.Database.CanConnect();
@@ -84,7 +84,26 @@ namespace ViolationsCollecting.Model.Repositories
 		{
 			return await db.Violations.Where(x =>
 					x.RegistrationDate >= StartDate
-					&& x.RegistrationDate <= EndDate).ToListAsync();
+					&& x.RegistrationDate <= EndDate
+					).OrderBy(x => x.ViolationDate
+					).ToListAsync();
+		}
+		public async Task<ICollection<Violation>> GetViolationsInMonth(int month)
+		{
+			return await db.Violations.Where(x =>
+					x.ViolationDate.Month == month
+					).OrderBy(x => x.ViolationDate
+					).ToListAsync();
+		}
+		public async Task RemoveViolationsRange(IEnumerable<Violation> violations)
+		{
+			db.Violations.RemoveRange(violations);
+			await db.SaveChangesAsync();
+		}
+
+		public async Task<bool> CheckViolationInsertedBefore(string Code)
+		{
+			return await db.Violations.AnyAsync(x => x.RegistrationDate.Day == DateTime.Now.Day && x.TruckCode == Code);
 		}
 	}
 }

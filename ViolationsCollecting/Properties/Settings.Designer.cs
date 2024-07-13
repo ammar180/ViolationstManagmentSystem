@@ -44,42 +44,6 @@ namespace ViolationsCollecting.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ViolationsDB;Integrated Securi" +
-            "ty=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Applicat" +
-            "ion Intent=ReadWrite;Multi Subnet Failover=False")]
-        public string SQLconnection {
-            get {
-                return ((string)(this["SQLconnection"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
-        public int DayToExport {
-            get {
-                return ((int)(this["DayToExport"]));
-            }
-            set {
-                this["DayToExport"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
-        public int MonthToExport {
-            get {
-                return ((int)(this["MonthToExport"]));
-            }
-            set {
-                this["MonthToExport"] = value;
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -89,6 +53,41 @@ namespace ViolationsCollecting.Properties {
             }
             set {
                 this["ExportPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("كرداسة")]
+        public string AppUnit {
+            get {
+                return ((string)(this["AppUnit"]));
+            }
+            set {
+                this["AppUnit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ViolationsDB." +
+            "mdf;Integrated Security=True;Connect Timeout=30")]
+        public string SQLconnectionFile {
+            get {
+                return ((string)(this["SQLconnectionFile"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ViolationsDB;Integrated Securi" +
+            "ty=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Applicat" +
+            "ion Intent=ReadWrite;Multi Subnet Failover=False")]
+        public string SQLconnectionServer {
+            get {
+                return ((string)(this["SQLconnectionServer"]));
             }
         }
     }

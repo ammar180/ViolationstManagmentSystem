@@ -5,14 +5,15 @@ namespace ViolationsCollecting.Model.Repositories
 	public interface IRepository
 	{
 		// Search Engin
-		Task<List<ICollection<Violation>>> GetViolationsForTrucksByCode(string TruckCode);
 		// Oprations:
 		Task<ICollection<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate);
-		Task<ICollection<Violation>> GetAllViolations();
+		Task<ICollection<Violation>> GetViolationsInMonth(int month);
 		Task<bool> AddViolation(Violation violationModel);
-		Task<bool> AddTruck(Truck truckModel);
+		//Task<bool> AddTruck(Truck truckModel);
 		Task<bool> EditViolation(Violation violationModel);
-		Task<bool> CheckTruckExest(string Code);
+		//Task<bool> CheckTruckExest(string Code);
+		Task<bool> CheckViolationInsertedBefore(string Code);
+		Task RemoveViolationsRange(IEnumerable<Violation> violations);
 		bool CanConnect();
 	}
 }

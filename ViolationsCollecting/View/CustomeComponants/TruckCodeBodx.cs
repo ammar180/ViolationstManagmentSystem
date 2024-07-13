@@ -42,6 +42,17 @@ namespace ViolationsCollecting.View.CustomeComponants
 					n2.Text = value[4].ToString();
 					n1.Text = value[5].ToString();
 				}
+				else if(value.Length == 5)
+				{ 
+					a1.Text = value[0].ToString();
+					a2.Text = value[1].ToString();
+					a3.Text = "";
+
+					n4.Text = "";
+					n3.Text = value[2].ToString();
+					n2.Text = value[3].ToString();
+					n1.Text = value[4].ToString();
+				}
 			}
 		}
 		public TruckCodeBodx()
@@ -49,6 +60,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			InitializeComponent();
 			AssosiateEventsToTextBoxes();
 
+			a1.Focus();
 		}
 		private void AssosiateEventsToTextBoxes()
 		{
@@ -68,8 +80,8 @@ namespace ViolationsCollecting.View.CustomeComponants
 			{
 				textBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
 				textBox.TextChanged += new EventHandler(TextBox_TextChanged);
+				textBox.TextChanged += delegate { TruckCodeChange?.Invoke(null, EventArgs.Empty); };
 			}
-			//textBoxes[0].Focus();  Focus on the first TextBox
 		}
 		private void TextBox_TextChanged(object sender, EventArgs e)
 		{
@@ -117,12 +129,12 @@ namespace ViolationsCollecting.View.CustomeComponants
 			TextBox textBox = sender as TextBox;
 			int currentIndex = Array.IndexOf(textBoxes, textBox);
 
-			if (e.KeyCode == Keys.Right && currentIndex > 0)
+			if (e.KeyCode == Keys.Right  && currentIndex > 0)
 			{
 				textBoxes[currentIndex - 1].Focus();
 				textBoxes[currentIndex - 1].SelectAll();
 			}
-			else if (e.KeyCode == Keys.Left && currentIndex < textBoxes.Length - 1)
+			else if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.Space) && currentIndex < textBoxes.Length - 1)
 			{
 				textBoxes[currentIndex + 1].Focus();
 				textBoxes[currentIndex + 1].SelectAll();
@@ -141,9 +153,10 @@ namespace ViolationsCollecting.View.CustomeComponants
 			{
 				textBox.Text = "";
 			}
-			textBoxes[0].Focus();
+			a1.Focus();
 		}
 
+		public event EventHandler TruckCodeChange;
 
 	}
 }
