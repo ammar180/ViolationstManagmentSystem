@@ -80,7 +80,6 @@ namespace ViolationsCollecting.View.CustomeComponants
 			{
 				textBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
 				textBox.TextChanged += new EventHandler(TextBox_TextChanged);
-				textBox.TextChanged += delegate { TruckCodeChange?.Invoke(null, EventArgs.Empty); };
 			}
 		}
 		private void TextBox_TextChanged(object sender, EventArgs e)
@@ -155,8 +154,5 @@ namespace ViolationsCollecting.View.CustomeComponants
 			}
 			a1.Focus();
 		}
-
-		public event EventHandler TruckCodeChange;
-
 	}
 }

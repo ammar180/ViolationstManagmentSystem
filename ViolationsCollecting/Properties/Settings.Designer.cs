@@ -90,5 +90,17 @@ namespace ViolationsCollecting.Properties {
                 return ((string)(this["SQLconnectionServer"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2024")]
+        public int CurrentYear {
+            get {
+                return ((int)(this["CurrentYear"]));
+            }
+            set {
+                this["CurrentYear"] = value;
+            }
+        }
     }
 }

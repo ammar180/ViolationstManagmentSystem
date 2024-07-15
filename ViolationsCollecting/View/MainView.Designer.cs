@@ -44,7 +44,6 @@ namespace ViolationsCollecting.View
 			EditTimer = new System.Windows.Forms.Timer(components);
 			splitContainer = new SplitContainer();
 			panel1 = new Panel();
-			labelMessage = new Label();
 			btnSave = new Button();
 			panelWP = new Panel();
 			panel3 = new Panel();
@@ -63,11 +62,17 @@ namespace ViolationsCollecting.View
 			panel2 = new Panel();
 			panel4 = new Panel();
 			MakerGroupBox = new GroupBox();
+			labElManfazMessage = new Label();
 			txtElManfaz = new TextBox();
 			UnitGroupBox = new GroupBox();
+			labUnitMessage = new Label();
 			comboUnit = new ComboBox();
 			TruckCodeGroupBox = new GroupBox();
+			labCodeMessage = new Label();
 			truckCodeBodx1 = new TruckCodeBodx();
+			groupBox1 = new GroupBox();
+			btnEditMode = new Button();
+			btnAddMode = new Button();
 			groupBox3 = new GroupBox();
 			dataGridView = new DataGridView();
 			idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -79,11 +84,6 @@ namespace ViolationsCollecting.View
 			weightDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			payloadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			violationBindingSource = new BindingSource(components);
-			groupBox1 = new GroupBox();
-			btnEditMode = new Button();
-			btnAddMode = new Button();
-			groupBox7 = new GroupBox();
-			truckCodeBoxSearch = new TruckCodeBodx();
 			panelHeader.SuspendLayout();
 			groupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)NumMonthToExport).BeginInit();
@@ -107,11 +107,10 @@ namespace ViolationsCollecting.View
 			MakerGroupBox.SuspendLayout();
 			UnitGroupBox.SuspendLayout();
 			TruckCodeGroupBox.SuspendLayout();
+			groupBox1.SuspendLayout();
 			groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
 			((System.ComponentModel.ISupportInitialize)violationBindingSource).BeginInit();
-			groupBox1.SuspendLayout();
-			groupBox7.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panelHeader
@@ -200,37 +199,24 @@ namespace ViolationsCollecting.View
 			// splitContainer.Panel2
 			// 
 			splitContainer.Panel2.Controls.Add(groupBox3);
-			splitContainer.Panel2.Controls.Add(groupBox7);
-			splitContainer.Panel2.Controls.Add(groupBox1);
 			splitContainer.Panel2.RightToLeft = RightToLeft.Yes;
-			splitContainer.Size = new Size(1062, 592);
-			splitContainer.SplitterDistance = 531;
+			splitContainer.Size = new Size(1062, 673);
+			splitContainer.SplitterDistance = 551;
 			splitContainer.TabIndex = 8;
 			// 
 			// panel1
 			// 
-			panel1.Controls.Add(labelMessage);
 			panel1.Controls.Add(btnSave);
 			panel1.Controls.Add(panelWP);
 			panel1.Controls.Add(DateGroupBox);
 			panel1.Controls.Add(panel2);
 			panel1.Controls.Add(TruckCodeGroupBox);
+			panel1.Controls.Add(groupBox1);
 			panel1.Dock = DockStyle.Fill;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(531, 592);
+			panel1.Size = new Size(551, 673);
 			panel1.TabIndex = 5;
-			// 
-			// labelMessage
-			// 
-			labelMessage.Dock = DockStyle.Fill;
-			labelMessage.Font = new Font("Cairo", 12F);
-			labelMessage.ForeColor = Color.Red;
-			labelMessage.Location = new Point(0, 519);
-			labelMessage.Name = "labelMessage";
-			labelMessage.Size = new Size(531, 73);
-			labelMessage.TabIndex = 0;
-			labelMessage.TextAlign = ContentAlignment.TopCenter;
 			// 
 			// btnSave
 			// 
@@ -238,9 +224,9 @@ namespace ViolationsCollecting.View
 			btnSave.Font = new Font("Cairo", 16F);
 			btnSave.Image = Properties.Resources.diskette;
 			btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-			btnSave.Location = new Point(0, 451);
+			btnSave.Location = new Point(0, 611);
 			btnSave.Name = "btnSave";
-			btnSave.Size = new Size(531, 68);
+			btnSave.Size = new Size(551, 68);
 			btnSave.TabIndex = 5;
 			btnSave.Text = "حفظ";
 			btnSave.UseVisualStyleBackColor = true;
@@ -250,9 +236,9 @@ namespace ViolationsCollecting.View
 			panelWP.Controls.Add(panel3);
 			panelWP.Controls.Add(groupBox5);
 			panelWP.Dock = DockStyle.Top;
-			panelWP.Location = new Point(0, 356);
+			panelWP.Location = new Point(0, 516);
 			panelWP.Name = "panelWP";
-			panelWP.Size = new Size(531, 95);
+			panelWP.Size = new Size(551, 95);
 			panelWP.TabIndex = 3;
 			panelWP.Visible = false;
 			// 
@@ -263,7 +249,7 @@ namespace ViolationsCollecting.View
 			panel3.Location = new Point(0, 0);
 			panel3.Name = "panel3";
 			panel3.Padding = new Padding(0, 0, 10, 0);
-			panel3.Size = new Size(289, 95);
+			panel3.Size = new Size(309, 95);
 			panel3.TabIndex = 2;
 			// 
 			// groupBox4
@@ -272,7 +258,7 @@ namespace ViolationsCollecting.View
 			groupBox4.Dock = DockStyle.Fill;
 			groupBox4.Location = new Point(0, 0);
 			groupBox4.Name = "groupBox4";
-			groupBox4.Size = new Size(279, 95);
+			groupBox4.Size = new Size(299, 95);
 			groupBox4.TabIndex = 1;
 			groupBox4.TabStop = false;
 			groupBox4.Text = "الحمولة";
@@ -282,14 +268,14 @@ namespace ViolationsCollecting.View
 			txtPyload.Dock = DockStyle.Fill;
 			txtPyload.Location = new Point(3, 41);
 			txtPyload.Name = "txtPyload";
-			txtPyload.Size = new Size(273, 45);
+			txtPyload.Size = new Size(293, 45);
 			txtPyload.TabIndex = 3;
 			// 
 			// groupBox5
 			// 
 			groupBox5.Controls.Add(txtWeight);
 			groupBox5.Dock = DockStyle.Right;
-			groupBox5.Location = new Point(289, 0);
+			groupBox5.Location = new Point(309, 0);
 			groupBox5.Name = "groupBox5";
 			groupBox5.Size = new Size(242, 95);
 			groupBox5.TabIndex = 0;
@@ -308,9 +294,9 @@ namespace ViolationsCollecting.View
 			// 
 			DateGroupBox.Controls.Add(flowLayoutPanel1);
 			DateGroupBox.Dock = DockStyle.Top;
-			DateGroupBox.Location = new Point(0, 248);
+			DateGroupBox.Location = new Point(0, 408);
 			DateGroupBox.Name = "DateGroupBox";
-			DateGroupBox.Size = new Size(531, 108);
+			DateGroupBox.Size = new Size(551, 108);
 			DateGroupBox.TabIndex = 4;
 			DateGroupBox.TabStop = false;
 			DateGroupBox.Text = "التاريخ {يوم / شهر / سنه}";
@@ -325,7 +311,7 @@ namespace ViolationsCollecting.View
 			flowLayoutPanel1.Controls.Add(DayNum);
 			flowLayoutPanel1.Dock = DockStyle.Right;
 			flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-			flowLayoutPanel1.Location = new Point(22, 41);
+			flowLayoutPanel1.Location = new Point(42, 41);
 			flowLayoutPanel1.Name = "flowLayoutPanel1";
 			flowLayoutPanel1.Size = new Size(506, 64);
 			flowLayoutPanel1.TabIndex = 3;
@@ -400,9 +386,9 @@ namespace ViolationsCollecting.View
 			panel2.Controls.Add(panel4);
 			panel2.Controls.Add(UnitGroupBox);
 			panel2.Dock = DockStyle.Top;
-			panel2.Location = new Point(0, 153);
+			panel2.Location = new Point(0, 292);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(531, 95);
+			panel2.Size = new Size(551, 116);
 			panel2.TabIndex = 2;
 			// 
 			// panel4
@@ -412,38 +398,62 @@ namespace ViolationsCollecting.View
 			panel4.Location = new Point(0, 0);
 			panel4.Name = "panel4";
 			panel4.Padding = new Padding(0, 0, 10, 0);
-			panel4.Size = new Size(286, 95);
+			panel4.Size = new Size(306, 116);
 			panel4.TabIndex = 2;
 			// 
 			// MakerGroupBox
 			// 
+			MakerGroupBox.Controls.Add(labElManfazMessage);
 			MakerGroupBox.Controls.Add(txtElManfaz);
 			MakerGroupBox.Dock = DockStyle.Fill;
 			MakerGroupBox.Location = new Point(0, 0);
 			MakerGroupBox.Name = "MakerGroupBox";
-			MakerGroupBox.Size = new Size(276, 95);
+			MakerGroupBox.Size = new Size(296, 116);
 			MakerGroupBox.TabIndex = 1;
 			MakerGroupBox.TabStop = false;
 			MakerGroupBox.Text = "المنفذ";
+			// 
+			// labElManfazMessage
+			// 
+			labElManfazMessage.Dock = DockStyle.Bottom;
+			labElManfazMessage.Font = new Font("Cairo", 12F);
+			labElManfazMessage.ForeColor = Color.Red;
+			labElManfazMessage.Location = new Point(3, 80);
+			labElManfazMessage.Name = "labElManfazMessage";
+			labElManfazMessage.Size = new Size(290, 33);
+			labElManfazMessage.TabIndex = 4;
+			labElManfazMessage.TextAlign = ContentAlignment.TopCenter;
 			// 
 			// txtElManfaz
 			// 
 			txtElManfaz.Dock = DockStyle.Fill;
 			txtElManfaz.Location = new Point(3, 41);
 			txtElManfaz.Name = "txtElManfaz";
-			txtElManfaz.Size = new Size(270, 45);
+			txtElManfaz.Size = new Size(290, 45);
 			txtElManfaz.TabIndex = 3;
 			// 
 			// UnitGroupBox
 			// 
+			UnitGroupBox.Controls.Add(labUnitMessage);
 			UnitGroupBox.Controls.Add(comboUnit);
 			UnitGroupBox.Dock = DockStyle.Right;
-			UnitGroupBox.Location = new Point(286, 0);
+			UnitGroupBox.Location = new Point(306, 0);
 			UnitGroupBox.Name = "UnitGroupBox";
-			UnitGroupBox.Size = new Size(245, 95);
+			UnitGroupBox.Size = new Size(245, 116);
 			UnitGroupBox.TabIndex = 0;
 			UnitGroupBox.TabStop = false;
 			UnitGroupBox.Text = "الوحدة";
+			// 
+			// labUnitMessage
+			// 
+			labUnitMessage.Dock = DockStyle.Bottom;
+			labUnitMessage.Font = new Font("Cairo", 12F);
+			labUnitMessage.ForeColor = Color.Red;
+			labUnitMessage.Location = new Point(3, 80);
+			labUnitMessage.Name = "labUnitMessage";
+			labUnitMessage.Size = new Size(239, 33);
+			labUnitMessage.TabIndex = 3;
+			labUnitMessage.TextAlign = ContentAlignment.TopCenter;
 			// 
 			// comboUnit
 			// 
@@ -461,37 +471,92 @@ namespace ViolationsCollecting.View
 			// 
 			// TruckCodeGroupBox
 			// 
+			TruckCodeGroupBox.Controls.Add(labCodeMessage);
 			TruckCodeGroupBox.Controls.Add(truckCodeBodx1);
 			TruckCodeGroupBox.Dock = DockStyle.Top;
-			TruckCodeGroupBox.Location = new Point(0, 0);
+			TruckCodeGroupBox.Location = new Point(0, 104);
 			TruckCodeGroupBox.Name = "TruckCodeGroupBox";
 			TruckCodeGroupBox.RightToLeft = RightToLeft.Yes;
-			TruckCodeGroupBox.Size = new Size(531, 153);
+			TruckCodeGroupBox.Size = new Size(551, 188);
 			TruckCodeGroupBox.TabIndex = 0;
 			TruckCodeGroupBox.TabStop = false;
 			TruckCodeGroupBox.Text = "رقم السيارة";
 			// 
+			// labCodeMessage
+			// 
+			labCodeMessage.Dock = DockStyle.Bottom;
+			labCodeMessage.Font = new Font("Cairo", 12F);
+			labCodeMessage.ForeColor = Color.Red;
+			labCodeMessage.Location = new Point(3, 148);
+			labCodeMessage.Name = "labCodeMessage";
+			labCodeMessage.Size = new Size(545, 37);
+			labCodeMessage.TabIndex = 0;
+			labCodeMessage.TextAlign = ContentAlignment.TopCenter;
+			// 
 			// truckCodeBodx1
 			// 
 			truckCodeBodx1.AutoSize = true;
-			truckCodeBodx1.Dock = DockStyle.Fill;
+			truckCodeBodx1.Dock = DockStyle.Top;
 			truckCodeBodx1.FirstNumberTextBox = null;
 			truckCodeBodx1.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			truckCodeBodx1.Location = new Point(3, 41);
 			truckCodeBodx1.Name = "truckCodeBodx1";
 			truckCodeBodx1.RightToLeft = RightToLeft.Yes;
-			truckCodeBodx1.Size = new Size(525, 109);
+			truckCodeBodx1.Size = new Size(545, 0);
 			truckCodeBodx1.TabIndex = 1;
 			truckCodeBodx1.txtTruckCode = "";
+			// 
+			// groupBox1
+			// 
+			groupBox1.Controls.Add(btnEditMode);
+			groupBox1.Controls.Add(btnAddMode);
+			groupBox1.Dock = DockStyle.Top;
+			groupBox1.Location = new Point(0, 0);
+			groupBox1.Margin = new Padding(3, 3, 3, 10);
+			groupBox1.Name = "groupBox1";
+			groupBox1.Padding = new Padding(7);
+			groupBox1.Size = new Size(551, 104);
+			groupBox1.TabIndex = 3;
+			groupBox1.TabStop = false;
+			groupBox1.Text = "الوضع";
+			// 
+			// btnEditMode
+			// 
+			btnEditMode.Dock = DockStyle.Left;
+			btnEditMode.Image = Properties.Resources.pencil;
+			btnEditMode.ImageAlign = ContentAlignment.MiddleRight;
+			btnEditMode.Location = new Point(7, 45);
+			btnEditMode.Name = "btnEditMode";
+			btnEditMode.Padding = new Padding(5);
+			btnEditMode.Size = new Size(200, 52);
+			btnEditMode.TabIndex = 10;
+			btnEditMode.Text = "وضع التعديل";
+			btnEditMode.UseVisualStyleBackColor = true;
+			btnEditMode.Click += btnEditMode_Click;
+			// 
+			// btnAddMode
+			// 
+			btnAddMode.BackColor = Color.DeepSkyBlue;
+			btnAddMode.Dock = DockStyle.Right;
+			btnAddMode.Image = Properties.Resources.add_button;
+			btnAddMode.ImageAlign = ContentAlignment.MiddleLeft;
+			btnAddMode.Location = new Point(344, 45);
+			btnAddMode.Name = "btnAddMode";
+			btnAddMode.Padding = new Padding(5);
+			btnAddMode.Size = new Size(200, 52);
+			btnAddMode.TabIndex = 9;
+			btnAddMode.Text = "وضع الإضافة";
+			btnAddMode.UseVisualStyleBackColor = false;
+			btnAddMode.Click += btnAddMode_Click;
 			// 
 			// groupBox3
 			// 
 			groupBox3.Controls.Add(dataGridView);
 			groupBox3.Dock = DockStyle.Fill;
-			groupBox3.Location = new Point(0, 257);
+			groupBox3.Location = new Point(0, 0);
 			groupBox3.Name = "groupBox3";
 			groupBox3.Padding = new Padding(5);
-			groupBox3.Size = new Size(527, 335);
+			groupBox3.Size = new Size(507, 673);
 			groupBox3.TabIndex = 6;
 			groupBox3.TabStop = false;
 			groupBox3.Text = "اختر الصف للتعديل";
@@ -521,7 +586,7 @@ namespace ViolationsCollecting.View
 			dataGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
 			dataGridView.RowTemplate.Height = 24;
 			dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dataGridView.Size = new Size(517, 287);
+			dataGridView.Size = new Size(497, 625);
 			dataGridView.TabIndex = 0;
 			// 
 			// idDataGridViewTextBoxColumn
@@ -606,78 +671,10 @@ namespace ViolationsCollecting.View
 			// 
 			violationBindingSource.DataSource = typeof(Model.Entities.Violation);
 			// 
-			// groupBox1
-			// 
-			groupBox1.Controls.Add(btnEditMode);
-			groupBox1.Controls.Add(btnAddMode);
-			groupBox1.Dock = DockStyle.Top;
-			groupBox1.Location = new Point(0, 0);
-			groupBox1.Margin = new Padding(3, 3, 3, 10);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Padding = new Padding(7);
-			groupBox1.Size = new Size(527, 104);
-			groupBox1.TabIndex = 3;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "الوضع";
-			// 
-			// btnEditMode
-			// 
-			btnEditMode.Dock = DockStyle.Left;
-			btnEditMode.Image = Properties.Resources.pencil;
-			btnEditMode.ImageAlign = ContentAlignment.MiddleRight;
-			btnEditMode.Location = new Point(7, 45);
-			btnEditMode.Name = "btnEditMode";
-			btnEditMode.Padding = new Padding(5);
-			btnEditMode.Size = new Size(200, 52);
-			btnEditMode.TabIndex = 10;
-			btnEditMode.Text = "وضع التعديل";
-			btnEditMode.UseVisualStyleBackColor = true;
-			btnEditMode.Click += btnEditMode_Click;
-			// 
-			// btnAddMode
-			// 
-			btnAddMode.BackColor = Color.DeepSkyBlue;
-			btnAddMode.Dock = DockStyle.Right;
-			btnAddMode.Image = Properties.Resources.add_button;
-			btnAddMode.ImageAlign = ContentAlignment.MiddleLeft;
-			btnAddMode.Location = new Point(320, 45);
-			btnAddMode.Name = "btnAddMode";
-			btnAddMode.Padding = new Padding(5);
-			btnAddMode.Size = new Size(200, 52);
-			btnAddMode.TabIndex = 9;
-			btnAddMode.Text = "وضع الإضافة";
-			btnAddMode.UseVisualStyleBackColor = false;
-			btnAddMode.Click += btnAddMode_Click;
-			// 
-			// groupBox7
-			// 
-			groupBox7.Controls.Add(truckCodeBoxSearch);
-			groupBox7.Dock = DockStyle.Top;
-			groupBox7.Location = new Point(0, 104);
-			groupBox7.Name = "groupBox7";
-			groupBox7.RightToLeft = RightToLeft.Yes;
-			groupBox7.Size = new Size(527, 153);
-			groupBox7.TabIndex = 7;
-			groupBox7.TabStop = false;
-			groupBox7.Text = "رقم السيارة";
-			// 
-			// truckCodeBoxSearch
-			// 
-			truckCodeBoxSearch.AutoSize = true;
-			truckCodeBoxSearch.Dock = DockStyle.Fill;
-			truckCodeBoxSearch.FirstNumberTextBox = null;
-			truckCodeBoxSearch.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			truckCodeBoxSearch.Location = new Point(3, 41);
-			truckCodeBoxSearch.Name = "truckCodeBoxSearch";
-			truckCodeBoxSearch.RightToLeft = RightToLeft.Yes;
-			truckCodeBoxSearch.Size = new Size(521, 109);
-			truckCodeBoxSearch.TabIndex = 1;
-			truckCodeBoxSearch.txtTruckCode = "";
-			// 
 			// MainView
 			// 
 			AutoScaleMode = AutoScaleMode.None;
-			ClientSize = new Size(1062, 732);
+			ClientSize = new Size(1062, 813);
 			Controls.Add(splitContainer);
 			Controls.Add(panelHeader);
 			Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -717,12 +714,10 @@ namespace ViolationsCollecting.View
 			UnitGroupBox.ResumeLayout(false);
 			TruckCodeGroupBox.ResumeLayout(false);
 			TruckCodeGroupBox.PerformLayout();
+			groupBox1.ResumeLayout(false);
 			groupBox3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
 			((System.ComponentModel.ISupportInitialize)violationBindingSource).EndInit();
-			groupBox1.ResumeLayout(false);
-			groupBox7.ResumeLayout(false);
-			groupBox7.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -759,7 +754,7 @@ namespace ViolationsCollecting.View
 		private System.Windows.Forms.ComboBox comboUnit;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Label labelMessage;
+		private System.Windows.Forms.Label labCodeMessage;
 		private BindingSource violationBindingSource;
 		private PictureBox pictureBox1;
 		private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -775,7 +770,7 @@ namespace ViolationsCollecting.View
 		private GroupBox groupBox6;
 		private NumericUpDown NumMonthToExport;
 		private TruckCodeBodx truckCodeBodx1;
-		private GroupBox groupBox7;
-		private TruckCodeBodx truckCodeBoxSearch;
+		private Label labElManfazMessage;
+		private Label labUnitMessage;
 	}
 }

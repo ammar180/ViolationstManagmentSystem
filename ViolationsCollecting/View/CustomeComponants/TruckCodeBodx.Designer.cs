@@ -48,12 +48,12 @@ namespace ViolationsCollecting.View.CustomeComponants
 			n3 = new TextBox();
 			label5 = new Label();
 			n4 = new TextBox();
-			flowLayoutPanel = new FlowLayoutPanel();
+			panel1 = new Panel();
 			AlphaflowLayoutPanel.SuspendLayout();
 			AlphaGroupBox.SuspendLayout();
 			NumsGroupBox.SuspendLayout();
 			NumsflowLayoutPanel.SuspendLayout();
-			flowLayoutPanel.SuspendLayout();
+			panel1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// AlphaflowLayoutPanel
@@ -68,7 +68,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			AlphaflowLayoutPanel.Location = new Point(3, 35);
 			AlphaflowLayoutPanel.Name = "AlphaflowLayoutPanel";
 			AlphaflowLayoutPanel.Padding = new Padding(5);
-			AlphaflowLayoutPanel.Size = new Size(206, 60);
+			AlphaflowLayoutPanel.Size = new Size(206, 62);
 			AlphaflowLayoutPanel.TabIndex = 0;
 			AlphaflowLayoutPanel.WrapContents = false;
 			// 
@@ -131,10 +131,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// AlphaGroupBox
 			// 
 			AlphaGroupBox.Controls.Add(AlphaflowLayoutPanel);
+			AlphaGroupBox.Dock = DockStyle.Right;
 			AlphaGroupBox.Font = new Font("Cairo", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			AlphaGroupBox.Location = new Point(309, 3);
+			AlphaGroupBox.Location = new Point(323, 0);
 			AlphaGroupBox.Name = "AlphaGroupBox";
-			AlphaGroupBox.Size = new Size(212, 98);
+			AlphaGroupBox.Size = new Size(212, 100);
 			AlphaGroupBox.TabIndex = 1;
 			AlphaGroupBox.TabStop = false;
 			AlphaGroupBox.Text = "الاحرف";
@@ -142,10 +143,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// NumsGroupBox
 			// 
 			NumsGroupBox.Controls.Add(NumsflowLayoutPanel);
+			NumsGroupBox.Dock = DockStyle.Fill;
 			NumsGroupBox.Font = new Font("Cairo", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			NumsGroupBox.Location = new Point(17, 3);
+			NumsGroupBox.Location = new Point(0, 0);
 			NumsGroupBox.Name = "NumsGroupBox";
-			NumsGroupBox.Size = new Size(286, 98);
+			NumsGroupBox.Size = new Size(323, 100);
 			NumsGroupBox.TabIndex = 2;
 			NumsGroupBox.TabStop = false;
 			NumsGroupBox.Text = "الأرقام";
@@ -164,7 +166,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			NumsflowLayoutPanel.Location = new Point(3, 35);
 			NumsflowLayoutPanel.Name = "NumsflowLayoutPanel";
 			NumsflowLayoutPanel.Padding = new Padding(5);
-			NumsflowLayoutPanel.Size = new Size(280, 60);
+			NumsflowLayoutPanel.Size = new Size(317, 62);
 			NumsflowLayoutPanel.TabIndex = 0;
 			NumsflowLayoutPanel.WrapContents = false;
 			// 
@@ -173,7 +175,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			n1.BackColor = SystemColors.Control;
 			n1.BorderStyle = BorderStyle.FixedSingle;
 			n1.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			n1.Location = new Point(222, 8);
+			n1.Location = new Point(259, 8);
 			n1.MaxLength = 1;
 			n1.Name = "n1";
 			n1.Size = new Size(45, 45);
@@ -183,7 +185,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// label3
 			// 
 			label3.Font = new Font("Microsoft Sans Serif", 12F);
-			label3.Location = new Point(203, 5);
+			label3.Location = new Point(240, 5);
 			label3.Name = "label3";
 			label3.Size = new Size(13, 37);
 			label3.TabIndex = 3;
@@ -195,7 +197,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			n2.BackColor = SystemColors.Control;
 			n2.BorderStyle = BorderStyle.FixedSingle;
 			n2.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			n2.Location = new Point(152, 8);
+			n2.Location = new Point(189, 8);
 			n2.MaxLength = 1;
 			n2.Name = "n2";
 			n2.Size = new Size(45, 45);
@@ -205,7 +207,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// label4
 			// 
 			label4.Font = new Font("Microsoft Sans Serif", 12F);
-			label4.Location = new Point(133, 5);
+			label4.Location = new Point(170, 5);
 			label4.Name = "label4";
 			label4.Size = new Size(13, 37);
 			label4.TabIndex = 4;
@@ -217,7 +219,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			n3.BackColor = SystemColors.Control;
 			n3.BorderStyle = BorderStyle.FixedSingle;
 			n3.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			n3.Location = new Point(82, 8);
+			n3.Location = new Point(119, 8);
 			n3.MaxLength = 1;
 			n3.Name = "n3";
 			n3.Size = new Size(45, 45);
@@ -227,7 +229,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// label5
 			// 
 			label5.Font = new Font("Microsoft Sans Serif", 12F);
-			label5.Location = new Point(63, 5);
+			label5.Location = new Point(100, 5);
 			label5.Name = "label5";
 			label5.Size = new Size(13, 37);
 			label5.TabIndex = 6;
@@ -239,34 +241,32 @@ namespace ViolationsCollecting.View.CustomeComponants
 			n4.BackColor = SystemColors.Control;
 			n4.BorderStyle = BorderStyle.FixedSingle;
 			n4.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			n4.Location = new Point(12, 8);
+			n4.Location = new Point(49, 8);
 			n4.MaxLength = 1;
 			n4.Name = "n4";
 			n4.Size = new Size(45, 45);
 			n4.TabIndex = 5;
 			n4.TextAlign = HorizontalAlignment.Center;
 			// 
-			// flowLayoutPanel
+			// panel1
 			// 
-			flowLayoutPanel.AutoSize = true;
-			flowLayoutPanel.Controls.Add(AlphaGroupBox);
-			flowLayoutPanel.Controls.Add(NumsGroupBox);
-			flowLayoutPanel.Dock = DockStyle.Fill;
-			flowLayoutPanel.Location = new Point(0, 0);
-			flowLayoutPanel.Name = "flowLayoutPanel";
-			flowLayoutPanel.RightToLeft = RightToLeft.Yes;
-			flowLayoutPanel.Size = new Size(524, 115);
-			flowLayoutPanel.TabIndex = 3;
+			panel1.Controls.Add(NumsGroupBox);
+			panel1.Controls.Add(AlphaGroupBox);
+			panel1.Dock = DockStyle.Top;
+			panel1.Location = new Point(0, 0);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(535, 100);
+			panel1.TabIndex = 3;
 			// 
 			// TruckCodeBodx
 			// 
 			AutoScaleMode = AutoScaleMode.None;
 			AutoSize = true;
-			Controls.Add(flowLayoutPanel);
+			Controls.Add(panel1);
 			Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Name = "TruckCodeBodx";
 			RightToLeft = RightToLeft.Yes;
-			Size = new Size(524, 115);
+			Size = new Size(535, 112);
 			AlphaflowLayoutPanel.ResumeLayout(false);
 			AlphaflowLayoutPanel.PerformLayout();
 			AlphaGroupBox.ResumeLayout(false);
@@ -275,9 +275,8 @@ namespace ViolationsCollecting.View.CustomeComponants
 			NumsGroupBox.PerformLayout();
 			NumsflowLayoutPanel.ResumeLayout(false);
 			NumsflowLayoutPanel.PerformLayout();
-			flowLayoutPanel.ResumeLayout(false);
+			panel1.ResumeLayout(false);
 			ResumeLayout(false);
-			PerformLayout();
 		}
 
 		#endregion
@@ -300,7 +299,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 		private TextBox n3;
 		private Label label5;
 		public TextBox n4;
-		private FlowLayoutPanel flowLayoutPanel;
+		private Panel panel1;
 
 		public TextBox FirstNumberTextBox { get; set; }
 	}

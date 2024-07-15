@@ -5,13 +5,31 @@ namespace ViolationsCollecting.Model.Repositories
 {
 	public class Repository : IRepository
 	{
-		private readonly ViolationsEntities db = new ViolationsEntities();
+        public Repository()
+        {
+			int lastYear = Properties.Settings.Default.CurrentYear;
+			// if it year pass
+			if(DateTime.Now.Year != lastYear)
+			{
+				this.RemoveViolationsInLastYear(lastYear);
+
+				Properties.Settings.Default.CurrentYear = DateTime.Now.Year;
+				Properties.Settings.Default.Save();
+			}
+        }
+        private readonly ViolationsEntities db = new ViolationsEntities();
 
 		public async Task<bool> EditViolation(Violation violationModel)
 		{
 			try
 			{
-				db.Entry(violationModel).State = EntityState.Modified;
+				var existingViolation = await db.Violations.FindAsync(violationModel.Id);
+				if (existingViolation != null)
+				{
+					db.Entry(existingViolation).State = EntityState.Detached;
+				}
+
+				db.Violations.Update(violationModel);
 				await db.SaveChangesAsync();
 				return true;
 			}
@@ -91,12 +109,14 @@ namespace ViolationsCollecting.Model.Repositories
 		public async Task<ICollection<Violation>> GetViolationsInMonth(int month)
 		{
 			return await db.Violations.Where(x =>
-					x.ViolationDate.Month == month
+					x.ViolationDate.Month == month &&
+					x.ViolationDate.Year == DateTime.Now.Year
 					).OrderBy(x => x.ViolationDate
 					).ToListAsync();
 		}
-		public async Task RemoveViolationsRange(IEnumerable<Violation> violations)
+		public async Task RemoveViolationsInLastYear(int year)
 		{
+			var violations = db.Violations.Where(x => x.RegistrationDate.Year == year);
 			db.Violations.RemoveRange(violations);
 			await db.SaveChangesAsync();
 		}

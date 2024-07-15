@@ -29,5 +29,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ViolationsDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False</Value>
     </Setting>
+    <Setting Name="CurrentYear" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2024</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

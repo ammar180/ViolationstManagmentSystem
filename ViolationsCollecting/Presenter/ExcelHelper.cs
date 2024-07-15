@@ -18,8 +18,11 @@ namespace ViolationsCollecting.Presenter
 					xLWorkbook.AddWorksheet(dt, name);
 					using (MemoryStream ma = new MemoryStream())
 					{
-						xLWorkbook.SaveAs(ma);
+						xLWorkbook.SaveAs(ma, true);
 						File.WriteAllBytes(fileName, ma.ToArray());
+
+						// Set the file attribute to read-only
+						File.SetAttributes(fileName, FileAttributes.ReadOnly);
 					}
 				}
 			}

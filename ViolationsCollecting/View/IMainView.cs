@@ -15,14 +15,16 @@ namespace ViolationsCollecting.View
 		string ResponableUnit { get; }
 		string ElManfaz { get;}
 		DateTime TheDate { get;}
-		string SearchData { get; }
 		LoadingForm loading { get; }
 		// properties
 		bool IsInAddingMode { get; set; }
-		string Message { get; set; }
 		int UpdatedViolationId { get; set; }
 		BindingSource MainViewBS { get; set; }
 		int MonthToExport { get;}
+		// Validations Lables
+		string CodeMessage { set; }
+		string UnitMessage { set; }
+		string ElManfazMessage { set; }
 
 		// events
 		event EventHandler SearchItems;

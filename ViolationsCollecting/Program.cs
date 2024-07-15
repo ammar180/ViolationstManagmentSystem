@@ -1,4 +1,6 @@
-﻿using ViolationsCollecting.Model.Repositories;
+﻿using System.Diagnostics;
+using System.Reflection;
+using ViolationsCollecting.Model.Repositories;
 using ViolationsCollecting.Presenter;
 using ViolationsCollecting.View;
 
@@ -18,7 +20,7 @@ namespace ViolationsCollecting
 			IMainView mainView = new MainView();
 			IRepository repository = new Repository();
 			new MainPresenter(mainView, repository);
-
+			
 			Application.Run((Form)mainView);
 		}
 	}

@@ -13,7 +13,6 @@ namespace ViolationsCollecting.Model.Repositories
 		Task<bool> EditViolation(Violation violationModel);
 		//Task<bool> CheckTruckExest(string Code);
 		Task<bool> CheckViolationInsertedBefore(string Code);
-		Task RemoveViolationsRange(IEnumerable<Violation> violations);
 		bool CanConnect();
 	}
 }

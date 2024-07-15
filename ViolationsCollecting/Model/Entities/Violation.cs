@@ -11,7 +11,7 @@
         public int Id { get; set; }
 
 		[DisplayName("رقم الشاحنة")]
-        [Required(AllowEmptyStrings = false,ErrorMessage = "رقم السيارة مطلوب 5 او 7 احرف")]
+        [Required(AllowEmptyStrings = false,ErrorMessage = "رقم السيارة مطلوب 5 او 6 او 7 احرف")]
         [MinLength(5, ErrorMessage ="رقم السيارة مكون من 5 الى 7 أحرف فقط")]
         [MaxLength(7)]
 		public string TruckCode { get; set; }

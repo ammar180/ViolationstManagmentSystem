@@ -56,7 +56,7 @@ namespace ViolationsCollecting.Presenter
 					var ViolationsToExport = await repository.GetViolationsInMonth(monthToExport);
 					
 					string u = Properties.Settings.Default.AppUnit;
-					string exportName = $"({DateTime.Now.Year}-{monthToExport})_{u}";
+					string exportName = $"({DateTime.Now.Year }-{monthToExport})_{u}";
 
 					DataTable dataTable = new DataTable();
 					using (var reader = FastMember.ObjectReader.Create(ViolationsToExport))
@@ -85,7 +85,7 @@ namespace ViolationsCollecting.Presenter
 		// Methods
 		private void SearchViolations(object sender, EventArgs e)
 		{
-			view.MainViewBS.DataSource = ViolationsLayer.Where(x => x.TruckCode.Contains(view.SearchData)).ToList();
+			view.MainViewBS.DataSource = ViolationsLayer.Where(x => x.TruckCode.Contains(sender.ToString())).ToList();
 		}
 
 		private async Task SaveViolationAsync()
@@ -105,10 +105,7 @@ namespace ViolationsCollecting.Presenter
 					RegistrationDate = DateTime.Now,
 				};
 
-				
-
-				view.Message = "";
-				view.Message += string.Join(Environment.NewLine, validation.GetValidationResult(violation).Select(vr => vr.ErrorMessage));
+				Validate(violation);
 
 				if (!repository.CanConnect())
 					throw new Exception("لا يمكن الوصول لقاعدة البينات، يرجى التحقق من الاتصال من ثم اعادة المحاولة");
@@ -137,13 +134,15 @@ namespace ViolationsCollecting.Presenter
 						// Edit violation
 						violation.Id = view.UpdatedViolationId;
 
-						if (repository.EditViolation(violation).Result)
+						if (await repository.EditViolation(violation))
+						{
 							view.ClearTextBoxes();
-						// DataGridHandling
-						var index = ViolationsLayer.FindIndex(x => x.Id == violation.Id);
+							// DataGridHandling
+							var index = ViolationsLayer.FindIndex(x => x.Id == violation.Id);
 
-						if (index > -1)
-							ViolationsLayer[index] = violation;
+							if (index > -1)
+								ViolationsLayer[index] = violation;
+						}
 					}
 					view.MainViewBS.DataSource = ViolationsLayer.ToList();
 					view.loading.Hide();
@@ -159,5 +158,13 @@ namespace ViolationsCollecting.Presenter
 
 		}
 
+		private void Validate(Violation violation)
+		{
+			var validationResults = validation.GetValidationResult(violation);
+
+			view.CodeMessage = validationResults?.FirstOrDefault(x => x.MemberNames?.First() == nameof(violation.TruckCode))?.ErrorMessage?? "";
+			view.UnitMessage = validationResults?.FirstOrDefault(x => x.MemberNames?.First() == nameof(violation.Unit))?.ErrorMessage ?? "";
+			view.ElManfazMessage = validationResults?.FirstOrDefault(x => x.MemberNames?.First() == nameof(violation.ElManfaz))?.ErrorMessage ?? "";
+		}
 	}
 }

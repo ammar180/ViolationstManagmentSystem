@@ -12,13 +12,15 @@ namespace ViolationsCollecting.View
 		public string ResponableUnit { get => comboUnit.Text; }
 		public string ElManfaz { get => txtElManfaz.Text; }
 		public DateTime TheDate { get => new DateTime(2000 + (int)YearNum.Value, (int)MonthNum.Value, (int)DayNum.Value); }
-		public string SearchData { get => truckCodeBoxSearch.txtTruckCode; }
 		public BindingSource MainViewBS { get => violationBindingSource; set => violationBindingSource = value; }
-		public string Message { get => labelMessage.Text; set => labelMessage.Text = value; }
 		public int UpdatedViolationId { get; set; }
 		public int MonthToExport { get => (int)NumMonthToExport.Value;}
 		public LoadingForm loading { get => LoadingForm.Instance(this); }
-		#endregion 
+		// Validations Message
+		public string CodeMessage { set => labCodeMessage.Text = value; }
+		public string UnitMessage { set => labUnitMessage.Text = value; }
+		public string ElManfazMessage { set => labElManfazMessage.Text = value; }
+		#endregion
 		public MainView()
 		{
 			InitializeComponent();
@@ -31,7 +33,7 @@ namespace ViolationsCollecting.View
 		private void AssesuateEvents()
 		{
 			btnSave.Click += async delegate { await Save?.Invoke(); };
-			truckCodeBoxSearch.TruckCodeChange += delegate { SearchItems?.Invoke(this, EventArgs.Empty); };
+			//truckCodeBoxSearch.TruckCodeChange += delegate { SearchItems?.Invoke(this, EventArgs.Empty); };
 			EditTimer.Tick += delegate { OnTimerTick?.Invoke(null, EventArgs.Empty); };
 			btnExport.Click += async delegate { await ExportEvent?.Invoke(); };
 			truckCodeBodx1.n4.KeyDown += async (s, e) =>
@@ -114,7 +116,6 @@ namespace ViolationsCollecting.View
 		public void ClearTextBoxes()
 		{
 			truckCodeBodx1.ClearCodeBoxes();
-			truckCodeBoxSearch.ClearCodeBoxes();
 
 			comboUnit.SelectAll();
 			txtElManfaz.SelectAll();
