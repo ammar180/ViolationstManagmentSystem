@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ViolationsSystem.Data.Repositories;
 using ViolationsSystem.Views.Interfaces;
+using ViolationSystem.Data.Repositories;
 
 namespace ViolationsSystem.Presenter
 {
@@ -19,25 +19,25 @@ namespace ViolationsSystem.Presenter
 			this.repository = repository;
 
 			//Subscribe event handler methods to view events
-			this.view.GetResultEvent += GetResult;
+			//this.view.GetResultEvent += GetResult;
 		}
 
-		private void GetResult(object sender, EventArgs e)
-		{
-			if (repository.IsCanConnect())
-			{
-				view.dgv.Rows.Clear();
-				TruckCodeList = repository.GetNumTrucksByS_E_Date(view.TrucksCount, view.StartDate, view.EndDate);
+		//private void GetResult(object sender, EventArgs e)
+		//{
+		//	if (repository.IsCanConnect())
+		//	{
+		//		view.dgv.Rows.Clear();
+		//		TruckCodeList = repository.GetNumTrucksByS_E_Date(view.TrucksCount, view.StartDate, view.EndDate);
 
-				int crt = 1;
-				TruckCodeList.ForEach(x =>
-				{
-					view.dgv.Rows.Add($"{crt}",x, "");
-					crt++;
-				});
-			}
-			else
-				MessageBox.Show("قاعدة البيانات ليست متصله");
-		}
+		//		int crt = 1;
+		//		TruckCodeList.ForEach(x =>
+		//		{
+		//			view.dgv.Rows.Add($"{crt}",x, "");
+		//			crt++;
+		//		});
+		//	}
+		//	else
+		//		MessageBox.Show("قاعدة البيانات ليست متصله");
+		//}
 	}
 }

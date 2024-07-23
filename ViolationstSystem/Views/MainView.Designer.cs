@@ -32,113 +32,102 @@ namespace ViolationsSystem
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-			this.flowLayoutPanelNavBar = new System.Windows.Forms.FlowLayoutPanel();
-			this.btnMainScreen = new System.Windows.Forms.Button();
-			this.btnSendTraffic = new System.Windows.Forms.Button();
-			this.btnSearchRecord = new System.Windows.Forms.Button();
-			this.btnManageData = new System.Windows.Forms.Button();
-			this.btnTeamplets = new System.Windows.Forms.Button();
-			this.btnSettings = new System.Windows.Forms.Button();
-			this.panelContainer = new System.Windows.Forms.Panel();
 			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.flowLayoutPanelNavBar.SuspendLayout();
+			this.sendTrafficTP = new System.Windows.Forms.TabPage();
+			this.homeTP = new System.Windows.Forms.TabPage();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.SettingTP = new System.Windows.Forms.TabPage();
+			this.AdminLoginTP = new System.Windows.Forms.TabPage();
+			this.homeView1 = new ViolationsSystem.Views.HomeView();
+			this.sendTrafficView1 = new ViolationsSystem.Views.SendTrafficView();
+			this.adminLogin1 = new ViolationstSystem.Views.AdminLogin();
 			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
+			this.sendTrafficTP.SuspendLayout();
+			this.homeTP.SuspendLayout();
+			this.tabControl1.SuspendLayout();
+			this.AdminLoginTP.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// flowLayoutPanelNavBar
+			// sendTrafficTP
 			// 
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnMainScreen);
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnSendTraffic);
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnSearchRecord);
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnManageData);
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnTeamplets);
-			this.flowLayoutPanelNavBar.Controls.Add(this.btnSettings);
-			resources.ApplyResources(this.flowLayoutPanelNavBar, "flowLayoutPanelNavBar");
-			this.flowLayoutPanelNavBar.Name = "flowLayoutPanelNavBar";
+			this.sendTrafficTP.Controls.Add(this.sendTrafficView1);
+			resources.ApplyResources(this.sendTrafficTP, "sendTrafficTP");
+			this.sendTrafficTP.Name = "sendTrafficTP";
+			this.sendTrafficTP.UseVisualStyleBackColor = true;
 			// 
-			// btnMainScreen
+			// homeTP
 			// 
-			this.btnMainScreen.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnMainScreen, "btnMainScreen");
-			this.btnMainScreen.Image = global::ViolationstSystem.Properties.Resources.Home_1;
-			this.btnMainScreen.Name = "btnMainScreen";
-			this.toolTip1.SetToolTip(this.btnMainScreen, resources.GetString("btnMainScreen.ToolTip"));
-			this.btnMainScreen.UseVisualStyleBackColor = true;
+			this.homeTP.Controls.Add(this.homeView1);
+			resources.ApplyResources(this.homeTP, "homeTP");
+			this.homeTP.Name = "homeTP";
+			this.homeTP.UseVisualStyleBackColor = true;
 			// 
-			// btnSendTraffic
+			// tabControl1
 			// 
-			this.btnSendTraffic.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnSendTraffic, "btnSendTraffic");
-			this.btnSendTraffic.Image = global::ViolationstSystem.Properties.Resources.List_View_1;
-			this.btnSendTraffic.Name = "btnSendTraffic";
-			this.toolTip1.SetToolTip(this.btnSendTraffic, resources.GetString("btnSendTraffic.ToolTip"));
-			this.btnSendTraffic.UseVisualStyleBackColor = true;
+			this.tabControl1.Controls.Add(this.homeTP);
+			this.tabControl1.Controls.Add(this.sendTrafficTP);
+			this.tabControl1.Controls.Add(this.SettingTP);
+			this.tabControl1.Controls.Add(this.AdminLoginTP);
+			resources.ApplyResources(this.tabControl1, "tabControl1");
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
 			// 
-			// btnSearchRecord
+			// SettingTP
 			// 
-			this.btnSearchRecord.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnSearchRecord, "btnSearchRecord");
-			this.btnSearchRecord.Image = global::ViolationstSystem.Properties.Resources.Search_Property_3;
-			this.btnSearchRecord.Name = "btnSearchRecord";
-			this.btnSearchRecord.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.SettingTP, "SettingTP");
+			this.SettingTP.Name = "SettingTP";
+			this.SettingTP.UseVisualStyleBackColor = true;
 			// 
-			// btnManageData
+			// AdminLoginTP
 			// 
-			this.btnManageData.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnManageData, "btnManageData");
-			this.btnManageData.Image = global::ViolationstSystem.Properties.Resources.Create_3;
-			this.btnManageData.Name = "btnManageData";
-			this.btnManageData.UseVisualStyleBackColor = true;
+			this.AdminLoginTP.Controls.Add(this.adminLogin1);
+			resources.ApplyResources(this.AdminLoginTP, "AdminLoginTP");
+			this.AdminLoginTP.Name = "AdminLoginTP";
+			this.AdminLoginTP.UseVisualStyleBackColor = true;
 			// 
-			// btnTeamplets
+			// homeView1
 			// 
-			this.btnTeamplets.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnTeamplets, "btnTeamplets");
-			this.btnTeamplets.Image = global::ViolationstSystem.Properties.Resources.Template_1;
-			this.btnTeamplets.Name = "btnTeamplets";
-			this.btnTeamplets.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.homeView1, "homeView1");
+			this.homeView1.Name = "homeView1";
 			// 
-			// btnSettings
+			// sendTrafficView1
 			// 
-			this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-			resources.ApplyResources(this.btnSettings, "btnSettings");
-			this.btnSettings.Image = global::ViolationstSystem.Properties.Resources.Settings_1;
-			this.btnSettings.Name = "btnSettings";
-			this.btnSettings.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.sendTrafficView1, "sendTrafficView1");
+			this.sendTrafficView1.Name = "sendTrafficView1";
 			// 
-			// panelContainer
+			// adminLogin1
 			// 
-			this.panelContainer.BackColor = System.Drawing.Color.White;
-			resources.ApplyResources(this.panelContainer, "panelContainer");
-			this.panelContainer.Name = "panelContainer";
+			resources.ApplyResources(this.adminLogin1, "adminLogin1");
+			this.adminLogin1.Name = "adminLogin1";
+			this.adminLogin1.Password = null;
+			this.adminLogin1.UserName = null;
 			// 
 			// MainView
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.panelContainer);
-			this.Controls.Add(this.flowLayoutPanelNavBar);
+			this.Controls.Add(this.tabControl1);
 			this.HelpButton = true;
 			this.Name = "MainView";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.flowLayoutPanelNavBar.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
+			this.sendTrafficTP.ResumeLayout(false);
+			this.homeTP.ResumeLayout(false);
+			this.tabControl1.ResumeLayout(false);
+			this.AdminLoginTP.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private FlowLayoutPanel flowLayoutPanelNavBar;
-		private Button btnMainScreen;
 		private BindingSource violationBindingSource;
-		private Button btnSendTraffic;
-		private Button btnSearchRecord;
-		private Button btnManageData;
-		private Button btnTeamplets;
-		public Panel panelContainer;
-		private ToolTip toolTip1;
-		private Button btnSettings;
+		private TabPage sendTrafficTP;
+		private TabPage homeTP;
+		private TabControl tabControl1;
+		private TabPage SettingTP;
+		private Views.SendTrafficView sendTrafficView1;
+		private Views.HomeView homeView1;
+		private TabPage AdminLoginTP;
+		private ViolationstSystem.Views.AdminLogin adminLogin1;
 	}
 }

@@ -1,16 +1,20 @@
 using System;
+using System.Linq;
 using System.Windows.Forms;
+using ViolationsSystem.Presenter;
 using ViolationsSystem.Views;
 using ViolationsSystem.Views.Interfaces;
-using static ViolationsSystem.Views.Interfaces.IMainView;
+using ViolationSystem.Data.Repositories;
 
 namespace ViolationsSystem
 {
 	public partial class MainView : Form, IMainView
 	{
 		//Fields
-		public Panel Container { get => panelContainer; }
+		public Panel Container { get; }
 		//Properties
+		//Events
+		public event EventHandler ShowView;
 
 
 		//Constructor
@@ -18,19 +22,9 @@ namespace ViolationsSystem
 		{
 			InitializeComponent();
 
-			// init event
-			btnMainScreen.Click += delegate { ShowView?.Invoke(HomeView.GetInstance(), EventArgs.Empty); };
-			btnSendTraffic.Click += delegate { ShowView?.Invoke(SendTrafficView.GetInstance(), EventArgs.Empty); };
-			//btnSearchRecord.Click += delegate { ShowView.Invoke(.GetInstance()); };
-			//btnManageData.Click += delegate { ShowView.Invoke(.GetInstance()); };
-			//btnTeamplets.Click += delegate { ShowView.Invoke(.GetInstance()); };
-			//btnSettings.Click += delegate { ShowView.Invoke(.GetInstance()); };
+			// init presenters
+			new HomePresenter(this.homeTP.Controls.OfType<HomeView>().FirstOrDefault(), Repository.GetInstance());
 		}
 
-		//Events
-		public event EventHandler ShowView;
-
-        //Methods
-
-    }
+	}
 }

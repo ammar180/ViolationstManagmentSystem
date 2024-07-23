@@ -22,8 +22,8 @@ namespace ViolationsSystem.Views
 		}
 
 		public int TrucksCount { get => ((int)countTrucks.Value); }
-		public DateTime StartDate { get => dateStart.Value; }
-		public DateTime EndDate { get => dateEnd.Value; }
+		public DateTime StartDate { get; }
+		public DateTime EndDate { get; }
 		public DataGridView dgv { get => dataGridView; set => dataGridView = value; }
 
 

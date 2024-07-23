@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="N.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TruckCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Notes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

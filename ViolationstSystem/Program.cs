@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Configuration;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using ViolationsSystem;
 using ViolationsSystem.Presenter;
+using ViolationsSystem.Views;
 using ViolationsSystem.Views.Interfaces;
-using ViolationSystem.Data.EF;
+using ViolationSystem.Data.Repositories;
 
 namespace ViolationstSystem
 {
@@ -19,9 +21,10 @@ namespace ViolationstSystem
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			IMainView view = new MainView();
-			new MainPresenter(view);
-			Application.Run((Form)view);
+			//IMainView view = new MainView();
+			//new MainPresenter(view);
+
+			Application.Run(new MainView());
 		}
 	}
 }

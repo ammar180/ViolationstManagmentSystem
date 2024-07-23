@@ -32,295 +32,287 @@ namespace ViolationsSystem.Views
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-			flowLayoutPanel1 = new FlowLayoutPanel();
-			label1 = new Label();
-			countTrucks = new NumericUpDown();
-			flowLayoutPanel2 = new FlowLayoutPanel();
-			lable3 = new Label();
-			dateStart = new DateTimePicker();
-			flowLayoutPanel3 = new FlowLayoutPanel();
-			label3 = new Label();
-			dateEnd = new DateTimePicker();
-			btnGetResult = new Button();
-			dataGridView = new DataGridView();
-			N = new DataGridViewTextBoxColumn();
-			TruckCode = new DataGridViewTextBoxColumn();
-			Notes = new DataGridViewTextBoxColumn();
-			panel1 = new Panel();
-			btnPrint = new Button();
-			panel3 = new Panel();
-			panel2 = new Panel();
-			panel4 = new Panel();
-			flowLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)countTrucks).BeginInit();
-			flowLayoutPanel2.SuspendLayout();
-			flowLayoutPanel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
-			panel1.SuspendLayout();
-			panel3.SuspendLayout();
-			panel2.SuspendLayout();
-			panel4.SuspendLayout();
-			SuspendLayout();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.countTrucks = new System.Windows.Forms.NumericUpDown();
+			this.lable3 = new System.Windows.Forms.Label();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.btnGetResult = new System.Windows.Forms.Button();
+			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TruckCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnPrint = new System.Windows.Forms.Button();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel1.SuspendLayout();
+			this.flowLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			this.panel1.SuspendLayout();
+			this.panel3.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.SuspendLayout();
 			// 
 			// flowLayoutPanel1
 			// 
-			flowLayoutPanel1.AutoScroll = true;
-			flowLayoutPanel1.AutoSize = true;
-			flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-			flowLayoutPanel1.Controls.Add(flowLayoutPanel3);
-			flowLayoutPanel1.Dock = DockStyle.Top;
-			flowLayoutPanel1.Location = new Point(0, 0);
-			flowLayoutPanel1.Margin = new Padding(4, 6, 4, 6);
-			flowLayoutPanel1.Name = "flowLayoutPanel1";
-			flowLayoutPanel1.Padding = new Padding(7, 9, 7, 9);
-			flowLayoutPanel1.Size = new Size(852, 144);
-			flowLayoutPanel1.TabIndex = 1;
-			// 
-			// label1
-			// 
-			label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-			label1.AutoSize = true;
-			label1.Location = new Point(582, 0);
-			label1.Margin = new Padding(0);
-			label1.Name = "label1";
-			label1.Size = new Size(127, 57);
-			label1.TabIndex = 0;
-			label1.Text = "عدد الشاحنات";
-			label1.TextAlign = ContentAlignment.MiddleRight;
-			// 
-			// countTrucks
-			// 
-			countTrucks.Location = new Point(492, 0);
-			countTrucks.Margin = new Padding(0);
-			countTrucks.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-			countTrucks.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-			countTrucks.Name = "countTrucks";
-			countTrucks.Size = new Size(90, 45);
-			countTrucks.TabIndex = 7;
-			countTrucks.TextAlign = HorizontalAlignment.Center;
-			countTrucks.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			this.flowLayoutPanel1.AutoScroll = true;
+			this.flowLayoutPanel1.AutoSize = true;
+			this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(1011, 75);
+			this.flowLayoutPanel1.TabIndex = 1;
 			// 
 			// flowLayoutPanel2
 			// 
-			flowLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			flowLayoutPanel2.AutoSize = true;
-			flowLayoutPanel2.Controls.Add(label1);
-			flowLayoutPanel2.Controls.Add(countTrucks);
-			flowLayoutPanel2.Controls.Add(lable3);
-			flowLayoutPanel2.Controls.Add(dateStart);
-			flowLayoutPanel2.Location = new Point(126, 12);
-			flowLayoutPanel2.Name = "flowLayoutPanel2";
-			flowLayoutPanel2.Size = new Size(709, 57);
-			flowLayoutPanel2.TabIndex = 3;
+			this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.flowLayoutPanel2.AutoSize = true;
+			this.flowLayoutPanel2.Controls.Add(this.label1);
+			this.flowLayoutPanel2.Controls.Add(this.countTrucks);
+			this.flowLayoutPanel2.Controls.Add(this.lable3);
+			this.flowLayoutPanel2.Controls.Add(this.label2);
+			this.flowLayoutPanel2.Controls.Add(this.comboBox1);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(426, 12);
+			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(568, 51);
+			this.flowLayoutPanel2.TabIndex = 3;
+			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(441, 0);
+			this.label1.Margin = new System.Windows.Forms.Padding(0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(127, 51);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "عدد الشاحنات";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// countTrucks
+			// 
+			this.countTrucks.Location = new System.Drawing.Point(351, 0);
+			this.countTrucks.Margin = new System.Windows.Forms.Padding(0);
+			this.countTrucks.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.countTrucks.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.countTrucks.Name = "countTrucks";
+			this.countTrucks.Size = new System.Drawing.Size(90, 45);
+			this.countTrucks.TabIndex = 7;
+			this.countTrucks.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.countTrucks.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
 			// 
 			// lable3
 			// 
-			lable3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-			lable3.AutoSize = true;
-			lable3.Location = new Point(354, 0);
-			lable3.Margin = new Padding(4, 0, 4, 0);
-			lable3.Name = "lable3";
-			lable3.Size = new Size(134, 57);
-			lable3.TabIndex = 3;
-			lable3.Text = "التاريخ المبدأي";
-			lable3.TextAlign = ContentAlignment.MiddleCenter;
+			this.lable3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lable3.AutoSize = true;
+			this.lable3.Location = new System.Drawing.Point(213, 0);
+			this.lable3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lable3.Name = "lable3";
+			this.lable3.Size = new System.Drawing.Size(134, 51);
+			this.lable3.TabIndex = 3;
+			this.lable3.Text = "التاريخ المبدأي";
+			this.lable3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// dateStart
+			// comboBox1
 			// 
-			dateStart.Location = new Point(4, 6);
-			dateStart.Margin = new Padding(4, 6, 4, 6);
-			dateStart.Name = "dateStart";
-			dateStart.RightToLeft = RightToLeft.Yes;
-			dateStart.Size = new Size(342, 45);
-			dateStart.TabIndex = 2;
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(3, 3);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(121, 45);
+			this.comboBox1.TabIndex = 9;
 			// 
-			// flowLayoutPanel3
+			// label2
 			// 
-			flowLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			flowLayoutPanel3.AutoSize = true;
-			flowLayoutPanel3.Controls.Add(label3);
-			flowLayoutPanel3.Controls.Add(dateEnd);
-			flowLayoutPanel3.Location = new Point(354, 75);
-			flowLayoutPanel3.Name = "flowLayoutPanel3";
-			flowLayoutPanel3.Size = new Size(481, 57);
-			flowLayoutPanel3.TabIndex = 4;
-			// 
-			// label3
-			// 
-			label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-			label3.AutoSize = true;
-			label3.Location = new Point(353, 0);
-			label3.Margin = new Padding(0);
-			label3.Name = "label3";
-			label3.Size = new Size(128, 57);
-			label3.TabIndex = 5;
-			label3.Text = "التاريخ النهائي";
-			label3.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// dateEnd
-			// 
-			dateEnd.CustomFormat = "dd/MM/yyyy";
-			dateEnd.Location = new Point(4, 6);
-			dateEnd.Margin = new Padding(4, 6, 4, 6);
-			dateEnd.Name = "dateEnd";
-			dateEnd.RightToLeft = RightToLeft.Yes;
-			dateEnd.Size = new Size(345, 45);
-			dateEnd.TabIndex = 4;
-			dateEnd.Value = new DateTime(2024, 6, 24, 23, 59, 59, 0);
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(131, 0);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(74, 51);
+			this.label2.TabIndex = 8;
+			this.label2.Text = "الوحدة";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// btnGetResult
 			// 
-			btnGetResult.Dock = DockStyle.Fill;
-			btnGetResult.Image = ViolationstSystem.Properties.Resources.Search_1;
-			btnGetResult.ImageAlign = ContentAlignment.MiddleLeft;
-			btnGetResult.Location = new Point(30, 10);
-			btnGetResult.Margin = new Padding(0);
-			btnGetResult.Name = "btnGetResult";
-			btnGetResult.Size = new Size(792, 54);
-			btnGetResult.TabIndex = 6;
-			btnGetResult.Text = "احصل على النتيجة";
-			btnGetResult.UseVisualStyleBackColor = true;
+			this.btnGetResult.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGetResult.Image = global::ViolationstSystem.Properties.Resources.Search_1;
+			this.btnGetResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnGetResult.Location = new System.Drawing.Point(30, 10);
+			this.btnGetResult.Margin = new System.Windows.Forms.Padding(0);
+			this.btnGetResult.Name = "btnGetResult";
+			this.btnGetResult.Size = new System.Drawing.Size(951, 54);
+			this.btnGetResult.TabIndex = 6;
+			this.btnGetResult.Text = "احصل على النتيجة";
+			this.btnGetResult.UseVisualStyleBackColor = true;
 			// 
 			// dataGridView
 			// 
-			dataGridView.AllowUserToAddRows = false;
-			dataGridView.AllowUserToDeleteRows = false;
-			dataGridView.BackgroundColor = Color.White;
-			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle9.BackColor = SystemColors.ScrollBar;
-			dataGridViewCellStyle9.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-			dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-			dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView.Columns.AddRange(new DataGridViewColumn[] { N, TruckCode, Notes });
-			dataGridView.Dock = DockStyle.Fill;
-			dataGridView.GridColor = SystemColors.ActiveCaptionText;
-			dataGridView.Location = new Point(0, 0);
-			dataGridView.Name = "dataGridView";
-			dataGridView.ReadOnly = true;
-			dataGridView.RowHeadersWidth = 51;
-			dataGridView.Size = new Size(852, 387);
-			dataGridView.TabIndex = 2;
+			this.dataGridView.AllowUserToAddRows = false;
+			this.dataGridView.AllowUserToDeleteRows = false;
+			this.dataGridView.BackgroundColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.N,
+            this.TruckCode,
+            this.Notes});
+			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.dataGridView.Location = new System.Drawing.Point(0, 0);
+			this.dataGridView.Name = "dataGridView";
+			this.dataGridView.ReadOnly = true;
+			this.dataGridView.RowHeadersWidth = 51;
+			this.dataGridView.Size = new System.Drawing.Size(1011, 456);
+			this.dataGridView.TabIndex = 2;
 			// 
 			// N
 			// 
-			dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			N.DefaultCellStyle = dataGridViewCellStyle10;
-			N.HeaderText = "م";
-			N.MinimumWidth = 20;
-			N.Name = "N";
-			N.ReadOnly = true;
-			N.Resizable = DataGridViewTriState.False;
-			N.SortMode = DataGridViewColumnSortMode.NotSortable;
-			N.ToolTipText = "مسلسل";
-			N.Width = 125;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			this.N.DefaultCellStyle = dataGridViewCellStyle2;
+			this.N.HeaderText = "م";
+			this.N.MinimumWidth = 20;
+			this.N.Name = "N";
+			this.N.ReadOnly = true;
+			this.N.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.N.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.N.ToolTipText = "مسلسل";
+			this.N.Width = 125;
 			// 
 			// TruckCode
 			// 
-			TruckCode.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			TruckCode.DefaultCellStyle = dataGridViewCellStyle11;
-			TruckCode.HeaderText = "رقم السيارة";
-			TruckCode.MinimumWidth = 100;
-			TruckCode.Name = "TruckCode";
-			TruckCode.ReadOnly = true;
-			TruckCode.Width = 137;
+			this.TruckCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.TruckCode.DefaultCellStyle = dataGridViewCellStyle3;
+			this.TruckCode.HeaderText = "رقم السيارة";
+			this.TruckCode.MinimumWidth = 100;
+			this.TruckCode.Name = "TruckCode";
+			this.TruckCode.ReadOnly = true;
+			this.TruckCode.Width = 137;
 			// 
 			// Notes
 			// 
-			Notes.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			Notes.DefaultCellStyle = dataGridViewCellStyle12;
-			Notes.HeaderText = "ملاحظات";
-			Notes.MinimumWidth = 6;
-			Notes.Name = "Notes";
-			Notes.ReadOnly = true;
+			this.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.Notes.DefaultCellStyle = dataGridViewCellStyle4;
+			this.Notes.HeaderText = "ملاحظات";
+			this.Notes.MinimumWidth = 6;
+			this.Notes.Name = "Notes";
+			this.Notes.ReadOnly = true;
 			// 
 			// panel1
 			// 
-			panel1.Controls.Add(btnPrint);
-			panel1.Dock = DockStyle.Bottom;
-			panel1.Location = new Point(0, 605);
-			panel1.Name = "panel1";
-			panel1.Padding = new Padding(30, 10, 30, 10);
-			panel1.Size = new Size(852, 75);
-			panel1.TabIndex = 3;
+			this.panel1.Controls.Add(this.btnPrint);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 605);
+			this.panel1.Name = "panel1";
+			this.panel1.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
+			this.panel1.Size = new System.Drawing.Size(1011, 75);
+			this.panel1.TabIndex = 3;
 			// 
 			// btnPrint
 			// 
-			btnPrint.Dock = DockStyle.Fill;
-			btnPrint.Font = new Font("Cairo", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			btnPrint.Location = new Point(30, 10);
-			btnPrint.Name = "btnPrint";
-			btnPrint.Size = new Size(792, 55);
-			btnPrint.TabIndex = 0;
-			btnPrint.Text = "طباعة";
-			btnPrint.UseVisualStyleBackColor = true;
+			this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnPrint.Font = new System.Drawing.Font("Cairo", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPrint.Location = new System.Drawing.Point(30, 10);
+			this.btnPrint.Name = "btnPrint";
+			this.btnPrint.Size = new System.Drawing.Size(951, 55);
+			this.btnPrint.TabIndex = 0;
+			this.btnPrint.Text = "طباعة";
+			this.btnPrint.UseVisualStyleBackColor = true;
 			// 
 			// panel3
 			// 
-			panel3.Controls.Add(btnGetResult);
-			panel3.Dock = DockStyle.Bottom;
-			panel3.Location = new Point(0, 144);
-			panel3.Name = "panel3";
-			panel3.Padding = new Padding(30, 10, 30, 10);
-			panel3.Size = new Size(852, 74);
-			panel3.TabIndex = 7;
+			this.panel3.Controls.Add(this.btnGetResult);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel3.Location = new System.Drawing.Point(0, 75);
+			this.panel3.Name = "panel3";
+			this.panel3.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
+			this.panel3.Size = new System.Drawing.Size(1011, 74);
+			this.panel3.TabIndex = 7;
 			// 
 			// panel2
 			// 
-			panel2.AutoSize = true;
-			panel2.Controls.Add(panel3);
-			panel2.Controls.Add(flowLayoutPanel1);
-			panel2.Dock = DockStyle.Top;
-			panel2.Location = new Point(0, 0);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(852, 218);
-			panel2.TabIndex = 4;
+			this.panel2.AutoSize = true;
+			this.panel2.Controls.Add(this.panel3);
+			this.panel2.Controls.Add(this.flowLayoutPanel1);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(1011, 149);
+			this.panel2.TabIndex = 4;
 			// 
 			// panel4
 			// 
-			panel4.Controls.Add(dataGridView);
-			panel4.Dock = DockStyle.Fill;
-			panel4.Location = new Point(0, 218);
-			panel4.Name = "panel4";
-			panel4.Size = new Size(852, 387);
-			panel4.TabIndex = 5;
+			this.panel4.Controls.Add(this.dataGridView);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel4.Location = new System.Drawing.Point(0, 149);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(1011, 456);
+			this.panel4.TabIndex = 5;
 			// 
 			// SendTrafficView
 			// 
-			AutoScaleDimensions = new SizeF(11F, 37F);
-			AutoScaleMode = AutoScaleMode.Font;
-			Controls.Add(panel4);
-			Controls.Add(panel2);
-			Controls.Add(panel1);
-			Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			Margin = new Padding(4, 6, 4, 6);
-			Name = "SendTrafficView";
-			RightToLeft = RightToLeft.Yes;
-			Size = new Size(852, 680);
-			flowLayoutPanel1.ResumeLayout(false);
-			flowLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)countTrucks).EndInit();
-			flowLayoutPanel2.ResumeLayout(false);
-			flowLayoutPanel2.PerformLayout();
-			flowLayoutPanel3.ResumeLayout(false);
-			flowLayoutPanel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
-			panel1.ResumeLayout(false);
-			panel3.ResumeLayout(false);
-			panel2.ResumeLayout(false);
-			panel2.PerformLayout();
-			panel4.ResumeLayout(false);
-			ResumeLayout(false);
-			PerformLayout();
+			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 37F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.panel4);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel1);
+			this.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+			this.Name = "SendTrafficView";
+			this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.Size = new System.Drawing.Size(1011, 680);
+			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
+			this.flowLayoutPanel2.ResumeLayout(false);
+			this.flowLayoutPanel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.panel4.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		#endregion
@@ -329,13 +321,9 @@ namespace ViolationsSystem.Views
 		private Label label1;
 		private TextBox CountTrucks;
 		private Label lable3;
-		private DateTimePicker dateStart;
-		private DateTimePicker dateEnd;
-		private Label label3;
 		private Button btnGetResult;
 		private NumericUpDown countTrucks;
 		private FlowLayoutPanel flowLayoutPanel2;
-		private FlowLayoutPanel flowLayoutPanel3;
 		private DataGridView dataGridView;
 		private Panel panel1;
 		private Button btnPrint;
@@ -345,5 +333,7 @@ namespace ViolationsSystem.Views
 		private DataGridViewTextBoxColumn N;
 		private DataGridViewTextBoxColumn TruckCode;
 		private DataGridViewTextBoxColumn Notes;
+		private ComboBox comboBox1;
+		private Label label2;
 	}
 }

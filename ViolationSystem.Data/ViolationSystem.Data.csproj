@@ -46,27 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\Truck.cs">
-      <DependentUpon>ViolationsModel.tt</DependentUpon>
+    <Compile Include="EF\Model.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Truck.cs" />
+    <Compile Include="Entities\Violation.cs" />
+    <Compile Include="Migrations\202407211308197_init.cs" />
+    <Compile Include="Migrations\202407211308197_init.Designer.cs">
+      <DependentUpon>202407211308197_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="EF\Violation.cs">
-      <DependentUpon>ViolationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ViolationsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViolationsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ViolationsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViolationsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ViolationsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViolationsModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -74,30 +62,17 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EF\ViolationsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ViolationsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EF\ViolationsModel.edmx.diagram">
-      <DependentUpon>ViolationsModel.edmx</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="EF\ViolationsModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ViolationsModel.edmx</DependentUpon>
-      <LastGenOutput>ViolationsModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EF\ViolationsModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ViolationsModel.edmx</DependentUpon>
-      <LastGenOutput>ViolationsModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="EntityFramework">
       <Version>6.5.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202407211308197_init.resx">
+      <DependentUpon>202407211308197_init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

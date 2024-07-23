@@ -11,10 +11,10 @@ namespace ViolationsCollecting.View
 		string IMainView.TruckCode { get => truckCodeBodx1.txtTruckCode; }
 		public string ResponableUnit { get => comboUnit.Text; }
 		public string ElManfaz { get => txtElManfaz.Text; }
-		public DateTime TheDate { get => new DateTime(2000 + (int)YearNum.Value, (int)MonthNum.Value, (int)DayNum.Value); }
+		public DateTime TheDate { get => dateBox1.Date; }
 		public BindingSource MainViewBS { get => violationBindingSource; set => violationBindingSource = value; }
 		public int UpdatedViolationId { get; set; }
-		public int MonthToExport { get => (int)NumMonthToExport.Value;}
+		public int MonthToExport { get => (int)NumMonthToExport.Value; }
 		public LoadingForm loading { get => LoadingForm.Instance(this); }
 		// Validations Message
 		public string CodeMessage { set => labCodeMessage.Text = value; }
@@ -24,7 +24,7 @@ namespace ViolationsCollecting.View
 		public MainView()
 		{
 			InitializeComponent();
-			
+
 			AssesuateEvents();
 
 			InitializeValues();
@@ -46,9 +46,6 @@ namespace ViolationsCollecting.View
 		private void InitializeValues()
 		{
 			IsInAddingMode = true;
-			YearNum.Value = DateTime.Now.Year - 2000;
-			MonthNum.Value = DateTime.Now.Month;
-			DayNum.Value = DateTime.Now.Day;
 			NumMonthToExport.Value = DateTime.Now.Month;
 
 			panelWP.Visible = Properties.Settings.Default.ShowWeightAndPyload;
@@ -59,15 +56,15 @@ namespace ViolationsCollecting.View
 
 			EditTimer.Interval = (1000 * 60) * 10;
 			EditTimer.Start();
-			
+
 			truckCodeBodx1.a1.Focus();
 		}
-		
+
 		public event EventHandler SearchItems;
 		public event AsyncEventHandler Save;
 		public event EventHandler OnTimerTick;
 		public event AsyncEventHandler ExportEvent;
-		
+
 		private void btnAddMode_Click(object sender, EventArgs e)
 		{
 			IsInAddingMode = true;
@@ -103,9 +100,9 @@ namespace ViolationsCollecting.View
 						truckCodeBodx1.txtTruckCode = violation.TruckCode;
 						comboUnit.Text = violation.Unit;
 						txtElManfaz.Text = violation.ElManfaz;
-						DayNum.Value = violation.ViolationDate.Day;
-						MonthNum.Value = violation.ViolationDate.Month;
-						YearNum.Value = violation.ViolationDate.Year - 2000;
+
+						dateBox1.Date = violation.ViolationDate;
+
 						txtWeight.Text = violation.Weight;
 						txtPyload.Text = violation.Payload;
 					}
@@ -119,10 +116,53 @@ namespace ViolationsCollecting.View
 
 			comboUnit.SelectAll();
 			txtElManfaz.SelectAll();
-			DayNum.Select();
-			MonthNum.Select();
-			YearNum.Select();
+
 			truckCodeBodx1.a1.Focus();
+		}
+
+		private void comboUnit_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			var ListOfElMnafez = new string[] { };
+			switch (comboUnit.Text)
+			{
+				case "كرداسة":
+					ListOfElMnafez = ["صفط", "المعتمدية", "ابورواش", "كرداسة", "الصليبة"];
+					break;
+			    case "البدرشين":
+					ListOfElMnafez = ["مزغونة", "أبوربع"];
+					break;
+				case "منشاة القناطر":
+					ListOfElMnafez = ["المحطة", "القطا", "الدرية", "نكلا الرهاوي", "كوبري القناطر", "نكلا المرور"];
+					break;
+			    case "الصف":
+					ListOfElMnafez = ["الودي", "حسن عودة", "الصوارخ", "أبو عوض", "علاء شاهين", "الميزان"];
+					break;
+			    case "العياط":
+					ListOfElMnafez = ["الرقة", "الضبعي", "الملطة خارجي", "جرزا", "طهما", "السبيل"];
+					break;
+			    case "ابو نمرس":
+					ListOfElMnafez = ["شبرامنت", "نزلة الأشطر", "المزلقان"];
+					break;
+			    case "الواحات البحرية":
+					ListOfElMnafez = ["المناجم", "منديشه"];
+					break;
+			    case "اطفيح":
+					ListOfElMnafez = ["المرتبة", "صول", "الكريمات", "الحللف"];
+					break;
+			    case "اكتوبر":
+					ListOfElMnafez = ["النشية", "الحرانية", "السفارة", "المنصورية", "المريوطية", "السياحي", "الفصبجي"];
+					break;
+			    
+				default:
+					break;
+			}
+			txtElManfaz.AutoCompleteCustomSource.Clear();
+			txtElManfaz.Items.Clear();
+
+			txtElManfaz.AutoCompleteCustomSource.AddRange(ListOfElMnafez);
+			txtElManfaz.Items.AddRange(ListOfElMnafez);
+
+			txtElManfaz.Text = ListOfElMnafez.FirstOrDefault()??"";
 		}
 	}
 }

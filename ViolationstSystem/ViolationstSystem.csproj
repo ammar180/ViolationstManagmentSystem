@@ -48,11 +48,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenter\Helpers\ExcelHelper.cs" />
+    <Compile Include="Presenter\Helpers\MessageHelper.cs" />
+    <Compile Include="Presenter\ManageDataPresenter.cs" />
     <Compile Include="Presenter\HomePresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
     <Compile Include="Presenter\SendTrafficPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AdminLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\DateBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\DateBox.Designer.cs">
+      <DependentUpon>DateBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\TruckCodeBodx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\TruckCodeBodx.Designer.cs">
+      <DependentUpon>TruckCodeBodx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageDataView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ManageDataView.Designer.cs">
+      <DependentUpon>ManageDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +122,22 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\TrafficReport.rdlc" />
+    <EmbeddedResource Include="Views\AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\DateBox.resx">
+      <DependentUpon>DateBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\TruckCodeBodx.resx">
+      <DependentUpon>TruckCodeBodx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageDataView.resx">
+      <DependentUpon>ManageDataView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -135,8 +184,16 @@
   <ItemGroup>
     <None Include="Resources\Template_1.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML">
+      <Version>0.102.2</Version>
+    </PackageReference>
+    <PackageReference Include="FastMember">
+      <Version>1.5.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms">
       <Version>150.1652.0</Version>
     </PackageReference>

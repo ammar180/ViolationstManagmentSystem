@@ -2,10 +2,9 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using ViolationsSystem.Data.Oprations;
-using ViolationsSystem.Data.Repositories;
 using ViolationsSystem.Views;
 using ViolationsSystem.Views.Interfaces;
+using ViolationSystem.Data.Repositories;
 
 namespace ViolationsSystem.Presenter
 {
@@ -13,7 +12,7 @@ namespace ViolationsSystem.Presenter
 	{
 		private IMainView view;
 		public MainPresenter(IMainView view)
-	    {
+		{
 			this.view = view;
 
 			this.view.ShowView += SetView;
@@ -26,7 +25,6 @@ namespace ViolationsSystem.Presenter
 
 		private void LoadPresenters()
 		{
-			new HomePresenter(HomeView.GetInstance(), Repository.GetInstance());
 			new SendTrafficPresenter(SendTrafficView.GetInstance(), Repository.GetInstance());
 		}
 

@@ -117,306 +117,243 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnMainScreen.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnMainScreen.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnMainScreen.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnMainScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 8</value>
-  </data>
-  <data name="btnMainScreen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnMainScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnMainScreen.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="btnMainScreen.Text" xml:space="preserve">
-    <value> الرئيسة</value>
-  </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>231, 17</value>
-  </metadata>
-  <data name="btnMainScreen.ToolTip" xml:space="preserve">
-    <value>الصفحة الرئيسية: بحث، طباعة ، ادراج، استخراج</value>
-  </data>
-  <data name="&gt;&gt;btnMainScreen.Name" xml:space="preserve">
-    <value>btnMainScreen</value>
-  </data>
-  <data name="&gt;&gt;btnMainScreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnMainScreen.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnMainScreen.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnSendTraffic.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnSendTraffic.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnSendTraffic.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSendTraffic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSendTraffic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 78</value>
-  </data>
-  <data name="btnSendTraffic.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnSendTraffic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <data name="btnSendTraffic.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnSendTraffic.Text" xml:space="preserve">
-    <value>  ارسال مرور</value>
-  </data>
-  <data name="btnSendTraffic.ToolTip" xml:space="preserve">
-    <value>تحديد القائمه واطباعتها</value>
-  </data>
-  <data name="&gt;&gt;btnSendTraffic.Name" xml:space="preserve">
-    <value>btnSendTraffic</value>
-  </data>
-  <data name="&gt;&gt;btnSendTraffic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSendTraffic.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnSendTraffic.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnSearchRecord.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnSearchRecord.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnSearchRecord.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSearchRecord.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSearchRecord.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 148</value>
-  </data>
-  <data name="btnSearchRecord.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnSearchRecord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <data name="btnSearchRecord.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnSearchRecord.Text" xml:space="preserve">
-    <value>   البحث والتسجيل</value>
-  </data>
-  <data name="&gt;&gt;btnSearchRecord.Name" xml:space="preserve">
-    <value>btnSearchRecord</value>
-  </data>
-  <data name="&gt;&gt;btnSearchRecord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSearchRecord.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnSearchRecord.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnManageData.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnManageData.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnManageData.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnManageData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnManageData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 218</value>
-  </data>
-  <data name="btnManageData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnManageData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <data name="btnManageData.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnManageData.Text" xml:space="preserve">
-    <value>ادارة البيانات</value>
-  </data>
-  <data name="&gt;&gt;btnManageData.Name" xml:space="preserve">
-    <value>btnManageData</value>
-  </data>
-  <data name="&gt;&gt;btnManageData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnManageData.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnManageData.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnTeamplets.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTeamplets.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnTeamplets.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnTeamplets.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnTeamplets.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 288</value>
-  </data>
-  <data name="btnTeamplets.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnTeamplets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <data name="btnTeamplets.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btnTeamplets.Text" xml:space="preserve">
-    <value>القوالب</value>
-  </data>
-  <data name="&gt;&gt;btnTeamplets.Name" xml:space="preserve">
-    <value>btnTeamplets</value>
-  </data>
-  <data name="&gt;&gt;btnTeamplets.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnTeamplets.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnTeamplets.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="btnSettings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 13.7999992pt</value>
-  </data>
-  <data name="btnSettings.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 358</value>
-  </data>
-  <data name="btnSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 60</value>
-  </data>
-  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>الإعدادات</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
-    <value>btnSettings</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="flowLayoutPanelNavBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="flowLayoutPanelNavBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="flowLayoutPanelNavBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="flowLayoutPanelNavBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 673</value>
-  </data>
-  <data name="flowLayoutPanelNavBar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanelNavBar.Name" xml:space="preserve">
-    <value>flowLayoutPanelNavBar</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanelNavBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanelNavBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanelNavBar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panelContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 0</value>
-  </data>
-  <data name="panelContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="panelContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>851, 673</value>
-  </data>
-  <data name="panelContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelContainer.Name" xml:space="preserve">
-    <value>panelContainer</value>
-  </data>
-  <data name="&gt;&gt;panelContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="violationBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="sendTrafficView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="sendTrafficView1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 12pt</value>
+  </data>
+  <data name="sendTrafficView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="sendTrafficView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="sendTrafficView1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="sendTrafficView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1048, 617</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="sendTrafficView1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficView1.Name" xml:space="preserve">
+    <value>sendTrafficView1</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficView1.Type" xml:space="preserve">
+    <value>ViolationsSystem.Views.SendTrafficView, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficView1.Parent" xml:space="preserve">
+    <value>sendTrafficTP</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="sendTrafficTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="sendTrafficTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="sendTrafficTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="sendTrafficTP.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="sendTrafficTP.Text" xml:space="preserve">
+    <value>ارسال المرور</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficTP.Name" xml:space="preserve">
+    <value>sendTrafficTP</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;sendTrafficTP.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="homeView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="homeView1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 12pt</value>
+  </data>
+  <data name="homeView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="homeView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="homeView1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="homeView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1048, 617</value>
+  </data>
+  <data name="homeView1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Name" xml:space="preserve">
+    <value>homeView1</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Type" xml:space="preserve">
+    <value>ViolationsSystem.Views.HomeView, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Parent" xml:space="preserve">
+    <value>homeTP</value>
+  </data>
+  <data name="&gt;&gt;homeView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="homeTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="homeTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="homeTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="homeTP.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="homeTP.Text" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Name" xml:space="preserve">
+    <value>homeTP</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;homeTP.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SettingTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="SettingTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="SettingTP.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="SettingTP.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Name" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="adminLogin1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="adminLogin1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 12pt</value>
+  </data>
+  <data name="adminLogin1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="adminLogin1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 7, 4, 7</value>
+  </data>
+  <data name="adminLogin1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="adminLogin1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1048, 617</value>
+  </data>
+  <data name="adminLogin1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Name" xml:space="preserve">
+    <value>adminLogin1</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Type" xml:space="preserve">
+    <value>ViolationstSystem.Views.AdminLogin, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Parent" xml:space="preserve">
+    <value>AdminLoginTP</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AdminLoginTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="AdminLoginTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="AdminLoginTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="AdminLoginTP.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AdminLoginTP.Text" xml:space="preserve">
+    <value>دخول كمدير</value>
+  </data>
+  <data name="&gt;&gt;AdminLoginTP.Name" xml:space="preserve">
+    <value>AdminLoginTP</value>
+  </data>
+  <data name="&gt;&gt;AdminLoginTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdminLoginTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;AdminLoginTP.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 673</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -3271,12 +3208,6 @@
   </data>
   <data name="&gt;&gt;violationBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>
