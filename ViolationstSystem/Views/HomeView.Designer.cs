@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ViolationsSystem.Views
@@ -33,35 +34,34 @@ namespace ViolationsSystem.Views
 		{
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeView));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.flowLayoutPanelOptions = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnSearch = new System.Windows.Forms.Button();
+			this.btnSaveChages = new System.Windows.Forms.Button();
 			this.btnPrint = new System.Windows.Forms.Button();
 			this.btnImportExcel = new System.Windows.Forms.Button();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.btnSave = new System.Windows.Forms.Button();
-			this.txtBlockDate = new System.Windows.Forms.MaskedTextBox();
+			this.btnApplyChanges = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.txtPaymentDate = new System.Windows.Forms.MaskedTextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtReportNumber = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.CodeFiltercheckedList = new System.Windows.Forms.CheckedListBox();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.btnApplyFilter = new System.Windows.Forms.Button();
-			this.checkBoxSelectAll = new System.Windows.Forms.CheckBox();
-			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.txtBlockDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
+			this.txtPaymentDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
+			this.filterUserControle1 = new ViolationstSystem.Views.CustomeComponants.FilterUserControle();
 			this.truckCodeBodx = new ViolationsCollecting.View.CustomeComponants.TruckCodeBodx();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NumSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,7 @@ namespace ViolationsSystem.Views
 			this.blockDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.flowLayoutPanelOptions.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -81,9 +82,6 @@ namespace ViolationsSystem.Views
 			this.groupBox1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
-			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// flowLayoutPanelOptions
@@ -91,6 +89,7 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanelOptions.AutoSize = true;
 			this.flowLayoutPanelOptions.Controls.Add(this.truckCodeBodx);
 			this.flowLayoutPanelOptions.Controls.Add(this.btnSearch);
+			this.flowLayoutPanelOptions.Controls.Add(this.btnSaveChages);
 			this.flowLayoutPanelOptions.Controls.Add(this.btnPrint);
 			this.flowLayoutPanelOptions.Controls.Add(this.btnImportExcel);
 			this.flowLayoutPanelOptions.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,24 +103,39 @@ namespace ViolationsSystem.Views
 			// 
 			this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSearch.Image = global::ViolationstSystem.Properties.Resources.Search_1;
-			this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnSearch.Location = new System.Drawing.Point(660, 20);
 			this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
 			this.btnSearch.Name = "btnSearch";
 			this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.btnSearch.Size = new System.Drawing.Size(170, 50);
-			this.btnSearch.TabIndex = 0;
+			this.btnSearch.TabIndex = 1;
 			this.btnSearch.Text = "استعلام";
 			this.btnSearch.UseVisualStyleBackColor = true;
+			// 
+			// btnSaveChages
+			// 
+			this.btnSaveChages.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSaveChages.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSaveChages.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnSaveChages.Location = new System.Drawing.Point(458, 20);
+			this.btnSaveChages.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
+			this.btnSaveChages.Name = "btnSaveChages";
+			this.btnSaveChages.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.btnSaveChages.Size = new System.Drawing.Size(194, 50);
+			this.btnSaveChages.TabIndex = 2;
+			this.btnSaveChages.Text = "حفظ التغيرات";
+			this.btnSaveChages.UseVisualStyleBackColor = true;
+			this.btnSaveChages.Click += new System.EventHandler(this.btnSaveChages_Click);
 			// 
 			// btnPrint
 			// 
 			this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnPrint.Location = new System.Drawing.Point(482, 20);
+			this.btnPrint.Location = new System.Drawing.Point(280, 20);
 			this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
 			this.btnPrint.Name = "btnPrint";
 			this.btnPrint.Size = new System.Drawing.Size(170, 50);
-			this.btnPrint.TabIndex = 2;
+			this.btnPrint.TabIndex = 3;
 			this.btnPrint.Text = "طباعة الاستعلام";
 			this.btnPrint.UseVisualStyleBackColor = true;
 			this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -129,12 +143,12 @@ namespace ViolationsSystem.Views
 			// btnImportExcel
 			// 
 			this.btnImportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnImportExcel.Location = new System.Drawing.Point(304, 20);
+			this.btnImportExcel.Location = new System.Drawing.Point(102, 20);
 			this.btnImportExcel.Margin = new System.Windows.Forms.Padding(4, 20, 4, 5);
 			this.btnImportExcel.Name = "btnImportExcel";
 			this.btnImportExcel.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.btnImportExcel.Size = new System.Drawing.Size(170, 50);
-			this.btnImportExcel.TabIndex = 6;
+			this.btnImportExcel.TabIndex = 4;
 			this.btnImportExcel.Text = "ادراج بيانات";
 			this.btnImportExcel.UseVisualStyleBackColor = true;
 			// 
@@ -167,25 +181,31 @@ namespace ViolationsSystem.Views
             this.blockDateDataGridViewTextBoxColumn});
 			this.dataGridView.DataSource = this.violationBindingSource;
 			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+			this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
 			this.dataGridView.GridColor = System.Drawing.SystemColors.Desktop;
 			this.dataGridView.Location = new System.Drawing.Point(3, 41);
 			this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.dataGridView.Name = "dataGridView";
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.dataGridView.RowHeadersWidth = 51;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+			this.dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.dataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView.Size = new System.Drawing.Size(702, 679);
 			this.dataGridView.TabIndex = 0;
+			// 
+			// violationBindingSource
+			// 
+			this.violationBindingSource.DataSource = typeof(ViolationSystem.Data.Entities.Violation);
 			// 
 			// splitContainer1
 			// 
@@ -202,7 +222,7 @@ namespace ViolationsSystem.Views
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.groupBox4);
 			this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-			this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
+			this.splitContainer1.Panel2.Controls.Add(this.filterUserControle1);
 			this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.splitContainer1.Size = new System.Drawing.Size(1060, 723);
 			this.splitContainer1.SplitterDistance = 708;
@@ -221,54 +241,44 @@ namespace ViolationsSystem.Views
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.label5);
 			this.groupBox4.Controls.Add(this.label4);
 			this.groupBox4.Controls.Add(this.label6);
 			this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.groupBox4.Location = new System.Drawing.Point(0, 585);
+			this.groupBox4.Location = new System.Drawing.Point(0, 623);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.groupBox4.Size = new System.Drawing.Size(348, 138);
+			this.groupBox4.Size = new System.Drawing.Size(348, 100);
 			this.groupBox4.TabIndex = 11;
 			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "دلالات الألوان والملاحظات";
-			// 
-			// label5
-			// 
-			this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.label5.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(3, 34);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(342, 37);
-			this.label5.TabIndex = 14;
-			this.label5.Text = "حدد صف واحد أو صفوف متعددة لتطبيق عليها نفس الاجراءات(رقم بلاغ، تاريخ سداد، تاريخ" +
-    " الحجز الاداري)";
+			this.groupBox4.Text = "دلالات الألوان";
 			// 
 			// label4
 			// 
 			this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
 			this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.label4.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(3, 71);
+			this.label4.Location = new System.Drawing.Point(3, 33);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(342, 32);
 			this.label4.TabIndex = 13;
 			this.label4.Text = "هذا اللون يدل على تكرار المخالفة بنفس التاريخ";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label6
 			// 
 			this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.label6.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(3, 103);
+			this.label6.Location = new System.Drawing.Point(3, 65);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(342, 32);
 			this.label6.TabIndex = 15;
 			this.label6.Text = "هذا اللون يدل على أنه تم ارسال السياره للمرور";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.btnSave);
+			this.groupBox2.Controls.Add(this.btnApplyChanges);
 			this.groupBox2.Controls.Add(this.txtBlockDate);
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Controls.Add(this.txtPaymentDate);
@@ -276,66 +286,44 @@ namespace ViolationsSystem.Views
 			this.groupBox2.Controls.Add(this.txtReportNumber);
 			this.groupBox2.Controls.Add(this.label1);
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.groupBox2.Location = new System.Drawing.Point(0, 197);
+			this.groupBox2.Location = new System.Drawing.Point(0, 209);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(348, 361);
-			this.groupBox2.TabIndex = 0;
+			this.groupBox2.Size = new System.Drawing.Size(348, 383);
+			this.groupBox2.TabIndex = 2;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "الإجراءات";
 			// 
-			// btnSave
+			// btnApplyChanges
 			// 
-			this.btnSave.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnSave.Location = new System.Drawing.Point(3, 287);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(342, 53);
-			this.btnSave.TabIndex = 9;
-			this.btnSave.Text = "تطبيق الاجراء";
-			this.btnSave.UseVisualStyleBackColor = true;
-			// 
-			// txtBlockDate
-			// 
-			this.txtBlockDate.Culture = new System.Globalization.CultureInfo("ar-EG");
-			this.txtBlockDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.txtBlockDate.Location = new System.Drawing.Point(3, 242);
-			this.txtBlockDate.Mask = "00 /00 /0000";
-			this.txtBlockDate.Name = "txtBlockDate";
-			this.txtBlockDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.txtBlockDate.Size = new System.Drawing.Size(342, 45);
-			this.txtBlockDate.TabIndex = 12;
-			this.txtBlockDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.txtBlockDate.ValidatingType = typeof(System.DateTime);
+			this.btnApplyChanges.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnApplyChanges.Location = new System.Drawing.Point(3, 336);
+			this.btnApplyChanges.Name = "btnApplyChanges";
+			this.btnApplyChanges.Size = new System.Drawing.Size(342, 47);
+			this.btnApplyChanges.TabIndex = 5;
+			this.btnApplyChanges.Text = "تطبيق الاجراء";
+			this.btnApplyChanges.UseVisualStyleBackColor = true;
 			// 
 			// label3
 			// 
 			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label3.Location = new System.Drawing.Point(3, 205);
+			this.label3.ForeColor = System.Drawing.Color.Blue;
+			this.label3.Location = new System.Drawing.Point(3, 231);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(342, 37);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "تاريخ الحجز الإداري";
-			// 
-			// txtPaymentDate
-			// 
-			this.txtPaymentDate.Culture = new System.Globalization.CultureInfo("ar-EG");
-			this.txtPaymentDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.txtPaymentDate.Location = new System.Drawing.Point(3, 160);
-			this.txtPaymentDate.Mask = "00 /00 /0000";
-			this.txtPaymentDate.Name = "txtPaymentDate";
-			this.txtPaymentDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.txtPaymentDate.Size = new System.Drawing.Size(342, 45);
-			this.txtPaymentDate.TabIndex = 11;
-			this.txtPaymentDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.txtPaymentDate.ValidatingType = typeof(System.DateTime);
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 
 			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label2.ForeColor = System.Drawing.Color.Blue;
 			this.label2.Location = new System.Drawing.Point(3, 123);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(342, 37);
 			this.label2.TabIndex = 8;
 			this.label2.Text = "تاريخ السداد";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// txtReportNumber
 			// 
@@ -343,77 +331,54 @@ namespace ViolationsSystem.Views
 			this.txtReportNumber.Location = new System.Drawing.Point(3, 78);
 			this.txtReportNumber.Name = "txtReportNumber";
 			this.txtReportNumber.Size = new System.Drawing.Size(342, 45);
-			this.txtReportNumber.TabIndex = 13;
+			this.txtReportNumber.TabIndex = 0;
 			// 
 			// label1
 			// 
 			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label1.ForeColor = System.Drawing.Color.Blue;
 			this.label1.Location = new System.Drawing.Point(3, 41);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(342, 37);
 			this.label1.TabIndex = 7;
 			this.label1.Text = "رقم البلاغ";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// groupBox3
+			// txtBlockDate
 			// 
-			this.groupBox3.Controls.Add(this.CodeFiltercheckedList);
-			this.groupBox3.Controls.Add(this.panel2);
-			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.groupBox3.Location = new System.Drawing.Point(0, 0);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.groupBox3.Size = new System.Drawing.Size(348, 197);
-			this.groupBox3.TabIndex = 9;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "filter";
+			this.txtBlockDate.Date = new System.DateTime(2024, 7, 24, 0, 0, 0, 0);
+			this.txtBlockDate.Dock = System.Windows.Forms.DockStyle.Top;
+			this.txtBlockDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBlockDate.Location = new System.Drawing.Point(3, 268);
+			this.txtBlockDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.txtBlockDate.Name = "txtBlockDate";
+			this.txtBlockDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.txtBlockDate.Size = new System.Drawing.Size(342, 68);
+			this.txtBlockDate.TabIndex = 12;
 			// 
-			// CodeFiltercheckedList
+			// txtPaymentDate
 			// 
-			this.CodeFiltercheckedList.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.CodeFiltercheckedList.FormattingEnabled = true;
-			this.CodeFiltercheckedList.Location = new System.Drawing.Point(3, 82);
-			this.CodeFiltercheckedList.Name = "CodeFiltercheckedList";
-			this.CodeFiltercheckedList.Size = new System.Drawing.Size(342, 112);
-			this.CodeFiltercheckedList.TabIndex = 8;
+			this.txtPaymentDate.Date = new System.DateTime(2024, 7, 24, 0, 0, 0, 0);
+			this.txtPaymentDate.Dock = System.Windows.Forms.DockStyle.Top;
+			this.txtPaymentDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPaymentDate.Location = new System.Drawing.Point(3, 160);
+			this.txtPaymentDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.txtPaymentDate.Name = "txtPaymentDate";
+			this.txtPaymentDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.txtPaymentDate.Size = new System.Drawing.Size(342, 71);
+			this.txtPaymentDate.TabIndex = 11;
 			// 
-			// panel2
+			// filterUserControle1
 			// 
-			this.panel2.Controls.Add(this.btnApplyFilter);
-			this.panel2.Controls.Add(this.checkBoxSelectAll);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(3, 41);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(342, 41);
-			this.panel2.TabIndex = 10;
-			// 
-			// btnApplyFilter
-			// 
-			this.btnApplyFilter.Dock = System.Windows.Forms.DockStyle.Left;
-			this.btnApplyFilter.Location = new System.Drawing.Point(0, 0);
-			this.btnApplyFilter.Name = "btnApplyFilter";
-			this.btnApplyFilter.Size = new System.Drawing.Size(122, 41);
-			this.btnApplyFilter.TabIndex = 10;
-			this.btnApplyFilter.Text = "تطبيق";
-			this.btnApplyFilter.UseVisualStyleBackColor = true;
-			this.btnApplyFilter.Click += new System.EventHandler(this.btnApplyFilter_Click);
-			// 
-			// checkBoxSelectAll
-			// 
-			this.checkBoxSelectAll.AutoSize = true;
-			this.checkBoxSelectAll.Checked = true;
-			this.checkBoxSelectAll.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxSelectAll.Dock = System.Windows.Forms.DockStyle.Right;
-			this.checkBoxSelectAll.Location = new System.Drawing.Point(217, 0);
-			this.checkBoxSelectAll.Name = "checkBoxSelectAll";
-			this.checkBoxSelectAll.Size = new System.Drawing.Size(125, 41);
-			this.checkBoxSelectAll.TabIndex = 9;
-			this.checkBoxSelectAll.Text = "تحديد الكل";
-			this.checkBoxSelectAll.UseVisualStyleBackColor = true;
-			this.checkBoxSelectAll.CheckedChanged += new System.EventHandler(this.checkBoxSelectAll_CheckedChanged);
-			// 
-			// violationBindingSource
-			// 
-			this.violationBindingSource.DataSource = typeof(ViolationSystem.Data.Entities.Violation);
+			this.filterUserControle1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.filterUserControle1.FilterList = ((System.Collections.Generic.List<string>)(resources.GetObject("filterUserControle1.FilterList")));
+			this.filterUserControle1.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.filterUserControle1.Location = new System.Drawing.Point(0, 0);
+			this.filterUserControle1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+			this.filterUserControle1.Name = "filterUserControle1";
+			this.filterUserControle1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.filterUserControle1.Size = new System.Drawing.Size(348, 209);
+			this.filterUserControle1.TabIndex = 12;
 			// 
 			// truckCodeBodx
 			// 
@@ -425,7 +390,7 @@ namespace ViolationsSystem.Views
 			this.truckCodeBodx.Padding = new System.Windows.Forms.Padding(5);
 			this.truckCodeBodx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.truckCodeBodx.Size = new System.Drawing.Size(226, 80);
-			this.truckCodeBodx.TabIndex = 5;
+			this.truckCodeBodx.TabIndex = 0;
 			this.truckCodeBodx.txtCodeChars = "";
 			this.truckCodeBodx.txtCodeDigits = "";
 			// 
@@ -435,6 +400,7 @@ namespace ViolationsSystem.Views
 			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
 			this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
 			this.idDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// NumSeq
@@ -458,12 +424,14 @@ namespace ViolationsSystem.Views
 			// violationDateDataGridViewTextBoxColumn
 			// 
 			this.violationDateDataGridViewTextBoxColumn.DataPropertyName = "ViolationDate";
-			dataGridViewCellStyle3.Format = "yyyy/MM/dd";
+			dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+			dataGridViewCellStyle3.NullValue = null;
 			this.violationDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
 			this.violationDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
 			this.violationDateDataGridViewTextBoxColumn.HeaderText = "تاريخ المخالفة";
 			this.violationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.violationDateDataGridViewTextBoxColumn.Name = "violationDateDataGridViewTextBoxColumn";
+			this.violationDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// unitDataGridViewTextBoxColumn
 			// 
@@ -472,6 +440,7 @@ namespace ViolationsSystem.Views
 			this.unitDataGridViewTextBoxColumn.HeaderText = "الوحدة";
 			this.unitDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+			this.unitDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// elManfazDataGridViewTextBoxColumn
 			// 
@@ -480,6 +449,7 @@ namespace ViolationsSystem.Views
 			this.elManfazDataGridViewTextBoxColumn.HeaderText = "المنفذ";
 			this.elManfazDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.elManfazDataGridViewTextBoxColumn.Name = "elManfazDataGridViewTextBoxColumn";
+			this.elManfazDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// reportNumberDataGridViewTextBoxColumn
 			// 
@@ -488,22 +458,30 @@ namespace ViolationsSystem.Views
 			this.reportNumberDataGridViewTextBoxColumn.HeaderText = "رقم البلاغ";
 			this.reportNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.reportNumberDataGridViewTextBoxColumn.Name = "reportNumberDataGridViewTextBoxColumn";
+			this.reportNumberDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// paymentDateDataGridViewTextBoxColumn
 			// 
 			this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
+			dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+			this.paymentDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
 			this.paymentDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
 			this.paymentDateDataGridViewTextBoxColumn.HeaderText = "تاريخ السداد";
 			this.paymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
+			this.paymentDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// blockDateDataGridViewTextBoxColumn
 			// 
 			this.blockDateDataGridViewTextBoxColumn.DataPropertyName = "BlockDate";
+			dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+			dataGridViewCellStyle5.NullValue = "غير محدد";
+			this.blockDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
 			this.blockDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
 			this.blockDateDataGridViewTextBoxColumn.HeaderText = "تاريخ الحجز";
 			this.blockDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.blockDateDataGridViewTextBoxColumn.Name = "blockDateDataGridViewTextBoxColumn";
+			this.blockDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// HomeView
 			// 
@@ -517,6 +495,7 @@ namespace ViolationsSystem.Views
 			this.Size = new System.Drawing.Size(1060, 803);
 			this.flowLayoutPanelOptions.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -525,10 +504,6 @@ namespace ViolationsSystem.Views
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
-			this.groupBox3.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -550,22 +525,18 @@ namespace ViolationsSystem.Views
 		private GroupBox groupBox2;
 		private Button btnImportExcel;
 		private DataGridViewTextBoxColumn truckDataGridViewTextBoxColumn;
-		private GroupBox groupBox3;
-		private CheckBox checkBoxSelectAll;
-		private CheckedListBox CodeFiltercheckedList;
-		private Panel panel2;
-		private Button btnApplyFilter;
-		private MaskedTextBox txtBlockDate;
 		private Label label3;
-		private MaskedTextBox txtPaymentDate;
 		private Label label2;
 		private TextBox txtReportNumber;
 		private Label label1;
-		private Button btnSave;
+		private Button btnApplyChanges;
 		private GroupBox groupBox4;
-		private Label label5;
 		private Label label4;
 		private Label label6;
+		private Button btnSaveChages;
+		private ViolationstSystem.Views.CustomeComponants.FilterUserControle filterUserControle1;
+		private ViolationsCollecting.View.CustomeComponants.DateBox txtPaymentDate;
+		private ViolationsCollecting.View.CustomeComponants.DateBox txtBlockDate;
 		private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn NumSeq;
 		private DataGridViewTextBoxColumn truckCodeDataGridViewTextBoxColumn;

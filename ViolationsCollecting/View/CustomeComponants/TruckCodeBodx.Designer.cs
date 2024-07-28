@@ -76,11 +76,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			a1.BackColor = SystemColors.Control;
 			a1.BorderStyle = BorderStyle.FixedSingle;
-			a1.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			a1.Font = new Font("Calibri", 18F);
 			a1.Location = new Point(148, 8);
 			a1.MaxLength = 1;
 			a1.Name = "a1";
-			a1.Size = new Size(45, 45);
+			a1.Size = new Size(45, 44);
 			a1.TabIndex = 0;
 			a1.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -98,11 +98,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			a2.BackColor = SystemColors.Control;
 			a2.BorderStyle = BorderStyle.FixedSingle;
-			a2.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			a2.Font = new Font("Calibri", 18F);
 			a2.Location = new Point(78, 8);
 			a2.MaxLength = 1;
 			a2.Name = "a2";
-			a2.Size = new Size(45, 45);
+			a2.Size = new Size(45, 44);
 			a2.TabIndex = 1;
 			a2.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -120,11 +120,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			a3.BackColor = SystemColors.Control;
 			a3.BorderStyle = BorderStyle.FixedSingle;
-			a3.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			a3.Font = new Font("Calibri", 18F);
 			a3.Location = new Point(8, 8);
 			a3.MaxLength = 1;
 			a3.Name = "a3";
-			a3.Size = new Size(45, 45);
+			a3.Size = new Size(45, 44);
 			a3.TabIndex = 2;
 			a3.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -174,11 +174,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			n1.BackColor = SystemColors.Control;
 			n1.BorderStyle = BorderStyle.FixedSingle;
-			n1.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			n1.Font = new Font("Calibri", 18F);
 			n1.Location = new Point(259, 8);
 			n1.MaxLength = 1;
 			n1.Name = "n1";
-			n1.Size = new Size(45, 45);
+			n1.Size = new Size(45, 44);
 			n1.TabIndex = 0;
 			n1.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -196,11 +196,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			n2.BackColor = SystemColors.Control;
 			n2.BorderStyle = BorderStyle.FixedSingle;
-			n2.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			n2.Font = new Font("Calibri", 18F);
 			n2.Location = new Point(189, 8);
 			n2.MaxLength = 1;
 			n2.Name = "n2";
-			n2.Size = new Size(45, 45);
+			n2.Size = new Size(45, 44);
 			n2.TabIndex = 1;
 			n2.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -218,11 +218,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			n3.BackColor = SystemColors.Control;
 			n3.BorderStyle = BorderStyle.FixedSingle;
-			n3.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			n3.Font = new Font("Calibri", 18F);
 			n3.Location = new Point(119, 8);
 			n3.MaxLength = 1;
 			n3.Name = "n3";
-			n3.Size = new Size(45, 45);
+			n3.Size = new Size(45, 44);
 			n3.TabIndex = 2;
 			n3.TextAlign = HorizontalAlignment.Center;
 			// 
@@ -240,11 +240,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			n4.BackColor = SystemColors.Control;
 			n4.BorderStyle = BorderStyle.FixedSingle;
-			n4.Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			n4.Font = new Font("Calibri", 18F);
 			n4.Location = new Point(49, 8);
 			n4.MaxLength = 1;
 			n4.Name = "n4";
-			n4.Size = new Size(45, 45);
+			n4.Size = new Size(45, 44);
 			n4.TabIndex = 5;
 			n4.TextAlign = HorizontalAlignment.Center;
 			// 

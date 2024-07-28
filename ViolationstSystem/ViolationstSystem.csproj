@@ -68,6 +68,18 @@
     <Compile Include="Views\CustomeComponants\DateBox.Designer.cs">
       <DependentUpon>DateBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomeComponants\FilterUserControle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\FilterUserControle.Designer.cs">
+      <DependentUpon>FilterUserControle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\HelperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\HelperForm.Designer.cs">
+      <DependentUpon>HelperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomeComponants\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,12 +133,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\TruckViolationReport.rdlc" />
     <EmbeddedResource Include="Reports\TrafficReport.rdlc" />
     <EmbeddedResource Include="Views\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomeComponants\DateBox.resx">
       <DependentUpon>DateBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\FilterUserControle.resx">
+      <DependentUpon>FilterUserControle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\HelperForm.resx">
+      <DependentUpon>HelperForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomeComponants\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>

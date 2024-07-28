@@ -66,7 +66,11 @@ namespace ViolationSystem.Data.Repositories
 					);
 				if (truck.Any())
 				{
-					var violations = truck.SelectMany(x => x.Violations).Include(x => x.Truck).ToList();
+					var violations = truck
+						.SelectMany(x => x.Violations)
+						.Include(x => x.Truck)
+						.Take(500)
+						.ToList();
 					return violations;
 				}
 				else
@@ -181,5 +185,64 @@ namespace ViolationSystem.Data.Repositories
             }
 		}
 
+		public async void UpdateViolations(List<Violation> violationsList)
+		{
+			foreach (var updatedViolation in violationsList)
+            {
+				try
+				{
+					// Load the existing violation with the current TruckCode
+					var existingViolation = await db.Violations.Include(v => v.Truck)
+															   .FirstOrDefaultAsync(v => v.Id == updatedViolation.Id);
+					if (existingViolation == null)
+					{
+						throw new InvalidOperationException("Violation not found.");
+					}
+
+					// Check if the new TruckCode exists
+					var newTruck = await db.Trucks.FirstOrDefaultAsync(t => t.TruckCode == updatedViolation.TruckCode);
+					if (newTruck == null)
+					{
+						newTruck = new Truck()
+						{
+							TruckCode = updatedViolation.TruckCode,
+							IsExplored = false
+						};
+
+						db.Entry(newTruck).State = EntityState.Detached;
+
+						db.Trucks.Add(newTruck);
+						await db.SaveChangesAsync();
+					}
+
+					// Update the properties
+					existingViolation.TruckCode = updatedViolation.TruckCode;
+					existingViolation.Truck = newTruck;
+					existingViolation.ViolationDate = updatedViolation.ViolationDate;
+					existingViolation.Unit = updatedViolation.Unit;
+					existingViolation.ElManfaz = updatedViolation.ElManfaz;
+
+					// Update other properties if necessary
+					existingViolation.ReportNumber = updatedViolation.ReportNumber;
+					existingViolation.PaymentDate = updatedViolation.PaymentDate;
+					existingViolation.BlockDate = updatedViolation.BlockDate;
+
+					// Save changes
+					await db.SaveChangesAsync();
+				}
+				catch (Exception ex)
+				{
+				}
+			}
+		}
+
+		public void RemoveViolations(List<Violation> deletedViolations)
+		{
+			foreach (var item in deletedViolations)
+			{
+				db.Violations.Remove(item);
+				db.SaveChanges();
+			}
+		}
 	}
 }

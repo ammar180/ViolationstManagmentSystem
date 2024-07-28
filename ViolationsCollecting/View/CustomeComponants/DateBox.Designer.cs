@@ -66,10 +66,10 @@
 			flowLayoutPanel1.Controls.Add(DayNum);
 			flowLayoutPanel1.Dock = DockStyle.Right;
 			flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-			flowLayoutPanel1.Location = new Point(179, 35);
+			flowLayoutPanel1.Location = new Point(63, 35);
 			flowLayoutPanel1.Margin = new Padding(2, 3, 2, 3);
 			flowLayoutPanel1.Name = "flowLayoutPanel1";
-			flowLayoutPanel1.Size = new Size(335, 55);
+			flowLayoutPanel1.Size = new Size(451, 55);
 			flowLayoutPanel1.TabIndex = 3;
 			// 
 			// label1
@@ -85,12 +85,13 @@
 			// 
 			// YearNum
 			// 
+			YearNum.Font = new Font("Cairo", 12F);
 			YearNum.Location = new Point(54, 3);
 			YearNum.Margin = new Padding(2, 3, 2, 3);
 			YearNum.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
 			YearNum.Name = "YearNum";
 			YearNum.RightToLeft = RightToLeft.No;
-			YearNum.Size = new Size(61, 39);
+			YearNum.Size = new Size(61, 45);
 			YearNum.TabIndex = 2;
 			YearNum.TextAlign = HorizontalAlignment.Center;
 			YearNum.Value = new decimal(new int[] { 24, 0, 0, 0 });
@@ -108,13 +109,14 @@
 			// 
 			// MonthNum
 			// 
+			MonthNum.Font = new Font("Cairo", 12F);
 			MonthNum.Location = new Point(156, 3);
 			MonthNum.Margin = new Padding(2, 3, 2, 3);
 			MonthNum.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
 			MonthNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			MonthNum.Name = "MonthNum";
 			MonthNum.RightToLeft = RightToLeft.No;
-			MonthNum.Size = new Size(61, 39);
+			MonthNum.Size = new Size(61, 45);
 			MonthNum.TabIndex = 1;
 			MonthNum.TextAlign = HorizontalAlignment.Center;
 			MonthNum.Value = new decimal(new int[] { 7, 0, 0, 0 });
@@ -132,13 +134,14 @@
 			// 
 			// DayNum
 			// 
+			DayNum.Font = new Font("Cairo", 12F);
 			DayNum.Location = new Point(258, 3);
 			DayNum.Margin = new Padding(2, 3, 2, 3);
 			DayNum.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
 			DayNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			DayNum.Name = "DayNum";
 			DayNum.RightToLeft = RightToLeft.No;
-			DayNum.Size = new Size(61, 39);
+			DayNum.Size = new Size(61, 45);
 			DayNum.TabIndex = 0;
 			DayNum.TextAlign = HorizontalAlignment.Center;
 			DayNum.Value = new decimal(new int[] { 7, 0, 0, 0 });

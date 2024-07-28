@@ -17,6 +17,8 @@ namespace ViolationSystem.Data.Repositories
 		Task AddViolationRange(List<Violation> violations);
 		Task<ICollection<Violation>> GetViolationsByCode(string digits, string chars);
 		Task AddTrucksRange(List<Truck> trucks);
+		void UpdateViolations(List<Violation> violationsList);
+		void RemoveViolations(List<Violation> deletedViolations);
 		//bool CanConnect();
 	}
 }

@@ -34,12 +34,12 @@ namespace ViolationsSystem
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
 			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sendTrafficTP = new System.Windows.Forms.TabPage();
+			this.sendTrafficView1 = new ViolationsSystem.Views.SendTrafficView();
 			this.homeTP = new System.Windows.Forms.TabPage();
+			this.homeView1 = new ViolationsSystem.Views.HomeView();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.SettingTP = new System.Windows.Forms.TabPage();
 			this.AdminLoginTP = new System.Windows.Forms.TabPage();
-			this.homeView1 = new ViolationsSystem.Views.HomeView();
-			this.sendTrafficView1 = new ViolationsSystem.Views.SendTrafficView();
 			this.adminLogin1 = new ViolationstSystem.Views.AdminLogin();
 			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
 			this.sendTrafficTP.SuspendLayout();
@@ -55,12 +55,24 @@ namespace ViolationsSystem
 			this.sendTrafficTP.Name = "sendTrafficTP";
 			this.sendTrafficTP.UseVisualStyleBackColor = true;
 			// 
+			// sendTrafficView1
+			// 
+			resources.ApplyResources(this.sendTrafficView1, "sendTrafficView1");
+			this.sendTrafficView1.Name = "sendTrafficView1";
+			// 
 			// homeTP
 			// 
 			this.homeTP.Controls.Add(this.homeView1);
 			resources.ApplyResources(this.homeTP, "homeTP");
 			this.homeTP.Name = "homeTP";
 			this.homeTP.UseVisualStyleBackColor = true;
+			// 
+			// homeView1
+			// 
+			resources.ApplyResources(this.homeView1, "homeView1");
+			this.homeView1.dublicatedDateCode = null;
+			this.homeView1.ExploredCodesOfTrucks = null;
+			this.homeView1.Name = "homeView1";
 			// 
 			// tabControl1
 			// 
@@ -84,16 +96,6 @@ namespace ViolationsSystem
 			resources.ApplyResources(this.AdminLoginTP, "AdminLoginTP");
 			this.AdminLoginTP.Name = "AdminLoginTP";
 			this.AdminLoginTP.UseVisualStyleBackColor = true;
-			// 
-			// homeView1
-			// 
-			resources.ApplyResources(this.homeView1, "homeView1");
-			this.homeView1.Name = "homeView1";
-			// 
-			// sendTrafficView1
-			// 
-			resources.ApplyResources(this.sendTrafficView1, "sendTrafficView1");
-			this.sendTrafficView1.Name = "sendTrafficView1";
 			// 
 			// adminLogin1
 			// 

@@ -7,16 +7,12 @@ namespace ViolationsCollecting.View.CustomeComponants
 	public partial class LoadingForm : Form
 	{
 		private static LoadingForm loading;
-		private static MainView mainInstance;
+		public static MainView mainViewInstance;
 
 		public LoadingForm()
 		{
 			InitializeComponent();
-			this.Owner = OwnerFormInstance();
-		}
-		private MainView OwnerFormInstance()
-		{
-			return mainInstance ?? (mainInstance = new MainView());
+			this.Owner = mainViewInstance;
 		}
 		public static LoadingForm Instance()
 		{

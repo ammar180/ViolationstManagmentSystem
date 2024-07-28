@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
+using ViolationsCollecting.View.CustomeComponants;
 using ViolationsSystem;
-using ViolationsSystem.Presenter;
-using ViolationsSystem.Views;
-using ViolationsSystem.Views.Interfaces;
-using ViolationSystem.Data.Repositories;
+using ViolationstSystem.Views;
 
 namespace ViolationstSystem
 {
@@ -21,10 +17,12 @@ namespace ViolationstSystem
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			//IMainView view = new MainView();
+			var view = new MainView();
 			//new MainPresenter(view);
+			LoadingForm.mainViewInstance = view;
+			HelperForm.MainView = view;
 
-			Application.Run(new MainView());
+			Application.Run(view);
 		}
 	}
 }

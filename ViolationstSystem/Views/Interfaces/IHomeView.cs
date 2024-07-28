@@ -14,16 +14,20 @@ namespace ViolationsSystem.Views.Interfaces
 
 		BindingSource HomeViewBS { get; set; }
 		LoadingForm loading { get; }
-		HashSet<string> ExploredCodesOfTrucks { get; set; }
+		bool[] ExploredCodesOfTrucks { get; set; }
+		bool[] dublicatedDateCode { get; set; }
 
-		event EventHandler HandleImport;
 		event EventHandler HandleGetViolationsList;
 		event EventHandler UpdateDG;
+		event EventHandler HandleImport;
 
-		event EventHandler HandleGridEdit;
-		event EventHandler HandleGridAdd;
-		event EventHandler HandleGridDelete;
-
-		void FillCodeFiltercheckedList(List<string> list);
+		//event EventHandler HandleGridEdit;
+		//event EventHandler HandleGridAdd;
+		//event EventHandler HandleGridDelete;
+		event EventHandler SaveChangesEvent;
+		event EventHandler PrintEvent;
+		List<string> FillCodeFiltercheckedList { set; }
+		List<Violation> ModifiedViolations { get; set; }
+		List<Violation> DeletedViolations { get; set; }
 	}
 }

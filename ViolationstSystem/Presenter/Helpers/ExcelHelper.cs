@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,7 +42,8 @@ namespace ViolationsSystem.Presenter.Helpers
 							var elManfaz = row.Cell(4).GetString();
 							try
 							{
-							var violationDate = row.Cell(2).GetDateTime();
+								var dateCellValue = row.Cell(2).GetString();
+								var violationDate = ParseDate(dateCellValue);
 								violations.Add(
 									new Violation
 									{
@@ -66,6 +68,12 @@ namespace ViolationsSystem.Presenter.Helpers
 										ViolationDate = new DateTime(2000,1,1),
 										Unit = unit,
 										ElManfaz = elManfaz,
+										Truck = new Truck
+										{
+											TruckCode = truckCode,
+											IsExplored = false,
+
+										}
 									});
 							}
 						}
@@ -81,6 +89,16 @@ namespace ViolationsSystem.Presenter.Helpers
 			}
 			return new List<Violation>();
 		}
+
+		private static DateTime ParseDate(string dateString)
+		{
+			var formats = new[] { "d/M/yyyy", "dd/MM/yyyy", "M/d/yyyy", "MM/dd/yyyy" };
+			foreach (var format in formats)
+				if (DateTime.TryParseExact(dateString.Split(' ').First(), format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+					return date;
+			throw new FormatException("Invalid date format.");
+		}
+
 		public static void Export(DataTable dt, string name, string savePath)
 		{
 			try

@@ -8,14 +8,24 @@ namespace ViolationsCollecting.View.CustomeComponants
 	{
 		public string txtTruckCode
 		{
-			get => string.Join("", txtChars.Text, txtDigits.Text);
+			get => string.Join("", txtCodeChars, txtCodeDigits);
 		}
-		public string txtCodeChars { get => txtChars.Text; set => txtChars.Text = value; }
-		public string txtCodeDigits { get => txtDigits.Text; set => txtDigits.Text = value; }
-		public TruckCodeBodx()
+		//public string txtCodeChars { get => txtChars.Text; set => txtChars.Text = value; }
+		//public string txtCodeDigits { get => txtDigits.Text; set => txtDigits.Text = value; }
+
+		public string txtCodeChars { get => msChar.Text.Replace(" ", ""); set => msChar.Text = value; }
+		public string txtCodeDigits { get => msDigits.Text.Replace(" ", ""); set => msDigits.Text = value; }
+		public bool SetBoxesEnable
+		{
+			set{
+				msChar.Enabled = value;
+				msDigits.Enabled = value;
+			}
+		}
+        public TruckCodeBodx()
 		{
 			InitializeComponent();
-			txtDigits.Focus();
+			msDigits.Focus();
 		}
 
 		private void AssosiateEventsToTextBoxes()
@@ -94,9 +104,9 @@ namespace ViolationsCollecting.View.CustomeComponants
 
 		}
 		public void ClearCodeBoxes()
-		{	
-			txtChars.Clear();
-			txtDigits.Clear();
+		{
+			msDigits.Clear();
+			msDigits.Clear();
 		}
 	}
 }
