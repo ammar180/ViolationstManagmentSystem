@@ -36,19 +36,24 @@ namespace ViolationSystem.Data.Repositories
 			}
 		}
 
-		public async Task<bool> AddViolation(Violation violationModel)
+		public async Task AddViolation(Violation violationModel)
 		{
 			try
 			{
 				db.Violations.Add(violationModel);
 				await db.SaveChangesAsync();
-				return true;
 			}
-			catch (Exception ex)
+			catch
 			{
-				// Log exception
-				return false;
-				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
+				try
+				{
+					db.Entry(violationModel.Truck).State = EntityState.Detached;
+					db.Violations.Add(violationModel);
+					await db.SaveChangesAsync();
+				}
+				catch {
+					throw new Exception("Invalid Opration!");
+				}
 			}
 		}
 
@@ -60,7 +65,8 @@ namespace ViolationSystem.Data.Repositories
 		{
 			try
 			{
-				var truck = db.Trucks.Where(x => 
+				var truck = db.Trucks
+					.Where(x => 
 					x.TruckCode.Substring(3).Contains(digits)
 					&& x.TruckCode.Substring(0,3).Contains(chars)
 					);
@@ -82,26 +88,6 @@ namespace ViolationSystem.Data.Repositories
 			}
 		}
 
-		//public async Task<bool> CheckTruckExest(Truck Code)
-		//{
-		//	return await db.Trucks.AnyAsync(x => x == Code);
-		//}
-
-		//public async Task<bool> AddTruck(Truck truckModel)
-		//{
-		//	try
-		//	{
-		//		db.Trucks.Add(truckModel);
-		//		await db.SaveChangesAsync();
-		//		return true;
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		// Log exception
-		//		return false;
-		//		throw new InvalidOperationException("An error occurred while editing the violation.", ex);
-		//	}
-		//}
 		public async Task<ICollection<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate)
 		{
 			return await db.Violations.Where(x =>
@@ -165,84 +151,101 @@ namespace ViolationSystem.Data.Repositories
 		}
 		public async Task AddViolationRange(List<Violation> violations)
 		{
-            foreach (var violation in violations)
-            {
-				try
-				{
-					db.Violations.Add(violation);
-					await db.SaveChangesAsync();
-				}
-				catch(DbUpdateException)
-				{
-					try
-					{
-						db.Entry(violation.Truck).State = EntityState.Detached;
-						db.Violations.Add(violation);
-						await db.SaveChangesAsync();
-					}
-					catch { }
-				}
-            }
+            foreach (var violationModel in violations)
+				await AddViolation(violationModel);
 		}
 
-		public async void UpdateViolations(List<Violation> violationsList)
+		public async Task UpdateViolations(List<Violation> violationsList)
 		{
-			foreach (var updatedViolation in violationsList)
-            {
-				try
+			try
+			{
+				foreach (var updatedViolation in violationsList)
 				{
 					// Load the existing violation with the current TruckCode
-					var existingViolation = await db.Violations.Include(v => v.Truck)
-															   .FirstOrDefaultAsync(v => v.Id == updatedViolation.Id);
-					if (existingViolation == null)
+					//var existingViolation = await db.Violations
+					//								.Include(v => v.Truck)
+					//								.FirstOrDefaultAsync(v => v.Id == updatedViolation.Id);
+					var t = db.Trucks.FirstOrDefault(x => x.TruckCode == updatedViolation.TruckCode);
+					updatedViolation.Truck = t;
+					if(t == null)
 					{
-						throw new InvalidOperationException("Violation not found.");
+						t = new Truck() { TruckCode = updatedViolation.TruckCode , IsExplored = false};
+						db.Entry(t).State = EntityState.Added;
+						updatedViolation.Truck = t;
 					}
-
-					// Check if the new TruckCode exists
-					var newTruck = await db.Trucks.FirstOrDefaultAsync(t => t.TruckCode == updatedViolation.TruckCode);
-					if (newTruck == null)
-					{
-						newTruck = new Truck()
-						{
-							TruckCode = updatedViolation.TruckCode,
-							IsExplored = false
-						};
-
-						db.Entry(newTruck).State = EntityState.Detached;
-
-						db.Trucks.Add(newTruck);
-						await db.SaveChangesAsync();
-					}
-
-					// Update the properties
-					existingViolation.TruckCode = updatedViolation.TruckCode;
-					existingViolation.Truck = newTruck;
-					existingViolation.ViolationDate = updatedViolation.ViolationDate;
-					existingViolation.Unit = updatedViolation.Unit;
-					existingViolation.ElManfaz = updatedViolation.ElManfaz;
-
-					// Update other properties if necessary
-					existingViolation.ReportNumber = updatedViolation.ReportNumber;
-					existingViolation.PaymentDate = updatedViolation.PaymentDate;
-					existingViolation.BlockDate = updatedViolation.BlockDate;
-
-					// Save changes
-					await db.SaveChangesAsync();
+					
+					db.SaveChanges();
 				}
-				catch (Exception ex)
-				{
-				}
+			
+				//await RemoveViolations(violationsList);
+			}
+			catch (Exception ex)
+			{
 			}
 		}
 
-		public void RemoveViolations(List<Violation> deletedViolations)
+		public async Task RemoveViolations(List<Violation> deletedViolations)
 		{
-			foreach (var item in deletedViolations)
+			try
 			{
-				db.Violations.Remove(item);
-				db.SaveChanges();
+				foreach (var item in deletedViolations)
+				{
+					db.Violations.Remove(item);
+					await db.SaveChangesAsync();
+				}
+			}catch { }
+		}
+
+		public async Task AddTruckViolations(List<Violation> list)
+		{
+			if (list == null || list.Count == 0)
+			{
+				throw new ArgumentException("List of violations is empty or null.");
 			}
+
+			string code = list.FirstOrDefault()?.TruckCode;
+			if (code == null)
+			{
+				throw new ArgumentException("List of violations does not contain a valid TruckCode.");
+			}
+
+			var truck = await db.Trucks.Include(t => t.Violations).FirstOrDefaultAsync(x => x.TruckCode == code);
+
+			if (truck == null)
+			{
+				// If the truck does not exist, create a new one and add it to the context
+				truck = new Truck()
+				{
+					TruckCode = code,
+					IsExplored = false,
+					Violations = new List<Violation>()
+				};
+				db.Trucks.Add(truck);
+			}
+
+			// Iterate through each violation
+			foreach (var violation in list)
+			{
+				// Check if the violation already exists in the truck's violations collection
+				
+				violation.TruckCode = truck.TruckCode; // Ensure the violation has the correct TruckCode
+				violation.Truck = truck; // Associate the violation with the truck
+				db.Violations.Add(violation); // Add the violation to the context
+				
+			}
+
+			await db.SaveChangesAsync();
+		}
+
+		public async Task<List<Truck>> GetTrafficTrucks(int trucksCount, string targetUnit, DateTime startDate)
+		{
+			return await db.Trucks.Include(t => t.Violations).Where(x => 
+				!(x.IsExplored??false)
+				&& x.Violations.Any(v => 
+						v.Unit == targetUnit 
+						&& v.ViolationDate >= startDate)
+			).Take(trucksCount)
+			.ToListAsync();
 		}
 	}
 }

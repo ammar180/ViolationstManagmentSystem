@@ -98,7 +98,7 @@ namespace ViolationsCollecting.Model.Repositories
 			return db.Database.CanConnect();
 		}
 
-		public async Task<ICollection<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate)
+		public async Task<List<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate)
 		{
 			return await db.Violations.Where(x =>
 					x.RegistrationDate >= StartDate
@@ -109,8 +109,8 @@ namespace ViolationsCollecting.Model.Repositories
 		public async Task<ICollection<Violation>> GetViolationsInMonth(int month)
 		{
 			return await db.Violations.Where(x =>
-					x.ViolationDate.Month == month &&
-					x.ViolationDate.Year == DateTime.Now.Year
+					x.RegistrationDate.Month == month &&
+					x.RegistrationDate.Year == DateTime.Now.Year
 					).OrderBy(x => x.ViolationDate
 					).ToListAsync();
 		}

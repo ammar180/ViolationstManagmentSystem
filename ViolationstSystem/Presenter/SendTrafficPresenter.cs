@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using ViolationsSystem.Views.Interfaces;
 using ViolationSystem.Data.Repositories;
+using Microsoft.Reporting.WinForms;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using ViolationSystem.Data.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ViolationsSystem.Presenter
 {
@@ -11,33 +14,43 @@ namespace ViolationsSystem.Presenter
 		private ISendTrafficView view;
 		private IRepository repository;
 
-		private List<string> TruckCodeList;
+		private ReportDataSource rs1;
+		private ReportDataSource rs2;
 		public SendTrafficPresenter(ISendTrafficView view, IRepository repository)
-	    {
-			TruckCodeList = new List<string>();
+		{
 			this.view = view;
 			this.repository = repository;
 
+			rs1 = new ReportDataSource("TrafficReportDataSet1");
+			rs2 = new ReportDataSource("TrafficReportDataSet2");
 			//Subscribe event handler methods to view events
-			//this.view.GetResultEvent += GetResult;
+			view.GetResultEvent += GetResult;
 		}
 
-		//private void GetResult(object sender, EventArgs e)
-		//{
-		//	if (repository.IsCanConnect())
-		//	{
-		//		view.dgv.Rows.Clear();
-		//		TruckCodeList = repository.GetNumTrucksByS_E_Date(view.TrucksCount, view.StartDate, view.EndDate);
+		private async void GetResult(object sender, EventArgs e)
+		{
+			view.LoadingForm.Show();
+			var list = await repository.GetTrafficTrucks(view.TrucksCount, view.TargetUnit, view.StartDate);
+			var l1 = new List<Truck>();
+			var l2 = new List<Truck>();
 
-		//		int crt = 1;
-		//		TruckCodeList.ForEach(x =>
-		//		{
-		//			view.dgv.Rows.Add($"{crt}",x, "");
-		//			crt++;
-		//		});
-		//	}
-		//	else
-		//		MessageBox.Show("قاعدة البيانات ليست متصله");
-		//}
+			for (int i = 0, j = list.Count -1; i < (list.Count / 2); i++, j--)
+            {
+				l1.Add(list[i]);
+				l2.Add(list[j]);
+            }
+			view.LoadingForm.Hide();
+
+			view.report.LocalReport.SetParameters(new ReportParameter("StartCount", $"{l1.Count}"));
+
+			rs1.Value = l1;
+			rs2.Value = l2;
+
+            view.report.LocalReport.DataSources.Clear();
+			
+			view.report.LocalReport.DataSources.Add(rs1);
+			view.report.LocalReport.DataSources.Add(rs2);
+			view.report.RefreshReport();
+		}
 	}
 }

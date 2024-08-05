@@ -105,7 +105,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 		}
 		public void ClearCodeBoxes()
 		{
-			msDigits.Clear();
+			msChar.Clear();
 			msDigits.Clear();
 		}
 	}

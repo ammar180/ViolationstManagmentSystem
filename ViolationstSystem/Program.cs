@@ -21,6 +21,7 @@ namespace ViolationstSystem
 			//new MainPresenter(view);
 			LoadingForm.mainViewInstance = view;
 			HelperForm.MainView = view;
+			ImportView.mainViewInstance = view;
 
 			Application.Run(view);
 		}

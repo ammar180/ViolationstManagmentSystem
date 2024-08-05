@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -23,9 +22,12 @@ namespace ViolationsSystem.Views
 		public List<string> FillCodeFiltercheckedList { set => filterUserControle1.FilterList = value; }
 		public List<Violation> ModifiedViolations { get; set; }
 		public List<Violation> DeletedViolations { get; set; }
+		public List<Violation> DataGridViolations { get;
+			set; }
 		#endregion
 
 		#region Properties
+		private string originalCellValue;
 		#endregion
 		public HomeView()
         {
@@ -35,8 +37,9 @@ namespace ViolationsSystem.Views
 			ModifiedViolations = new List<Violation>();
 			DeletedViolations = new List<Violation>();
 
-			dataGridView.CellValueChanged += new DataGridViewCellEventHandler(HandleCellEdite);
-			dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellClose);
+			dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellEdite);
+			//dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellClose);
+			dataGridView.CellBeginEdit += DataGridView_CellBeginEdit;
 			dataGridView.UserDeletingRow += new DataGridViewRowCancelEventHandler(HandleDeleteRow);
 			dataGridView.CellFormatting += dataGridView_CellFormatting;
 
@@ -55,6 +58,9 @@ namespace ViolationsSystem.Views
 			btnApplyChanges.Click += ApplyChanges;
 			filterUserControle1.btnApplyFilter.Click += delegate { UpdateDG?.Invoke(filterUserControle1.FilterList, EventArgs.Empty); dataGridView.Refresh(); };
 			this.Load += HomeView_Load;
+
+			this.loading.FormShown += Loading_Shown;
+			this.loading.FormHiding += Loading_FormHiding;
 		}
 
 		#region Events
@@ -83,25 +89,32 @@ namespace ViolationsSystem.Views
 			loading.Hide();
 		}
 		private void HandleCellEdite(object sender, DataGridViewCellEventArgs e)
-		=> dataGridView[e.ColumnIndex, e.RowIndex].Value = dataGridView[e.ColumnIndex, e.RowIndex].Value.ToString().Replace(" ", "");
+		{
+			try
+			{
+				var c = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString().Replace(" ", "");
+				if (c != null && c.Length >= 5)
+				{
+					var rowToEdit = (Violation)dataGridView.Rows[e.RowIndex].DataBoundItem;
+					rowToEdit.TruckCode = c;
+					rowToEdit.Truck.TruckCode = rowToEdit.TruckCode;
+
+					ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToEdit.Id));
+					ModifiedViolations.Add(rowToEdit);
+				}
+				else
+					dataGridView[e.ColumnIndex, e.RowIndex].Value = originalCellValue;
+			}
+			catch { }
+		}
 
 		private void HandleDeleteRow(object sender, DataGridViewRowCancelEventArgs e)
 		{
 			var rowToDelete = (Violation)e.Row.DataBoundItem;
 			DeletedViolations.Add(rowToDelete);
 			ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToDelete.Id));
+			dublicatedDateCode[e.Row.Index] = false;
 		}
-
-		private void HandleCellClose(object sender, DataGridViewCellEventArgs e)
-		{
-			var rowToAdd = (Violation)dataGridView.Rows[e.RowIndex].DataBoundItem;
-			var existRow = ModifiedViolations.FirstOrDefault(x => x.Id == rowToAdd.Id);
-			if (existRow != null)
-				ModifiedViolations.Remove(existRow);
-
-			ModifiedViolations.Add(rowToAdd);
-		}
-			//SwitchToSaveMode(true);
 
 		private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
@@ -178,8 +191,6 @@ namespace ViolationsSystem.Views
 			return instance;
 		}
 
-		#endregion
-
 		private void btnSaveChages_Click(object sender, EventArgs e)
 		{
 			loading.Show();
@@ -204,6 +215,31 @@ namespace ViolationsSystem.Views
 		{
 			//HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
 		}
+
+		private void Loading_FormHiding(object sender, EventArgs e)
+			=> SetBtnsEnabled(true);
+
+
+		private void Loading_Shown(object sender, EventArgs e)
+			=> SetBtnsEnabled(false);
+
+		private void SetBtnsEnabled(bool v) 
+			=> btnShowFilter.Enabled =
+			btnSearch.Enabled =
+			btnSaveChages.Enabled =
+			btnPrint.Enabled =
+			btnImportExcel.Enabled =
+			btnApplyChanges.Enabled = v;
+		private void btnShowFilter_Click(object sender, EventArgs e)
+		{
+			btnShowFilter.Text = filterUserControle1.Visible ? "الفلاتر 🔼" : "الفلاتر 🔽";
+			filterUserControle1.Visible = !filterUserControle1.Visible;
+		}
+
+		private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+			=> originalCellValue = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString();
+
+		#endregion
 
 	}
 }

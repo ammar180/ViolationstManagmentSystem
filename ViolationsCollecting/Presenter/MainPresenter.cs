@@ -29,9 +29,15 @@ namespace ViolationsCollecting.Presenter
 			view.SearchItems += SearchViolations;
 			view.OnTimerTick += HandleEditingTimeLimitation;
 			view.ExportEvent += ExtractData;
+			loadRows();
 		}
 
-		
+		private async void loadRows()
+		{
+			ViolationsLayer = await repository.GetViolationsInDateRange(DateTime.Now - Properties.Settings.Default.TimeToExpired, DateTime.Now);
+			view.MainViewBS.DataSource = ViolationsLayer;
+		}
+
 		private async Task ExtractData()
 		{
 			int monthToExport = view.MonthToExport;

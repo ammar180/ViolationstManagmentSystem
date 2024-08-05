@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ViolationsSystem.Presenter.Helpers;
 using ViolationsSystem.Views.Interfaces;
-using ViolationstSystem.Presenter.Helpers;
 using ViolationstSystem.Views;
 using ViolationSystem.Data.Entities;
 using ViolationSystem.Data.Repositories;
@@ -44,20 +40,21 @@ namespace ViolationsSystem.Presenter
 			helperForm.ShowDialog();
 		}
 
-		private void SaveChanges(object sender, EventArgs e)
+		private async void SaveChanges(object sender, EventArgs e)
 		{
 			violationsList = sender as List<Violation>;
-			repository.UpdateViolations(view.ModifiedViolations);
-			repository.RemoveViolations(view.DeletedViolations);
+			await repository.UpdateViolations(view.ModifiedViolations);
+			await repository.RemoveViolations(view.DeletedViolations);
 		}
 
 		private void UpdateDataGrid(object sender, EventArgs e)
 		{
 			List<string> list = sender as List<string>;
-			view.HomeViewBS.DataSource = violationsList.Where(v => 
-				list.Contains(v.TruckCode) 
-				&& list.Contains(v.Unit)
-				).ToList();
+			if (list.Count > 0 && list != null)
+				view.HomeViewBS.DataSource = violationsList.Where(v =>
+					list.Contains(v.TruckCode)
+					&& list.Contains(v.Unit)
+					).ToList();
 		}
 
 		private void GetList(object sender, EventArgs e)
@@ -72,39 +69,17 @@ namespace ViolationsSystem.Presenter
 
 			view.HomeViewBS.DataSource = violationsList;
 
+			view.DataGridViolations = violationsList.ToList();
+
 			view.FillCodeFiltercheckedList = violationsList.Select(x => x.TruckCode).Distinct().ToList();
-			
+
 			view.loading.Hide();
 		}
 
 		private async void ImportExcel(object sender, EventArgs e)
 		{
-			try
-			{
-				view.loading.Show();
-				var violations = ExcelHelper.Import(ExcelHelper.GetFilePath());
-				if (violations.Count > 0)
-				{
-					//List<Truck> trucks = violations.Select(x => x.Truck).ToList();
-					//List<Truck> distinctedTrucks = trucks.Distinct().ToList();
-
-					// AddTrucks toDataBase
-					//await repository.AddTrucksRange(distinctedTrucks);
-
-					await repository.AddViolationRange(violations);
-
-					MessageHelper.Allert("تم الاضافة بنجاح");
-				}
-				else
-					MessageHelper.Allert("يبدو أن هناك مشكلة اثناء الإدراج");
-
-				view.loading.Hide();
-			}
-			catch (Exception ex)
-			{
-				MessageHelper.ErrorMessage(ex.Message);
-				view.loading.Hide();
-			}
+			var printView = ImportView.Instance();
+			printView.Show();
 		}
 
 		#region Methods
@@ -114,8 +89,8 @@ namespace ViolationsSystem.Presenter
 			bool[] result = new bool[violationsList.Count];
 			result.Initialize();
 			for (int i = 0; i < result.Length; i++)
-				result[i] = violationsList.ElementAt(i).Truck.IsExplored??false;
-			
+				result[i] = violationsList.ElementAt(i).Truck.IsExplored ?? false;
+
 			return result;
 		}
 		private bool[] GetdublicatedDateCodeIndcies()
@@ -146,8 +121,8 @@ namespace ViolationsSystem.Presenter
 		}
 		#endregion
 	}
-    class DateCode
-    {
+	class DateCode
+	{
 		public DateTime ViolationDate { get; set; }
 		public string TruckCode { get; set; }
 		public bool Equals(DateCode other)

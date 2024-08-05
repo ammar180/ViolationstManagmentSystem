@@ -50,6 +50,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Truck.cs" />
     <Compile Include="Entities\Violation.cs" />
+    <Compile Include="Helper\FileMemo.cs" />
     <Compile Include="Migrations\202407211308197_init.cs" />
     <Compile Include="Migrations\202407211308197_init.Designer.cs">
       <DependentUpon>202407211308197_init.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using ViolationsSystem;
 using ViolationsSystem.Views;
 
@@ -18,5 +19,30 @@ namespace ViolationsCollecting.View.CustomeComponants
 		{
 			return loading ?? (loading = new LoadingForm());
 		}
+		// Define the custom event
+		public event EventHandler FormHiding;
+
+		// Override the Hide method
+		public new void Hide()
+		{
+			// Raise the custom event before hiding the form
+			FormHiding?.Invoke(this, EventArgs.Empty);
+
+			// Call the base Hide method
+			base.Hide();
+		}
+		// Define the custom event
+		public event EventHandler FormShown;
+
+		// Override the Hide method
+		public new void Show()
+		{
+			// Raise the custom event before hiding the form
+			FormShown?.Invoke(this, EventArgs.Empty);
+
+			// Call the base Hide method
+			base.Show();
+		}
+
 	}
 }

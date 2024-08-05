@@ -11,6 +11,7 @@ namespace ViolationsCollecting.Presenter
 			try
 			{
 				string fileName = savePath + @$"\{name}.xlsx";
+				fileName = GetUniqueFileName(fileName);
 
 				// Export
 				using (XLWorkbook xLWorkbook = new XLWorkbook())
@@ -85,5 +86,25 @@ namespace ViolationsCollecting.Presenter
 				MessageBox.Show("The specified path does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		private static string GetUniqueFileName(string fileName)
+		{
+			if (!File.Exists(fileName))
+				return fileName;
+
+			string directory = Path.GetDirectoryName(fileName);
+			string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+			string extension = Path.GetExtension(fileName);
+			int count = 1;
+
+			string newFileName;
+			do
+			{
+				newFileName = Path.Combine(directory, $"{fileNameWithoutExtension} ({count}){extension}");
+				count++;
+			} while (File.Exists(newFileName));
+
+			return newFileName;
+		}
+
 	}
 }

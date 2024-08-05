@@ -29,6 +29,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 		{
 			InitializeComponent();
 
+			Initialize();
+		}
+
+		internal void Initialize()
+		{
 			YearNum.Value = DateTime.Now.Year - 2000;
 			MonthNum.Value = DateTime.Now.Month;
 			DayNum.Value = DateTime.Now.Day;

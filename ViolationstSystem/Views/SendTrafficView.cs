@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Windows.Forms;
+using ViolationsCollecting.View.CustomeComponants;
 using ViolationsSystem.Views.Interfaces;
 
 namespace ViolationsSystem.Views
@@ -14,28 +9,31 @@ namespace ViolationsSystem.Views
 	public partial class SendTrafficView : UserControl, ISendTrafficView
 	{
 		//Properties - Fields
-		private static SendTrafficView instance;
+		public LoadingForm LoadingForm { get; set; }
 		public SendTrafficView()
 		{
 			InitializeComponent();
+			LoadingForm = new LoadingForm();
 			btnGetResult.Click += delegate { GetResultEvent.Invoke(this, EventArgs.Empty); };
+
+			LoadingForm.FormShown += LoadingForm_FormShown;
+			LoadingForm.FormHiding += LoadingForm_FormHiding;
 		}
 
 		public int TrucksCount { get => ((int)countTrucks.Value); }
-		public DateTime StartDate { get; }
-		public DateTime EndDate { get; }
-		public DataGridView dgv { get => dataGridView; set => dataGridView = value; }
+		public DateTime StartDate { get => dateTimePicker1.Value; }
+		public string TargetUnit { get => comboUnits.Text; }
+		public ReportViewer report { get => reportViewer; }
 
 
 		//Events
 		public event EventHandler GetResultEvent;
 
 		//Methods
-		public static SendTrafficView GetInstance()
-		{
-			if (instance == null || instance.IsDisposed)
-				instance = new SendTrafficView();
-			return instance;
-		}
+		private void LoadingForm_FormHiding(object sender, EventArgs e)
+			=> this.Enabled = true;
+		private void LoadingForm_FormShown(object sender, EventArgs e)
+			=> this.Enabled = false;
+
 	}
 }

@@ -1,17 +1,20 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Windows.Forms;
+using ViolationsCollecting.View.CustomeComponants;
 
 namespace ViolationsSystem.Views.Interfaces
 {
 	public interface ISendTrafficView
 	{
 		//Properties - Fields
+		LoadingForm LoadingForm { get; set; }
 		int TrucksCount { get;}
 		DateTime StartDate { get;}
-		DateTime EndDate { get;}
+		string TargetUnit { get; }
 		//Events
 		event EventHandler GetResultEvent;
-		DataGridView dgv { get; set; }
+		ReportViewer report { get; }
 		//Methods
 	}
 }

@@ -29,5 +29,6 @@ namespace ViolationsSystem.Views.Interfaces
 		List<string> FillCodeFiltercheckedList { set; }
 		List<Violation> ModifiedViolations { get; set; }
 		List<Violation> DeletedViolations { get; set; }
+		List<Violation> DataGridViolations { get; set; }
 	}
 }

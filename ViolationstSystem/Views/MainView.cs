@@ -24,6 +24,7 @@ namespace ViolationsSystem
 
 			// init presenters
 			new HomePresenter(this.homeTP.Controls.OfType<HomeView>().FirstOrDefault(), Repository.GetInstance());
+			new SendTrafficPresenter(this.sendTrafficTP.Controls.OfType<SendTrafficView>().FirstOrDefault(), Repository.GetInstance());
 		}
 
 	}

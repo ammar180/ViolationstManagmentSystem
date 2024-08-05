@@ -9,21 +9,49 @@
       </ConnectionProperties>
       <rd:DataSourceID>35fd3a51-53cb-4079-811d-c088009d02ae</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ViolationSystemDataEntities1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>12ab8d68-8963-4162-a77a-ae10da1f44c3</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="TrafficReportDataSet">
+    <DataSet Name="TrafficReportDataSet1">
       <Query>
         <DataSourceName>ViolationSystemDataEntities</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Code">
-          <DataField>Code</DataField>
+        <Field Name="IsExplored">
+          <DataField>IsExplored</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="TruckCode">
+          <DataField>TruckCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TruckId">
-          <DataField>TruckId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ViolationSystem.Data.Entities</rd:DataSetName>
+        <rd:TableName>Truck</rd:TableName>
+        <rd:ObjectDataSourceType>ViolationSystem.Data.Entities.Truck, ViolationSystem.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="TrafficReportDataSet2">
+      <Query>
+        <DataSourceName>ViolationSystemDataEntities1</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IsExplored">
+          <DataField>IsExplored</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="TruckCode">
+          <DataField>TruckCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -41,13 +69,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.07746in</Width>
+                  <Width>2.05251in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.46472in</Width>
+                  <Width>1.43977in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.53266in</Width>
+                  <Width>0.50771in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -65,7 +93,7 @@
                                 <TextRun>
                                   <Value>الملاحظات</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -101,7 +129,7 @@
                                 <TextRun>
                                   <Value>رقم الشاحنة</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -137,7 +165,7 @@
                                 <TextRun>
                                   <Value>م</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -210,7 +238,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Code.Value</Value>
+                                  <Value>=Code.FormatTruckCode(Fields!TruckCode.Value)</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -244,7 +272,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Globals!PageNumber = 1, RowNumber(nothing), RowNumber(nothing) + 35)</Value>
+                                  <Value>=IIF(RowNumber(nothing) &lt; 35, RowNumber(nothing), RowNumber(nothing) + 35)</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -291,16 +319,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <DataSetName>TrafficReportDataSet</DataSetName>
+            <DataSetName>TrafficReportDataSet1</DataSetName>
             <SortExpressions>
               <SortExpression>
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
-            <Top>0.01389in</Top>
-            <Left>4.06961in</Left>
+            <Left>4in</Left>
             <Height>0.75in</Height>
-            <Width>4.07484in</Width>
+            <Width>3.99999in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -309,28 +336,17 @@
               <FontSize>12pt</FontSize>
             </Style>
           </Tablix>
-          <Line Name="Line1">
-            <Left>0.04167in</Left>
-            <Height>0in</Height>
-            <Width>6.37833in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Tablix Name="Table2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.00262in</Width>
+                  <Width>2.00818in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.46472in</Width>
+                  <Width>1.46194in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.53266in</Width>
+                  <Width>0.52988in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -348,7 +364,7 @@
                                 <TextRun>
                                   <Value>الملاحظات</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -384,7 +400,7 @@
                                 <TextRun>
                                   <Value>رقم الشاحنة</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -420,7 +436,7 @@
                                 <TextRun>
                                   <Value>م</Value>
                                   <Style>
-                                    <FontSize>22pt</FontSize>
+                                    <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -493,7 +509,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Code.Value</Value>
+                                  <Value>=Code.FormatTruckCode(Fields!TruckCode.Value)</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -527,7 +543,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=RowNumber(nothing)</Value>
+                                  <Value>=RowNumber(nothing) + Parameters!StartCount.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -574,17 +590,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <DataSetName>TrafficReportDataSet</DataSetName>
+            <DataSetName>TrafficReportDataSet2</DataSetName>
             <SortExpressions>
               <SortExpression>
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
-            <Top>0.01389in</Top>
-            <Left>0.06961in</Left>
             <Height>0.75in</Height>
             <Width>4in</Width>
-            <ZIndex>2</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -594,13 +608,17 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.025in</Height>
-        <Style />
+        <Height>1in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
       </Body>
-      <Width>8.14445in</Width>
+      <Width>8.02834in</Width>
       <Page>
         <PageHeader>
-          <Height>0.73056in</Height>
+          <Height>0.65279in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -624,10 +642,8 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.13056in</Top>
-              <Left>0.02834in</Left>
-              <Height>0.52223in</Height>
-              <Width>8.08278in</Width>
+              <Height>0.65279in</Height>
+              <Width>8in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -655,12 +671,37 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="StartCount">
+      <DataType>Integer</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>StartCount</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Code>Public Function FormatTruckCode(ByVal originalTruckCode As String) As String
+    If Len(originalTruckCode) &gt; 5 Then
+        Dim digits As String = Mid(originalTruckCode, Len(originalTruckCode) - 3)
+        Dim chars As String = ""
+        For i As Integer = 1 To Len(originalTruckCode) - 4
+            chars &amp;= Mid(originalTruckCode, i, 1) &amp; " "
+        Next
+        Return chars.Trim() &amp; " " &amp; digits
+    Else
+        Return originalTruckCode
+    End If
+End Function</Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>6ba76c7b-d74f-42f2-9b75-8eb55b620905</rd:ReportID>
 </Report>

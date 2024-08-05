@@ -282,7 +282,6 @@ namespace ViolationsCollecting.View
 			// 
 			// dateBox1
 			// 
-			dateBox1.Date = new DateTime(2024, 7, 21, 0, 0, 0, 0);
 			dateBox1.Dock = DockStyle.Top;
 			dateBox1.Font = new Font("Cairo", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dateBox1.Location = new Point(0, 408);

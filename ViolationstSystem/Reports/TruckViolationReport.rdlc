@@ -701,7 +701,7 @@
             <Top>0.06944in</Top>
             <Left>0.03333in</Left>
             <Height>0.8in</Height>
-            <Width>8.06208in</Width>
+            <Width>8.06211in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -714,7 +714,7 @@
         <Height>1.13333in</Height>
         <Style />
       </Body>
-      <Width>8.09541in</Width>
+      <Width>8.09544in</Width>
       <Page>
         <PageHeader>
           <Height>0.68889in</Height>
@@ -792,6 +792,18 @@
       <NumberOfRows>2</NumberOfRows>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Code>Public Function FormatTruckCode(ByVal originalTruckCode As String) As String
+    If Len(originalTruckCode) &gt; 5 Then
+        Dim digits As String = Mid(originalTruckCode, Len(originalTruckCode) - 3)
+        Dim chars As String = ""
+        For i As Integer = 1 To Len(originalTruckCode) - 4
+            chars &amp;= Mid(originalTruckCode, i, 1) &amp; " "
+        Next
+        Return chars.Trim() &amp; " " &amp; digits
+    Else
+        Return originalTruckCode
+    End If
+End Function</Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>6ba76c7b-d74f-42f2-9b75-8eb55b620905</rd:ReportID>
 </Report>

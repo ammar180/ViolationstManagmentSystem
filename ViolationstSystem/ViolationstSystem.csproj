@@ -48,11 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presenter\Helpers\ExcelHelper.cs" />
     <Compile Include="Presenter\Helpers\MessageHelper.cs" />
-    <Compile Include="Presenter\ManageDataPresenter.cs" />
     <Compile Include="Presenter\HomePresenter.cs" />
-    <Compile Include="Presenter\MainPresenter.cs" />
     <Compile Include="Presenter\SendTrafficPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,11 +89,11 @@
     <Compile Include="Views\CustomeComponants\TruckCodeBodx.Designer.cs">
       <DependentUpon>TruckCodeBodx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManageDataView.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Views\ImportView.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ManageDataView.Designer.cs">
-      <DependentUpon>ManageDataView.cs</DependentUpon>
+    <Compile Include="Views\ImportView.Designer.cs">
+      <DependentUpon>ImportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.cs">
       <SubType>UserControl</SubType>
@@ -153,8 +150,8 @@
     <EmbeddedResource Include="Views\CustomeComponants\TruckCodeBodx.resx">
       <DependentUpon>TruckCodeBodx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ManageDataView.resx">
-      <DependentUpon>ManageDataView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ImportView.resx">
+      <DependentUpon>ImportView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">

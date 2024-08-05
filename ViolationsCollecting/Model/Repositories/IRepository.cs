@@ -6,7 +6,7 @@ namespace ViolationsCollecting.Model.Repositories
 	{
 		// Search Engin
 		// Oprations:
-		Task<ICollection<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate);
+		Task<List<Violation>> GetViolationsInDateRange(DateTime StartDate, DateTime EndDate);
 		Task<ICollection<Violation>> GetViolationsInMonth(int month);
 		Task<bool> AddViolation(Violation violationModel);
 		//Task<bool> AddTruck(Truck truckModel);

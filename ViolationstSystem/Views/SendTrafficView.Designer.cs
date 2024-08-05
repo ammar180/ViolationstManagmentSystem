@@ -32,32 +32,22 @@ namespace ViolationsSystem.Views
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.countTrucks = new System.Windows.Forms.NumericUpDown();
-			this.lable3 = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.comboUnits = new System.Windows.Forms.ComboBox();
+			this.lable3 = new System.Windows.Forms.Label();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.btnGetResult = new System.Windows.Forms.Button();
-			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.TruckCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.btnPrint = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
+			this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-			this.panel1.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -68,6 +58,8 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanel1.AutoScroll = true;
 			this.flowLayoutPanel1.AutoSize = true;
 			this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+			this.flowLayoutPanel1.Controls.Add(this.lable3);
+			this.flowLayoutPanel1.Controls.Add(this.dateTimePicker1);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -83,12 +75,11 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanel2.AutoSize = true;
 			this.flowLayoutPanel2.Controls.Add(this.label1);
 			this.flowLayoutPanel2.Controls.Add(this.countTrucks);
-			this.flowLayoutPanel2.Controls.Add(this.lable3);
 			this.flowLayoutPanel2.Controls.Add(this.label2);
-			this.flowLayoutPanel2.Controls.Add(this.comboBox1);
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(426, 12);
+			this.flowLayoutPanel2.Controls.Add(this.comboUnits);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(568, 12);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(568, 51);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(426, 51);
 			this.flowLayoutPanel2.TabIndex = 3;
 			// 
 			// label1
@@ -96,7 +87,7 @@ namespace ViolationsSystem.Views
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(441, 0);
+			this.label1.Location = new System.Drawing.Point(299, 0);
 			this.label1.Margin = new System.Windows.Forms.Padding(0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(127, 51);
@@ -106,7 +97,7 @@ namespace ViolationsSystem.Views
 			// 
 			// countTrucks
 			// 
-			this.countTrucks.Location = new System.Drawing.Point(351, 0);
+			this.countTrucks.Location = new System.Drawing.Point(209, 0);
 			this.countTrucks.Margin = new System.Windows.Forms.Padding(0);
 			this.countTrucks.Maximum = new decimal(new int[] {
             1000,
@@ -128,27 +119,6 @@ namespace ViolationsSystem.Views
             0,
             0});
 			// 
-			// lable3
-			// 
-			this.lable3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.lable3.AutoSize = true;
-			this.lable3.Location = new System.Drawing.Point(213, 0);
-			this.lable3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lable3.Name = "lable3";
-			this.lable3.Size = new System.Drawing.Size(134, 51);
-			this.lable3.TabIndex = 3;
-			this.lable3.Text = "التاريخ المبدأي";
-			this.lable3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(3, 3);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 45);
-			this.comboBox1.TabIndex = 9;
-			// 
 			// label2
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -162,6 +132,57 @@ namespace ViolationsSystem.Views
 			this.label2.Text = "الوحدة";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// comboUnits
+			// 
+			this.comboUnits.AutoCompleteCustomSource.AddRange(new string[] {
+            "كرداسة",
+            "البدرشين",
+            "الصف",
+            "العياط",
+            "منشاة القناطر",
+            "ابو نمرس",
+            "الواحات البحرية",
+            "اطفيح",
+            "اكتوبر"});
+			this.comboUnits.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboUnits.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+			this.comboUnits.FormattingEnabled = true;
+			this.comboUnits.Items.AddRange(new object[] {
+            "كرداسة",
+            "البدرشين",
+            "الصف",
+            "العياط",
+            "منشاة القناطر",
+            "ابو نمرس",
+            "الواحات البحرية",
+            "اطفيح",
+            "اكتوبر"});
+			this.comboUnits.Location = new System.Drawing.Point(3, 3);
+			this.comboUnits.Name = "comboUnits";
+			this.comboUnits.Size = new System.Drawing.Size(121, 45);
+			this.comboUnits.TabIndex = 9;
+			this.comboUnits.Text = "كرداسة";
+			// 
+			// lable3
+			// 
+			this.lable3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lable3.AutoSize = true;
+			this.lable3.Location = new System.Drawing.Point(427, 9);
+			this.lable3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lable3.Name = "lable3";
+			this.lable3.Size = new System.Drawing.Size(134, 57);
+			this.lable3.TabIndex = 3;
+			this.lable3.Text = "التاريخ المبدأي";
+			this.lable3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(106, 12);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(314, 45);
+			this.dateTimePicker1.TabIndex = 4;
+			// 
 			// btnGetResult
 			// 
 			this.btnGetResult.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -174,88 +195,6 @@ namespace ViolationsSystem.Views
 			this.btnGetResult.TabIndex = 6;
 			this.btnGetResult.Text = "احصل على النتيجة";
 			this.btnGetResult.UseVisualStyleBackColor = true;
-			// 
-			// dataGridView
-			// 
-			this.dataGridView.AllowUserToAddRows = false;
-			this.dataGridView.AllowUserToDeleteRows = false;
-			this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.N,
-            this.TruckCode,
-            this.Notes});
-			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.dataGridView.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView.Name = "dataGridView";
-			this.dataGridView.ReadOnly = true;
-			this.dataGridView.RowHeadersWidth = 51;
-			this.dataGridView.Size = new System.Drawing.Size(1011, 456);
-			this.dataGridView.TabIndex = 2;
-			// 
-			// N
-			// 
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			this.N.DefaultCellStyle = dataGridViewCellStyle2;
-			this.N.HeaderText = "م";
-			this.N.MinimumWidth = 20;
-			this.N.Name = "N";
-			this.N.ReadOnly = true;
-			this.N.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.N.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.N.ToolTipText = "مسلسل";
-			this.N.Width = 125;
-			// 
-			// TruckCode
-			// 
-			this.TruckCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.TruckCode.DefaultCellStyle = dataGridViewCellStyle3;
-			this.TruckCode.HeaderText = "رقم السيارة";
-			this.TruckCode.MinimumWidth = 100;
-			this.TruckCode.Name = "TruckCode";
-			this.TruckCode.ReadOnly = true;
-			this.TruckCode.Width = 137;
-			// 
-			// Notes
-			// 
-			this.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.Notes.DefaultCellStyle = dataGridViewCellStyle4;
-			this.Notes.HeaderText = "ملاحظات";
-			this.Notes.MinimumWidth = 6;
-			this.Notes.Name = "Notes";
-			this.Notes.ReadOnly = true;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.btnPrint);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 605);
-			this.panel1.Name = "panel1";
-			this.panel1.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
-			this.panel1.Size = new System.Drawing.Size(1011, 75);
-			this.panel1.TabIndex = 3;
-			// 
-			// btnPrint
-			// 
-			this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnPrint.Font = new System.Drawing.Font("Cairo", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPrint.Location = new System.Drawing.Point(30, 10);
-			this.btnPrint.Name = "btnPrint";
-			this.btnPrint.Size = new System.Drawing.Size(951, 55);
-			this.btnPrint.TabIndex = 0;
-			this.btnPrint.Text = "طباعة";
-			this.btnPrint.UseVisualStyleBackColor = true;
 			// 
 			// panel3
 			// 
@@ -280,12 +219,23 @@ namespace ViolationsSystem.Views
 			// 
 			// panel4
 			// 
-			this.panel4.Controls.Add(this.dataGridView);
+			this.panel4.Controls.Add(this.reportViewer);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel4.Location = new System.Drawing.Point(0, 149);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(1011, 456);
+			this.panel4.Size = new System.Drawing.Size(1011, 531);
 			this.panel4.TabIndex = 5;
+			// 
+			// reportViewer
+			// 
+			this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.reportViewer.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.TrafficReport.rdlc";
+			this.reportViewer.Location = new System.Drawing.Point(0, 0);
+			this.reportViewer.Name = "reportViewer";
+			this.reportViewer.ServerReport.BearerToken = null;
+			this.reportViewer.Size = new System.Drawing.Size(1011, 531);
+			this.reportViewer.TabIndex = 1;
 			// 
 			// SendTrafficView
 			// 
@@ -293,7 +243,6 @@ namespace ViolationsSystem.Views
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.panel2);
-			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
 			this.Name = "SendTrafficView";
@@ -304,8 +253,6 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanel2.ResumeLayout(false);
 			this.flowLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-			this.panel1.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
@@ -324,16 +271,12 @@ namespace ViolationsSystem.Views
 		private Button btnGetResult;
 		private NumericUpDown countTrucks;
 		private FlowLayoutPanel flowLayoutPanel2;
-		private DataGridView dataGridView;
-		private Panel panel1;
-		private Button btnPrint;
 		private Panel panel3;
 		private Panel panel2;
 		private Panel panel4;
-		private DataGridViewTextBoxColumn N;
-		private DataGridViewTextBoxColumn TruckCode;
-		private DataGridViewTextBoxColumn Notes;
-		private ComboBox comboBox1;
+		private ComboBox comboUnits;
 		private Label label2;
+		private DateTimePicker dateTimePicker1;
+		public Microsoft.Reporting.WinForms.ReportViewer reportViewer;
 	}
 }
