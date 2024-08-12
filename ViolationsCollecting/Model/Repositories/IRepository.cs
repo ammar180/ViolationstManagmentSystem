@@ -12,7 +12,7 @@ namespace ViolationsCollecting.Model.Repositories
 		//Task<bool> AddTruck(Truck truckModel);
 		Task<bool> EditViolation(Violation violationModel);
 		//Task<bool> CheckTruckExest(string Code);
-		Task<bool> CheckViolationInsertedBefore(string Code);
+		Task<bool> CheckViolationInsertedBefore(string Code, DateTime dateTime);
 		bool CanConnect();
 	}
 }

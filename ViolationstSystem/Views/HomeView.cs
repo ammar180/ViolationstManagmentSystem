@@ -12,21 +12,19 @@ namespace ViolationsSystem.Views
 	public partial class HomeView : UserControl, IHomeView
 	{
 		#region Failds
-		string IHomeView.TruckCode { get => truckCodeBodx.txtTruckCode; }
-		string IHomeView.TruckCodeChars { get => truckCodeBodx.txtCodeChars; }
-		string IHomeView.TruckCodeDigits { get => truckCodeBodx.txtCodeDigits; }
+		public string TruckCodeChars { get => truckCodeBodx.txtCodeChars; }
+		public string TruckCodeDigits { get => truckCodeBodx.txtCodeDigits; }
 		public LoadingForm loading { get => LoadingForm.Instance(); }
 		public BindingSource HomeViewBS { get => violationBindingSource; set => violationBindingSource = value; }
+		#endregion
+
+		#region Properties
 		public bool[] ExploredCodesOfTrucks { get; set; }
 		public bool[] dublicatedDateCode { get; set; }
 		public List<string> FillCodeFiltercheckedList { set => filterUserControle1.FilterList = value; }
 		public List<Violation> ModifiedViolations { get; set; }
 		public List<Violation> DeletedViolations { get; set; }
-		public List<Violation> DataGridViolations { get;
-			set; }
-		#endregion
 
-		#region Properties
 		private string originalCellValue;
 		#endregion
 		public HomeView()
@@ -37,28 +35,37 @@ namespace ViolationsSystem.Views
 			ModifiedViolations = new List<Violation>();
 			DeletedViolations = new List<Violation>();
 
-			dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellEdite);
-			//dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellClose);
 			dataGridView.CellBeginEdit += DataGridView_CellBeginEdit;
+			dataGridView.CellEndEdit += new DataGridViewCellEventHandler(HandleCellEdite);
 			dataGridView.UserDeletingRow += new DataGridViewRowCancelEventHandler(HandleDeleteRow);
 			dataGridView.CellFormatting += dataGridView_CellFormatting;
 
-			btnSearch.Click += delegate { HandleGetViolationsList?.Invoke(null, EventArgs.Empty); dataGridView.Refresh(); };
+			btnSearch.Click += delegate {
+				HandleGetViolationsList?.Invoke(null, EventArgs.Empty); 
+				dataGridView.Refresh();
+				btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+			};
 			truckCodeBodx.msChar.KeyDown += (s, e) => 
 			{
 				if (e.KeyCode == Keys.Enter)
+				{
 					HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
+					btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+				}
 			};
 			truckCodeBodx.msDigits.KeyDown += (s, e) => 
 			{
 				if (e.KeyCode == Keys.Enter)
+				{
 					HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
+					btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+				}
 			};
+			
 			btnImportExcel.Click += delegate { HandleImport?.Invoke(null, EventArgs.Empty); };
 			btnApplyChanges.Click += ApplyChanges;
 			filterUserControle1.btnApplyFilter.Click += delegate { UpdateDG?.Invoke(filterUserControle1.FilterList, EventArgs.Empty); dataGridView.Refresh(); };
-			this.Load += HomeView_Load;
-
+			
 			this.loading.FormShown += Loading_Shown;
 			this.loading.FormHiding += Loading_FormHiding;
 		}
@@ -71,18 +78,19 @@ namespace ViolationsSystem.Views
 		public event EventHandler SaveChangesEvent;
 		public event EventHandler PrintEvent;
 		#endregion
+		
 		#region ViewMethods
 
 		private void btnPrint_Click(object sender, EventArgs e)
 		{
 			loading.Show();
 			var list = new List<Violation>();
-			var itme = new Violation();
+			var item = new Violation();
 			for (int i = 0; i < dataGridView.Rows.Count; i++)
 			{
-				itme = (Violation)dataGridView.Rows[i].DataBoundItem;
-				itme.TruckCode = dataGridView.Rows[i].Cells[2].FormattedValue.ToString();
-				list.Add(itme);
+				item = (Violation)dataGridView.Rows[i].DataBoundItem;
+				item.TruckCode = dataGridView.Rows[i].Cells[2].FormattedValue.ToString();
+				list.Add(item);
 			}
 
 			PrintEvent?.Invoke(list, EventArgs.Empty);
@@ -93,17 +101,22 @@ namespace ViolationsSystem.Views
 			try
 			{
 				var c = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString().Replace(" ", "");
-				if (c != null && c.Length >= 5)
-				{
-					var rowToEdit = (Violation)dataGridView.Rows[e.RowIndex].DataBoundItem;
-					rowToEdit.TruckCode = c;
-					rowToEdit.Truck.TruckCode = rowToEdit.TruckCode;
+				var rowToEdit = (Violation)dataGridView.Rows[e.RowIndex].DataBoundItem;
 
-					ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToEdit.Id));
-					ModifiedViolations.Add(rowToEdit);
+				if (e.ColumnIndex == 2)
+				{
+					if (c != null && c.Length >= 5 && c != originalCellValue)
+						rowToEdit.TruckCode = c;
+					else
+					{
+						dataGridView[e.ColumnIndex, e.RowIndex].Value = originalCellValue;
+						throw new Exception("Invalid Truck Code");
+					}
 				}
-				else
-					dataGridView[e.ColumnIndex, e.RowIndex].Value = originalCellValue;
+
+				ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToEdit.Id));
+				ModifiedViolations.Add(rowToEdit);
+				btnSaveChages.BackColor = Color.DeepSkyBlue;
 			}
 			catch { }
 		}
@@ -114,6 +127,7 @@ namespace ViolationsSystem.Views
 			DeletedViolations.Add(rowToDelete);
 			ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToDelete.Id));
 			dublicatedDateCode[e.Row.Index] = false;
+			btnSaveChages.BackColor = Color.DeepSkyBlue;
 		}
 
 		private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -156,17 +170,22 @@ namespace ViolationsSystem.Views
 					foreach (DataGridViewRow item in dataGridView.SelectedRows)
 					{
 						item.Cells[6].Value = txtReportNumber.Text;
-						item.Cells[7].Value = txtPaymentDate.Date;
-						item.Cells[8].Value = txtBlockDate.Date;
+						if (txtPaymentDate.Date.HasValue)
+							item.Cells[7].Value = txtPaymentDate.Date.ToString();
+						else
+							item.Cells[7].Value = "";
+						if (txtBlockDate.Date.HasValue)
+							item.Cells[8].Value = txtBlockDate.Date.ToString();
+						else
+							item.Cells[8].Value = "";
 
-						var rowToAdd = (Violation)item.DataBoundItem;
-						var existRow = ModifiedViolations.FirstOrDefault(x => x.Id == rowToAdd.Id);
-						if(existRow != null)
-							ModifiedViolations.Remove(existRow);
-							
-						ModifiedViolations.Add(rowToAdd);
+						var rowToUpdate = (Violation)item.DataBoundItem;
+						ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToUpdate.Id));
+						
+						ModifiedViolations.Add(rowToUpdate);
 					}
-					
+					btnSaveChages.BackColor = Color.DeepSkyBlue;
+
 					//SwitchToSaveMode(true);
 				}
 			}
@@ -178,19 +197,12 @@ namespace ViolationsSystem.Views
 			for (int i = 0; i < dataGridView.Rows.Count; i++)
 			{
 				var row = (Violation)dataGridView.Rows[i].DataBoundItem;
-				row.Truck.TruckCode = row.TruckCode;
+				//row.Truck.TruckCode = row.TruckCode;
 				list.Add(row);
 			}
 			return list;
 		}
-		private static HomeView instance;
-		public static HomeView GetInstance()
-		{
-			if (instance == null || instance.IsDisposed)
-				instance = new HomeView();
-			return instance;
-		}
-
+		
 		private void btnSaveChages_Click(object sender, EventArgs e)
 		{
 			loading.Show();
@@ -199,35 +211,20 @@ namespace ViolationsSystem.Views
 			SaveChangesEvent?.Invoke(list, EventArgs.Empty);
 			ModifiedViolations.Clear();
 			DeletedViolations.Clear();
+			btnSaveChages.BackColor = DefaultBackColor;
 
 			//SwitchToSaveMode(false);
 			loading.Hide();
 		}
 
-		private void SwitchToSaveMode(bool v)
-		{
-			truckCodeBodx.SetBoxesEnable = !v;
-			btnSearch.Enabled = !v;
-			btnSaveChages.Enabled = v;
-		}
-
-		private void HomeView_Load(object sender, EventArgs e)
-		{
-			//HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
-		}
-
 		private void Loading_FormHiding(object sender, EventArgs e)
 			=> SetBtnsEnabled(true);
-
-
 		private void Loading_Shown(object sender, EventArgs e)
 			=> SetBtnsEnabled(false);
-
 		private void SetBtnsEnabled(bool v) 
 			=> btnShowFilter.Enabled =
 			btnSearch.Enabled =
 			btnSaveChages.Enabled =
-			btnPrint.Enabled =
 			btnImportExcel.Enabled =
 			btnApplyChanges.Enabled = v;
 		private void btnShowFilter_Click(object sender, EventArgs e)
@@ -237,7 +234,7 @@ namespace ViolationsSystem.Views
 		}
 
 		private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-			=> originalCellValue = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString();
+			=> originalCellValue = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString() ?? "";
 
 		#endregion
 

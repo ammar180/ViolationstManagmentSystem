@@ -117,18 +117,150 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labErrorMessage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labErrorMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 302</value>
+  </data>
+  <data name="labErrorMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 37</value>
+  </data>
+  <data name="labErrorMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;labErrorMessage.Name" xml:space="preserve">
+    <value>labErrorMessage</value>
+  </data>
+  <data name="&gt;&gt;labErrorMessage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labErrorMessage.Parent" xml:space="preserve">
+    <value>importExcelTP</value>
+  </data>
+  <data name="&gt;&gt;labErrorMessage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioNewForm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="radioNewForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioNewForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 437</value>
+  </data>
+  <data name="radioNewForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 41</value>
+  </data>
+  <data name="radioNewForm.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="radioNewForm.Text" xml:space="preserve">
+    <value>النسق الحديث</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="radioNewForm.ToolTip" xml:space="preserve">
+    <value>{سنه/يوم/شهر}</value>
+  </data>
+  <data name="radioNewForm.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;radioNewForm.Name" xml:space="preserve">
+    <value>radioNewForm</value>
+  </data>
+  <data name="&gt;&gt;radioNewForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioNewForm.Parent" xml:space="preserve">
+    <value>importExcelTP</value>
+  </data>
+  <data name="&gt;&gt;radioNewForm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioOldForm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioOldForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 437</value>
+  </data>
+  <data name="radioOldForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 41</value>
+  </data>
+  <data name="radioOldForm.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="radioOldForm.Text" xml:space="preserve">
+    <value>النسق القديم</value>
+  </data>
+  <data name="radioOldForm.ToolTip" xml:space="preserve">
+    <value>{سنه/شهر/يوم}</value>
+  </data>
+  <data name="radioOldForm.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;radioOldForm.Name" xml:space="preserve">
+    <value>radioOldForm</value>
+  </data>
+  <data name="&gt;&gt;radioOldForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioOldForm.Parent" xml:space="preserve">
+    <value>importExcelTP</value>
+  </data>
+  <data name="&gt;&gt;radioOldForm.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 398</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>453, 36</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>اختيار تنسيق التاريخ</value>
+  </data>
+  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="label3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>importExcelTP</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="labRowsCount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labRowsCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 135</value>
+    <value>195, 156</value>
   </data>
   <data name="labRowsCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
+    <value>275, 37</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labRowsCount.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -136,7 +268,7 @@
     <value>عدد الصفوف</value>
   </data>
   <data name="labRowsCount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;labRowsCount.Name" xml:space="preserve">
     <value>labRowsCount</value>
@@ -148,7 +280,7 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;labRowsCount.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="labCurrentCar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -157,7 +289,7 @@
     <value>True</value>
   </data>
   <data name="labCurrentCar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 230</value>
+    <value>170, 251</value>
   </data>
   <data name="labCurrentCar.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 37</value>
@@ -178,13 +310,13 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;labCurrentCar.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="labPresantage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labPresantage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 135</value>
+    <value>17, 156</value>
   </data>
   <data name="labPresantage.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 37</value>
@@ -205,7 +337,7 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;labPresantage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="labFileName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -235,13 +367,13 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;labFileName.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="progressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 175</value>
+    <value>17, 196</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
     <value>453, 37</value>
@@ -259,10 +391,10 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="btnChooseFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 67</value>
+    <value>17, 88</value>
   </data>
   <data name="btnChooseFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>453, 57</value>
@@ -283,7 +415,7 @@
     <value>importExcelTP</value>
   </data>
   <data name="&gt;&gt;btnChooseFile.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="importExcelTP.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
@@ -311,399 +443,6 @@
   </data>
   <data name="&gt;&gt;importExcelTP.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="labErrorMessage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="labErrorMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labErrorMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 476</value>
-  </data>
-  <data name="labErrorMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 36</value>
-  </data>
-  <data name="labErrorMessage.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="labErrorMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;labErrorMessage.Name" xml:space="preserve">
-    <value>labErrorMessage</value>
-  </data>
-  <data name="&gt;&gt;labErrorMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labErrorMessage.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;labErrorMessage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 288</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>التاريخ النهائي</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 163</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 37</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>التاريخ المبدأي</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dateBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt</value>
-  </data>
-  <data name="dateBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 193</value>
-  </data>
-  <data name="dateBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="dateBox1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="dateBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 90</value>
-  </data>
-  <data name="dateBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dateBox1.Name" xml:space="preserve">
-    <value>dateBox1</value>
-  </data>
-  <data name="&gt;&gt;dateBox1.Type" xml:space="preserve">
-    <value>ViolationsCollecting.View.CustomeComponants.DateBox, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;dateBox1.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;dateBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="dateBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 10.2pt</value>
-  </data>
-  <data name="dateBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 325</value>
-  </data>
-  <data name="dateBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="dateBox2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="dateBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 87</value>
-  </data>
-  <data name="dateBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;dateBox2.Name" xml:space="preserve">
-    <value>dateBox2</value>
-  </data>
-  <data name="&gt;&gt;dateBox2.Type" xml:space="preserve">
-    <value>ViolationsCollecting.View.CustomeComponants.DateBox, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;dateBox2.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;dateBox2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnRegist.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRegist.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 428</value>
-  </data>
-  <data name="btnRegist.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 45</value>
-  </data>
-  <data name="btnRegist.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnRegist.Text" xml:space="preserve">
-    <value>تسجيل</value>
-  </data>
-  <data name="&gt;&gt;btnRegist.Name" xml:space="preserve">
-    <value>btnRegist</value>
-  </data>
-  <data name="&gt;&gt;btnRegist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRegist.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;btnRegist.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="NumTrucksCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>348, 428</value>
-  </data>
-  <data name="NumTrucksCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 45</value>
-  </data>
-  <data name="NumTrucksCount.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="NumTrucksCount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;NumTrucksCount.Name" xml:space="preserve">
-    <value>NumTrucksCount</value>
-  </data>
-  <data name="&gt;&gt;NumTrucksCount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumTrucksCount.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;NumTrucksCount.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="comboElManfaz.AutoCompleteCustomSource" xml:space="preserve">
-    <value>الصليبة</value>
-  </data>
-  <data name="comboElManfaz.AutoCompleteCustomSource1" xml:space="preserve">
-    <value>كرداسة</value>
-  </data>
-  <data name="comboElManfaz.AutoCompleteCustomSource2" xml:space="preserve">
-    <value>أبورواش</value>
-  </data>
-  <data name="comboElManfaz.AutoCompleteCustomSource3" xml:space="preserve">
-    <value>المعتمدية</value>
-  </data>
-  <data name="comboElManfaz.AutoCompleteCustomSource4" xml:space="preserve">
-    <value>صفط</value>
-  </data>
-  <data name="comboElManfaz.Items" xml:space="preserve">
-    <value>الصليبة</value>
-  </data>
-  <data name="comboElManfaz.Items1" xml:space="preserve">
-    <value>كرداسة</value>
-  </data>
-  <data name="comboElManfaz.Items2" xml:space="preserve">
-    <value>أبورواش</value>
-  </data>
-  <data name="comboElManfaz.Items3" xml:space="preserve">
-    <value>المعتمدية</value>
-  </data>
-  <data name="comboElManfaz.Items4" xml:space="preserve">
-    <value>صفط</value>
-  </data>
-  <data name="comboElManfaz.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 115</value>
-  </data>
-  <data name="comboElManfaz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 45</value>
-  </data>
-  <data name="comboElManfaz.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="comboElManfaz.Text" xml:space="preserve">
-    <value>كرداسة1</value>
-  </data>
-  <data name="&gt;&gt;comboElManfaz.Name" xml:space="preserve">
-    <value>comboElManfaz</value>
-  </data>
-  <data name="&gt;&gt;comboElManfaz.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboElManfaz.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;comboElManfaz.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource" xml:space="preserve">
-    <value>كرداسة</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource1" xml:space="preserve">
-    <value>البدرشين</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource2" xml:space="preserve">
-    <value>الصف</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource3" xml:space="preserve">
-    <value>العياط</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource4" xml:space="preserve">
-    <value>منشاة القناطر</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource5" xml:space="preserve">
-    <value>ابو نمرس</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource6" xml:space="preserve">
-    <value>الواحات البحرية</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource7" xml:space="preserve">
-    <value>اطفيح</value>
-  </data>
-  <data name="comboUnit.AutoCompleteCustomSource8" xml:space="preserve">
-    <value>اكتوبر</value>
-  </data>
-  <data name="comboUnit.Items" xml:space="preserve">
-    <value>كرداسة</value>
-  </data>
-  <data name="comboUnit.Items1" xml:space="preserve">
-    <value>البدرشين</value>
-  </data>
-  <data name="comboUnit.Items2" xml:space="preserve">
-    <value>الصف</value>
-  </data>
-  <data name="comboUnit.Items3" xml:space="preserve">
-    <value>العياط</value>
-  </data>
-  <data name="comboUnit.Items4" xml:space="preserve">
-    <value>منشاة القناطر</value>
-  </data>
-  <data name="comboUnit.Items5" xml:space="preserve">
-    <value>ابو نمرس</value>
-  </data>
-  <data name="comboUnit.Items6" xml:space="preserve">
-    <value>الواحات البحرية</value>
-  </data>
-  <data name="comboUnit.Items7" xml:space="preserve">
-    <value>اطفيح</value>
-  </data>
-  <data name="comboUnit.Items8" xml:space="preserve">
-    <value>اكتوبر</value>
-  </data>
-  <data name="comboUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 115</value>
-  </data>
-  <data name="comboUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 45</value>
-  </data>
-  <data name="comboUnit.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="comboUnit.Text" xml:space="preserve">
-    <value>كرداسة</value>
-  </data>
-  <data name="&gt;&gt;comboUnit.Name" xml:space="preserve">
-    <value>comboUnit</value>
-  </data>
-  <data name="&gt;&gt;comboUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboUnit.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;comboUnit.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="truckCodeBodx1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 12pt</value>
-  </data>
-  <data name="truckCodeBodx1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 18</value>
-  </data>
-  <data name="truckCodeBodx1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="truckCodeBodx1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="truckCodeBodx1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 79</value>
-  </data>
-  <data name="truckCodeBodx1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;truckCodeBodx1.Name" xml:space="preserve">
-    <value>truckCodeBodx1</value>
-  </data>
-  <data name="&gt;&gt;truckCodeBodx1.Type" xml:space="preserve">
-    <value>ViolationsCollecting.View.CustomeComponants.TruckCodeBodx, ViolationstSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;truckCodeBodx1.Parent" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;truckCodeBodx1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="importMultTP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
-  </data>
-  <data name="importMultTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="importMultTP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>489, 533</value>
-  </data>
-  <data name="importMultTP.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="importMultTP.Text" xml:space="preserve">
-    <value>إدراج مخالفات متعددة</value>
-  </data>
-  <data name="&gt;&gt;importMultTP.Name" xml:space="preserve">
-    <value>importMultTP</value>
-  </data>
-  <data name="&gt;&gt;importMultTP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;importMultTP.Parent" xml:space="preserve">
-    <value>MainTabe</value>
-  </data>
-  <data name="&gt;&gt;importMultTP.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="MainTabe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -3547,6 +3286,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>ادراج البيانات</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ImportView</value>

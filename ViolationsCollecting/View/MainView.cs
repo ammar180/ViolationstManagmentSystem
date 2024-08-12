@@ -1,4 +1,5 @@
 ﻿using ViolationsCollecting.Model.Entities;
+using ViolationsCollecting.Presenter;
 using ViolationsCollecting.View.CustomeComponants;
 using static ViolationsCollecting.View.IMainView;
 
@@ -77,6 +78,13 @@ namespace ViolationsCollecting.View
 
 		private void btnEditMode_Click(object sender, EventArgs e)
 		{
+			MessageBox.Show(
+				"جميع الحقوق محفوظة للمبرمج عمار احمد عمران ©2024 - الطالب بمدرسة السويدي الدولية \n" +
+				" اذا واجهت مشكلة يرجى التواصل على الايميل: ammaromran.work@gmail.com",
+				"حول",
+				MessageBoxButtons.OK,
+				MessageBoxIcon.Information
+				);
 			IsInAddingMode = false;
 			btnAddMode.BackColor = Color.Gainsboro;
 			btnEditMode.BackColor = Color.DeepSkyBlue;

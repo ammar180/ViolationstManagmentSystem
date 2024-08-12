@@ -26,11 +26,35 @@ namespace ViolationstSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DRAGON\\SQLEXPRESS;Initial Catalog=ViolationsDB;Integrated Security=Tr" +
-            "ue;TrustServerCertificate=True")]
-        public string SqlConnection {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=ViolationsDB;Integrated Security=True;Tr" +
+            "ustServerCertificate=True")]
+        public string SqlConnectionLocal {
             get {
-                return ((string)(this["SqlConnection"]));
+                return ((string)(this["SqlConnectionLocal"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.1,1433;Initial Catalog=ViolationsDB;User ID=DRAGON;Password" +
+            "=@Zxcv1234;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Applica" +
+            "tion Intent=ReadWrite;Multi Subnet Failover=False")]
+        public string SqlConnectionTCP {
+            get {
+                return ((string)(this["SqlConnectionTCP"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ViolationstSystem.Properties.Settings.SqlConnectionLocal")]
+        public string SelectedConnectionType {
+            get {
+                return ((string)(this["SelectedConnectionType"]));
+            }
+            set {
+                this["SelectedConnectionType"] = value;
             }
         }
     }

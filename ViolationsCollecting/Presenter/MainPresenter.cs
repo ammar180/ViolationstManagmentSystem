@@ -127,7 +127,7 @@ namespace ViolationsCollecting.Presenter
 
 
 						// Add violation
-						if (await repository.CheckViolationInsertedBefore(violation.TruckCode))
+						if (await repository.CheckViolationInsertedBefore(violation.TruckCode, violation.ViolationDate))
 							throw new Exception("عذرا! لا يمكن تسجيل مخالفة لنفس السيارة اكثر من مرة في اليوم");
 						else if (await repository.AddViolation(violation))
 						{

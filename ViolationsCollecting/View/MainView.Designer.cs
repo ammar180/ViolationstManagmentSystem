@@ -68,6 +68,7 @@ namespace ViolationsCollecting.View
 			btnAddMode = new Button();
 			groupBox3 = new GroupBox();
 			dataGridView = new DataGridView();
+			violationBindingSource = new BindingSource(components);
 			idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			truckCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			violationDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -76,7 +77,6 @@ namespace ViolationsCollecting.View
 			registrationDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			weightDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
 			payloadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-			violationBindingSource = new BindingSource(components);
 			panelHeader.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
@@ -282,6 +282,7 @@ namespace ViolationsCollecting.View
 			// 
 			// dateBox1
 			// 
+			dateBox1.Date = new DateTime(2024, 8, 9, 0, 0, 0, 0);
 			dateBox1.Dock = DockStyle.Top;
 			dateBox1.Font = new Font("Cairo", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			dateBox1.Location = new Point(0, 408);
@@ -511,6 +512,10 @@ namespace ViolationsCollecting.View
 			dataGridView.Size = new Size(655, 728);
 			dataGridView.TabIndex = 0;
 			// 
+			// violationBindingSource
+			// 
+			violationBindingSource.DataSource = typeof(Model.Entities.Violation);
+			// 
 			// idDataGridViewTextBoxColumn
 			// 
 			idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -534,7 +539,7 @@ namespace ViolationsCollecting.View
 			// 
 			violationDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 			violationDateDataGridViewTextBoxColumn.DataPropertyName = "ViolationDate";
-			dataGridViewCellStyle2.Format = "yy/MM/dd";
+			dataGridViewCellStyle2.Format = "dd/MM/yyyy";
 			dataGridViewCellStyle2.NullValue = null;
 			violationDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
 			violationDateDataGridViewTextBoxColumn.HeaderText = "تاريخ المخالفة";
@@ -588,10 +593,6 @@ namespace ViolationsCollecting.View
 			payloadDataGridViewTextBoxColumn.Name = "payloadDataGridViewTextBoxColumn";
 			payloadDataGridViewTextBoxColumn.ReadOnly = true;
 			payloadDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// violationBindingSource
-			// 
-			violationBindingSource.DataSource = typeof(Model.Entities.Violation);
 			// 
 			// MainView
 			// 
@@ -663,14 +664,6 @@ namespace ViolationsCollecting.View
 		private System.Windows.Forms.Label labCodeMessage;
 		private BindingSource violationBindingSource;
 		private PictureBox pictureBox1;
-		private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn truckCodeDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn violationDateDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn elManfazDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn truckDataGridViewTextBoxColumn;
 		private TruckCodeBodx truckCodeBodx1;
 		private Label labElManfazMessage;
@@ -680,5 +673,13 @@ namespace ViolationsCollecting.View
 		private GroupBox groupBox6;
 		private NumericUpDown NumMonthToExport;
 		private Button btnExport;
+		private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn truckCodeDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn violationDateDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn elManfazDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
 	}
 }

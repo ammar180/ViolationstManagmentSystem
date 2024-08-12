@@ -13,7 +13,7 @@ namespace ViolationSystem.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202407211308197_init"; }
+            get { return "202408121948363_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -127,7 +127,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>رقم الشاحنة</Value>
+                                  <Value>رقم السيارة</Value>
                                   <Style>
                                     <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -272,7 +272,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(RowNumber(nothing) &lt; 35, RowNumber(nothing), RowNumber(nothing) + 35)</Value>
+                                  <Value>=RowNumber(nothing)</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -398,7 +398,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>رقم الشاحنة</Value>
+                                  <Value>رقم السيارة</Value>
                                   <Style>
                                     <FontSize>18pt</FontSize>
                                     <FontWeight>Bold</FontWeight>

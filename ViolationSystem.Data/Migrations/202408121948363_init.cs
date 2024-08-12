@@ -12,7 +12,7 @@
                 c => new
                     {
                         TruckCode = c.String(nullable: false, maxLength: 128),
-                        IsExplored = c.Boolean(),
+                        IsExplored = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.TruckCode);
             
@@ -21,16 +21,18 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        TruckCode = c.String(maxLength: 128),
+                        TruckCode = c.String(nullable: false, maxLength: 128),
                         ViolationDate = c.DateTime(nullable: false),
-                        Unit = c.String(nullable: false),
-                        ElManfaz = c.String(nullable: false),
-                        ReportNumber = c.String(),
-                        PaymentDate = c.DateTime(),
+                        Unit = c.String(nullable: false, maxLength: 64),
+                        ElManfaz = c.String(maxLength: 64),
+                        ReportNumber = c.String(maxLength: 128),
                         BlockDate = c.DateTime(),
+                        PaymentDate = c.DateTime(),
+                        Comments = c.String(),
+                        VCount = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Trucks", t => t.TruckCode)
+                .ForeignKey("dbo.Trucks", t => t.TruckCode, cascadeDelete: true)
                 .Index(t => t.TruckCode);
             
             CreateTable(

@@ -12,6 +12,22 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +49,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4AA1517E0A2FA8C803563C8AF6C9DEF2DC2E31ED</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ViolationstSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -77,6 +105,12 @@
     <Compile Include="Views\CustomeComponants\HelperForm.Designer.cs">
       <DependentUpon>HelperForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomeComponants\ImportMultUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomeComponants\ImportMultUC.Designer.cs">
+      <DependentUpon>ImportMultUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomeComponants\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +136,7 @@
       <DependentUpon>HomeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Interfaces\IHomeView.cs" />
-    <Compile Include="Views\Interfaces\IMainView.cs" />
-    <Compile Include="Views\Interfaces\IManageDataView.cs" />
-    <Compile Include="Views\Interfaces\ISearchAndRecordView.cs" />
     <Compile Include="Views\Interfaces\ISendTrafficView.cs" />
-    <Compile Include="Views\Interfaces\ISettingsView.cs" />
-    <Compile Include="Views\Interfaces\TemplateView.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +159,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\ExploreAdminReport.rdlc" />
     <EmbeddedResource Include="Reports\TruckViolationReport.rdlc" />
     <EmbeddedResource Include="Reports\TrafficReport.rdlc" />
     <EmbeddedResource Include="Views\AdminLogin.resx">
@@ -143,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomeComponants\HelperForm.resx">
       <DependentUpon>HelperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomeComponants\ImportMultUC.resx">
+      <DependentUpon>ImportMultUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomeComponants\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
@@ -178,6 +211,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ViolationstSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Create_3.png" />
@@ -219,6 +253,18 @@
       <Project>{126cf25a-6920-48a0-b94e-2a9d21f2f684}</Project>
       <Name>ViolationSystem.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -50,10 +50,9 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Truck.cs" />
     <Compile Include="Entities\Violation.cs" />
-    <Compile Include="Helper\FileMemo.cs" />
-    <Compile Include="Migrations\202407211308197_init.cs" />
-    <Compile Include="Migrations\202407211308197_init.Designer.cs">
-      <DependentUpon>202407211308197_init.cs</DependentUpon>
+    <Compile Include="Migrations\202408121948363_init.cs" />
+    <Compile Include="Migrations\202408121948363_init.Designer.cs">
+      <DependentUpon>202408121948363_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,12 +67,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407211308197_init.resx">
-      <DependentUpon>202407211308197_init.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <EmbeddedResource Include="Migrations\202408121948363_init.resx">
+      <DependentUpon>202408121948363_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

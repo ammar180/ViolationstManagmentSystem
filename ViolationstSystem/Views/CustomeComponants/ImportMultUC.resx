@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="NumSeq.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="VCount.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Comments.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="violationBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="filterUserControle1.FilterList" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAJoBbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1u
-        ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0sIG1zY29ybGliLCBWZXJzaW9u
-        PTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUB
-        AAAAMFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZwMAAAAGX2l0
-        ZW1zBV9zaXplCF92ZXJzaW9uBgAACAgCAAAACQMAAAAbAAAAEwAAABEDAAAAIAAAAAYEAAAADNmD2LHY
-        r9in2LPYqQYFAAAAENin2YTYqNiv2LHYtNmK2YYGBgAAAAjYp9mE2LXZgQYHAAAADNin2YTYudmK2KfY
-        twYIAAAAGdmF2YbYtNin2Kkg2KfZhNmC2YbYp9i32LEGCQAAAA/Yp9io2Ygg2YbZhdix2LMGCgAAAB3Y
-        p9mE2YjYp9it2KfYqiDYp9mE2KjYrdix2YrYqQYLAAAACtin2LfZgdmK2K0GDAAAAAzYp9mD2KrZiNio
-        2LEGDQAAAAzZg9ix2K/Yp9iz2KkGDgAAABDYp9mE2KjYr9ix2LTZitmGBg8AAAAI2KfZhNi12YEGEAAA
-        AAzYp9mE2LnZitin2LcGEQAAABnZhdmG2LTYp9ipINin2YTZgtmG2KfYt9ixBhIAAAAP2KfYqNmIINmG
-        2YXYsdizBhMAAAAd2KfZhNmI2KfYrdin2Kog2KfZhNio2K3YsdmK2KkGFAAAAArYp9i32YHZititBhUA
-        AAAM2KfZg9iq2YjYqNixBhYAAAAM2YPYsdiv2KfYs9ipBhcAAAAQ2KfZhNio2K/Ysdi02YrZhgYYAAAA
-        CNin2YTYtdmBBhkAAAAM2KfZhNi52YrYp9i3BhoAAAAZ2YXZhti02KfYqSDYp9mE2YLZhtin2LfYsQYb
-        AAAAD9in2KjZiCDZhtmF2LHYswYcAAAAHdin2YTZiNin2K3Yp9iqINin2YTYqNit2LHZitipBh0AAAAK
-        2KfYt9mB2YrYrQYeAAAADNin2YPYqtmI2KjYsQ0FCw==
-</value>
-  </data>
 </root>

@@ -21,6 +21,10 @@
           <DataField>BlockDate</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="Comments">
+          <DataField>Comments</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ElManfaz">
           <DataField>ElManfaz</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -56,8 +60,9 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ViolationSystem.Data.Entities</rd:DataSetName>
-        <rd:TableName>Violation</rd:TableName>
-        <rd:ObjectDataSourceType>ViolationSystem.Data.Entities.Violation, ViolationSystem.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>Truck</rd:TableName>
+        <rd:ObjectDataSourceSelectMethod>Violations</rd:ObjectDataSourceSelectMethod>
+        <rd:ObjectDataSourceType>ViolationSystem.Data.Entities.Truck, ViolationSystem.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -69,34 +74,70 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.05735in</Width>
+                  <Width>1.07238in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.09068in</Width>
+                  <Width>1.07923in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.17319in</Width>
+                  <Width>1.11256in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.9415in</Width>
+                  <Width>1.19507in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.79932in</Width>
+                  <Width>0.96338in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.32245in</Width>
+                  <Width>0.8212in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.19219in</Width>
+                  <Width>1.34433in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.48543in</Width>
+                  <Width>0.50731in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.31667in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>ملاحظات</Value>
+                                  <Style>
+                                    <FontSize>14pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox32">
@@ -315,42 +356,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>رقم السيارة</Value>
-                                  <Style>
-                                    <FontSize>14pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>Silver</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox7">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -390,6 +395,40 @@
                 <TablixRow>
                   <Height>0.48333in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Comments">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Comments.Value</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Comments</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="BlockDate">
@@ -574,7 +613,7 @@
                                   <Value>=Fields!ViolationDate.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
+                                    <Format>d/M/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -584,40 +623,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ViolationDate</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="TruckCode">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!TruckCode.Value</Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>TruckCode</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -699,9 +704,8 @@
               </SortExpression>
             </SortExpressions>
             <Top>0.06944in</Top>
-            <Left>0.03333in</Left>
             <Height>0.8in</Height>
-            <Width>8.06211in</Width>
+            <Width>8.09546in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -714,10 +718,10 @@
         <Height>1.13333in</Height>
         <Style />
       </Body>
-      <Width>8.09544in</Width>
+      <Width>8.09546in</Width>
       <Page>
         <PageHeader>
-          <Height>0.68889in</Height>
+          <Height>1.18055in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -728,24 +732,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>استعلام بالمخالفات الخاصة بالسيارة (</Value>
+                      <Value>رقم السيارة</Value>
                       <Style>
                         <FontFamily>cairo</FontFamily>
-                        <FontSize>14pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=First(Fields!TruckCode.Value, "TruckViolations")</Value>
-                      <Style>
-                        <FontSize>12pt</FontSize>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>) لجهاز استهلاك الطرق بمحافظة الجيزة</Value>
-                      <Style>
-                        <FontFamily>cairo</FontFamily>
-                        <FontSize>14pt</FontSize>
+                        <FontSize>20pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -755,10 +745,117 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.13889in</Top>
-              <Left>0.03333in</Left>
+              <Left>6.32502in</Left>
               <Height>0.52223in</Height>
-              <Width>8.02875in</Width>
+              <Width>1.77042in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="lable2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.FormatTruckCode(Parameters!ExploaredTruckCodeParameter.Value)</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>20pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Left>1.90441in</Left>
+              <Height>0.52223in</Height>
+              <Width>4.30375in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="lable3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>تاريخ الاستعلام</Value>
+                      <Style>
+                        <FontFamily>cairo</FontFamily>
+                        <FontSize>18pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.59167in</Top>
+              <Left>6.32502in</Left>
+              <Height>0.52223in</Height>
+              <Width>1.77042in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="lable4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>20pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>d/M/yyyy h:mm tt</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.59167in</Top>
+              <Left>1.90441in</Left>
+              <Height>0.52223in</Height>
+              <Width>4.30375in</Width>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -786,10 +883,23 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ExploaredTruckCodeParameter">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ExploaredTruckCodeParameter</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <Code>Public Function FormatTruckCode(ByVal originalTruckCode As String) As String
@@ -803,7 +913,8 @@
     Else
         Return originalTruckCode
     End If
-End Function</Code>
+End Function
+</Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>6ba76c7b-d74f-42f2-9b75-8eb55b620905</rd:ReportID>
 </Report>

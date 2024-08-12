@@ -39,12 +39,12 @@ namespace ViolationsSystem.Views
 			this.label2 = new System.Windows.Forms.Label();
 			this.comboUnits = new System.Windows.Forms.ComboBox();
 			this.lable3 = new System.Windows.Forms.Label();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.btnGetResult = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+			this.dateBox1 = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).BeginInit();
@@ -59,13 +59,13 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanel1.AutoSize = true;
 			this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
 			this.flowLayoutPanel1.Controls.Add(this.lable3);
-			this.flowLayoutPanel1.Controls.Add(this.dateTimePicker1);
+			this.flowLayoutPanel1.Controls.Add(this.dateBox1);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 9, 7, 9);
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(1011, 75);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(1011, 109);
 			this.flowLayoutPanel1.TabIndex = 1;
 			// 
 			// flowLayoutPanel2
@@ -171,17 +171,10 @@ namespace ViolationsSystem.Views
 			this.lable3.Location = new System.Drawing.Point(427, 9);
 			this.lable3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lable3.Name = "lable3";
-			this.lable3.Size = new System.Drawing.Size(134, 57);
+			this.lable3.Size = new System.Drawing.Size(134, 91);
 			this.lable3.TabIndex = 3;
 			this.lable3.Text = "التاريخ المبدأي";
 			this.lable3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(106, 12);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(314, 45);
-			this.dateTimePicker1.TabIndex = 4;
 			// 
 			// btnGetResult
 			// 
@@ -200,7 +193,7 @@ namespace ViolationsSystem.Views
 			// 
 			this.panel3.Controls.Add(this.btnGetResult);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel3.Location = new System.Drawing.Point(0, 75);
+			this.panel3.Location = new System.Drawing.Point(0, 109);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
 			this.panel3.Size = new System.Drawing.Size(1011, 74);
@@ -214,16 +207,16 @@ namespace ViolationsSystem.Views
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1011, 149);
+			this.panel2.Size = new System.Drawing.Size(1011, 183);
 			this.panel2.TabIndex = 4;
 			// 
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.reportViewer);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel4.Location = new System.Drawing.Point(0, 149);
+			this.panel4.Location = new System.Drawing.Point(0, 183);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(1011, 531);
+			this.panel4.Size = new System.Drawing.Size(1011, 497);
 			this.panel4.TabIndex = 5;
 			// 
 			// reportViewer
@@ -234,8 +227,18 @@ namespace ViolationsSystem.Views
 			this.reportViewer.Location = new System.Drawing.Point(0, 0);
 			this.reportViewer.Name = "reportViewer";
 			this.reportViewer.ServerReport.BearerToken = null;
-			this.reportViewer.Size = new System.Drawing.Size(1011, 531);
+			this.reportViewer.Size = new System.Drawing.Size(1011, 497);
 			this.reportViewer.TabIndex = 1;
+			// 
+			// dateBox1
+			// 
+			this.dateBox1.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dateBox1.Location = new System.Drawing.Point(19, 14);
+			this.dateBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.dateBox1.Name = "dateBox1";
+			this.dateBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.dateBox1.Size = new System.Drawing.Size(401, 81);
+			this.dateBox1.TabIndex = 4;
 			// 
 			// SendTrafficView
 			// 
@@ -276,7 +279,7 @@ namespace ViolationsSystem.Views
 		private Panel panel4;
 		private ComboBox comboUnits;
 		private Label label2;
-		private DateTimePicker dateTimePicker1;
 		public Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+		private ViolationsCollecting.View.CustomeComponants.DateBox dateBox1;
 	}
 }

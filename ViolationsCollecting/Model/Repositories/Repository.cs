@@ -109,7 +109,7 @@ namespace ViolationsCollecting.Model.Repositories
 		public async Task<ICollection<Violation>> GetViolationsInMonth(int month)
 		{
 			return await db.Violations.Where(x =>
-					x.RegistrationDate.Month == month &&
+					x.ViolationDate.Month == month &&
 					x.RegistrationDate.Year == DateTime.Now.Year
 					).OrderBy(x => x.ViolationDate
 					).ToListAsync();
@@ -121,9 +121,9 @@ namespace ViolationsCollecting.Model.Repositories
 			await db.SaveChangesAsync();
 		}
 
-		public async Task<bool> CheckViolationInsertedBefore(string Code)
+		public async Task<bool> CheckViolationInsertedBefore(string Code, DateTime dateTime)
 		{
-			return await db.Violations.AnyAsync(x => x.RegistrationDate.Day == DateTime.Now.Day && x.TruckCode == Code);
+			return await db.Violations.AnyAsync(x => x.ViolationDate == dateTime && x.TruckCode == Code);
 		}
 	}
 }

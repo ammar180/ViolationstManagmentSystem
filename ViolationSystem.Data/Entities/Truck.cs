@@ -8,11 +8,11 @@ namespace ViolationSystem.Data.Entities
 	{
 		public Truck()
 		{
-			Violations = new HashSet<Violation>();
+			Violations = new List<Violation>();
 		}
 		[Key]
 		public string TruckCode { get; set; }
-		public bool? IsExplored { get; set; }
+		public bool IsExplored { get; set; }
 
 		public virtual ICollection<Violation> Violations { get; set; }
 

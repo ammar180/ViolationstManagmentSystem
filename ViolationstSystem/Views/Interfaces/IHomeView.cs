@@ -8,27 +8,25 @@ namespace ViolationsSystem.Views.Interfaces
 {
 	public interface IHomeView
 	{
-		string TruckCode { get; }
+		// Fields
 		string TruckCodeChars { get; }
 		string TruckCodeDigits { get; }
 
+		// Properties
 		BindingSource HomeViewBS { get; set; }
 		LoadingForm loading { get; }
 		bool[] ExploredCodesOfTrucks { get; set; }
 		bool[] dublicatedDateCode { get; set; }
+		List<string> FillCodeFiltercheckedList { set; }
+		List<Violation> ModifiedViolations { get; set; }
+		List<Violation> DeletedViolations { get; set; }
 
+		// Events
 		event EventHandler HandleGetViolationsList;
 		event EventHandler UpdateDG;
 		event EventHandler HandleImport;
 
-		//event EventHandler HandleGridEdit;
-		//event EventHandler HandleGridAdd;
-		//event EventHandler HandleGridDelete;
 		event EventHandler SaveChangesEvent;
 		event EventHandler PrintEvent;
-		List<string> FillCodeFiltercheckedList { set; }
-		List<Violation> ModifiedViolations { get; set; }
-		List<Violation> DeletedViolations { get; set; }
-		List<Violation> DataGridViolations { get; set; }
 	}
 }

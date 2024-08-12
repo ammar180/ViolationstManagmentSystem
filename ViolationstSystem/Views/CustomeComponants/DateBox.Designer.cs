@@ -31,7 +31,10 @@ namespace ViolationsCollecting.View.CustomeComponants
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DateBox));
 			this.DateGroupBox = new System.Windows.Forms.GroupBox();
+			this.btnCurrentDate = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.YearNum = new System.Windows.Forms.NumericUpDown();
@@ -48,16 +51,40 @@ namespace ViolationsCollecting.View.CustomeComponants
 			// 
 			// DateGroupBox
 			// 
+			this.DateGroupBox.Controls.Add(this.btnCurrentDate);
+			this.DateGroupBox.Controls.Add(this.btnClear);
 			this.DateGroupBox.Controls.Add(this.flowLayoutPanel1);
 			this.DateGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DateGroupBox.Location = new System.Drawing.Point(0, 0);
 			this.DateGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
 			this.DateGroupBox.Name = "DateGroupBox";
 			this.DateGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-			this.DateGroupBox.Size = new System.Drawing.Size(337, 87);
+			this.DateGroupBox.Size = new System.Drawing.Size(411, 87);
 			this.DateGroupBox.TabIndex = 5;
 			this.DateGroupBox.TabStop = false;
 			this.DateGroupBox.Text = "التاريخ {يوم / شهر / سنه}";
+			// 
+			// btnCurrentDate
+			// 
+			this.btnCurrentDate.BackColor = System.Drawing.SystemColors.Control;
+			this.btnCurrentDate.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrentDate.Image")));
+			this.btnCurrentDate.Location = new System.Drawing.Point(5, 31);
+			this.btnCurrentDate.Name = "btnCurrentDate";
+			this.btnCurrentDate.Size = new System.Drawing.Size(47, 46);
+			this.btnCurrentDate.TabIndex = 5;
+			this.btnCurrentDate.UseVisualStyleBackColor = false;
+			this.btnCurrentDate.Click += new System.EventHandler(this.btnCurrentDate_Click);
+			// 
+			// btnClear
+			// 
+			this.btnClear.BackColor = System.Drawing.SystemColors.Control;
+			this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+			this.btnClear.Location = new System.Drawing.Point(56, 31);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(47, 46);
+			this.btnClear.TabIndex = 4;
+			this.btnClear.UseVisualStyleBackColor = false;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -69,10 +96,10 @@ namespace ViolationsCollecting.View.CustomeComponants
 			this.flowLayoutPanel1.Controls.Add(this.DayNum);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 35);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(108, 35);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(322, 49);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(301, 49);
 			this.flowLayoutPanel1.TabIndex = 3;
 			// 
 			// label1
@@ -91,21 +118,11 @@ namespace ViolationsCollecting.View.CustomeComponants
 			this.YearNum.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.YearNum.Location = new System.Drawing.Point(47, 3);
 			this.YearNum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-			this.YearNum.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
 			this.YearNum.Name = "YearNum";
 			this.YearNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.YearNum.Size = new System.Drawing.Size(61, 39);
 			this.YearNum.TabIndex = 2;
 			this.YearNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.YearNum.Value = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
 			// 
 			// label2
 			// 
@@ -128,21 +145,11 @@ namespace ViolationsCollecting.View.CustomeComponants
             0,
             0,
             0});
-			this.MonthNum.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			this.MonthNum.Name = "MonthNum";
 			this.MonthNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.MonthNum.Size = new System.Drawing.Size(61, 39);
 			this.MonthNum.TabIndex = 1;
 			this.MonthNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.MonthNum.Value = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
 			// 
 			// label3
 			// 
@@ -165,21 +172,11 @@ namespace ViolationsCollecting.View.CustomeComponants
             0,
             0,
             0});
-			this.DayNum.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			this.DayNum.Name = "DayNum";
 			this.DayNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.DayNum.Size = new System.Drawing.Size(61, 39);
 			this.DayNum.TabIndex = 0;
 			this.DayNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.DayNum.Value = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
 			// 
 			// DateBox
 			// 
@@ -190,7 +187,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.Name = "DateBox";
 			this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.Size = new System.Drawing.Size(337, 87);
+			this.Size = new System.Drawing.Size(411, 87);
 			this.DateGroupBox.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
@@ -211,5 +208,7 @@ namespace ViolationsCollecting.View.CustomeComponants
 		private NumericUpDown MonthNum;
 		private Label label3;
 		private NumericUpDown DayNum;
+		private Button btnCurrentDate;
+		private Button btnClear;
 	}
 }

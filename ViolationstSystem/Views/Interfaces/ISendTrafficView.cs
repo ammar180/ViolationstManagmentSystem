@@ -10,7 +10,7 @@ namespace ViolationsSystem.Views.Interfaces
 		//Properties - Fields
 		LoadingForm LoadingForm { get; set; }
 		int TrucksCount { get;}
-		DateTime StartDate { get;}
+		DateTime? StartDate { get;}
 		string TargetUnit { get; }
 		//Events
 		event EventHandler GetResultEvent;

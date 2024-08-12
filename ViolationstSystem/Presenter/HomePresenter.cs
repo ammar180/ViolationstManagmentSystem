@@ -13,7 +13,7 @@ namespace ViolationsSystem.Presenter
 	{
 		private IHomeView view;
 		private IRepository repository;
-		private ICollection<Violation> violationsList;
+		private List<Violation> violationsList;
 
 		public HomePresenter(IHomeView _view, IRepository _repository)
 		{
@@ -34,34 +34,41 @@ namespace ViolationsSystem.Presenter
 			ReportDataSource rs = new ReportDataSource();
 			var helperForm = HelperForm.GetInstance();
 			rs.Name = "TruckViolations";
-			rs.Value = list;
+			rs.Value = list.OrderBy(x => x.ViolationDate);
+			helperForm.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.TruckViolationReport.rdlc";
 			helperForm.reportViewer.LocalReport.DataSources.Clear();
+			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("ExploaredTruckCodeParameter", string.Join("", view.TruckCodeChars, view.TruckCodeDigits)));
 			helperForm.reportViewer.LocalReport.DataSources.Add(rs);
 			helperForm.ShowDialog();
 		}
 
 		private async void SaveChanges(object sender, EventArgs e)
 		{
-			violationsList = sender as List<Violation>;
-			await repository.UpdateViolations(view.ModifiedViolations);
-			await repository.RemoveViolations(view.DeletedViolations);
+			if(view.ModifiedViolations.Any() || view.DeletedViolations.Any())
+			{
+				view.loading.Show();
+				violationsList = sender as List<Violation>;
+				repository.UpdateViolations(view.ModifiedViolations);
+				repository.RemoveViolations(view.DeletedViolations);
+				//GetList(null, EventArgs.Empty);
+				view.loading.Hide();
+			}
 		}
 
 		private void UpdateDataGrid(object sender, EventArgs e)
 		{
 			List<string> list = sender as List<string>;
-			if (list.Count > 0 && list != null)
-				view.HomeViewBS.DataSource = violationsList.Where(v =>
-					list.Contains(v.TruckCode)
-					&& list.Contains(v.Unit)
-					).ToList();
+			view.HomeViewBS.DataSource = violationsList?.Where(v =>
+				list.Contains(v.TruckCode)
+				&& list.Contains(v.Unit)
+				).ToList();
 		}
 
-		private void GetList(object sender, EventArgs e)
+		private async void GetList(object sender, EventArgs e)
 		{
 			view.loading.Show();
 
-			violationsList = repository.GetViolationsByCode(view.TruckCodeDigits, view.TruckCodeChars).Result;
+			violationsList = await repository.GetViolationsByCode(view.TruckCodeDigits, view.TruckCodeChars);
 
 			view.ExploredCodesOfTrucks = GetExploredCodesOfTrucks();
 
@@ -69,14 +76,12 @@ namespace ViolationsSystem.Presenter
 
 			view.HomeViewBS.DataSource = violationsList;
 
-			view.DataGridViolations = violationsList.ToList();
-
 			view.FillCodeFiltercheckedList = violationsList.Select(x => x.TruckCode).Distinct().ToList();
 
 			view.loading.Hide();
 		}
 
-		private async void ImportExcel(object sender, EventArgs e)
+		private void ImportExcel(object sender, EventArgs e)
 		{
 			var printView = ImportView.Instance();
 			printView.Show();
@@ -89,7 +94,7 @@ namespace ViolationsSystem.Presenter
 			bool[] result = new bool[violationsList.Count];
 			result.Initialize();
 			for (int i = 0; i < result.Length; i++)
-				result[i] = violationsList.ElementAt(i).Truck.IsExplored ?? false;
+				result[i] = violationsList.ElementAt(i).Truck.IsExplored;
 
 			return result;
 		}
@@ -121,6 +126,7 @@ namespace ViolationsSystem.Presenter
 		}
 		#endregion
 	}
+	#region HelperClasses
 	class DateCode
 	{
 		public DateTime ViolationDate { get; set; }
@@ -161,4 +167,5 @@ namespace ViolationsSystem.Presenter
 			return hashTruckCode ^ hashViolationDate;
 		}
 	}
+	#endregion
 }

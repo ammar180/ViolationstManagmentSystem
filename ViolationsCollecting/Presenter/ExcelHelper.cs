@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Diagnostics;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 namespace ViolationsCollecting.Presenter
 {
 	public static class ExcelHelper
@@ -16,7 +17,11 @@ namespace ViolationsCollecting.Presenter
 				// Export
 				using (XLWorkbook xLWorkbook = new XLWorkbook())
 				{
-					xLWorkbook.AddWorksheet(dt, name);
+					var worksheet = xLWorkbook.AddWorksheet(dt, name);
+					// Apply data types and formatting
+					var xlViolationDateColumn = worksheet.Column(2);
+					xlViolationDateColumn.Style.NumberFormat.SetFormat("M/d/yyyy"); // Set date format
+
 					using (MemoryStream ma = new MemoryStream())
 					{
 						xLWorkbook.SaveAs(ma, true);
@@ -43,10 +48,10 @@ namespace ViolationsCollecting.Presenter
 		internal static DataTable ArrangeDataTable(DataTable dataTable)
 		{
 			dataTable.Columns["TruckCode"].SetOrdinal(0);
-			dataTable.Columns["TruckCode"].ColumnName = "رقم الشاحنة";
+			dataTable.Columns["TruckCode"].ColumnName = "رقم السيارة";
 			
 			dataTable.Columns["ViolationDate"].SetOrdinal(1);
-			dataTable.Columns["ViolationDate"].ColumnName = "تاريخ المخالفة";
+			dataTable.Columns["ViolationDate"].ColumnName = "تاريخ المخالفة: سنه/يوم/شهر";
 
 			dataTable.Columns["Unit"].SetOrdinal(2);
 			dataTable.Columns["Unit"].ColumnName = "الوحدة";

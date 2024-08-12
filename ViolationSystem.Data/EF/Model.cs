@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using ViolationSystem.Data.Entities;
 
 namespace ViolationSystem.Data.EF
@@ -11,8 +12,12 @@ namespace ViolationSystem.Data.EF
 		// 
 		// If you wish to target a different database and/or database provider, modify the 'Model' 
 		// connection string in the application configuration file.
+		public Model(string sqlConnection)
+			: base($"name={sqlConnection}")
+		{
+		}
 		public Model()
-			: base("name=SqlConnection")
+			: base($"name=ViolationstSystem.Properties.Settings.SqlConnectionLocal")
 		{
 		}
 
