@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ViolationsSystem.Views.Interfaces;
 using ViolationstSystem.Views;
+using ViolationstSystem.Views.CustomeComponants;
 using ViolationSystem.Data.Entities;
 using ViolationSystem.Data.Repositories;
 
@@ -25,19 +26,31 @@ namespace ViolationsSystem.Presenter
 			view.UpdateDG += UpdateDataGrid;
 			view.SaveChangesEvent += SaveChanges;
 			view.PrintEvent += Print;
-
 		}
 
 		private void Print(object sender, EventArgs e)
 		{
-			var list = sender as List<Violation>;
+			violationsList = sender as List<Violation>;
+			var getNameView = GetNameUC.Instance();
+			getNameView.btnOk.Click += BtnOk_Click;
+			getNameView.Show();
+		}
+
+		private void BtnOk_Click(object sender, EventArgs e)
+		{
+			string theName = " ";
 			ReportDataSource rs = new ReportDataSource();
-			var helperForm = HelperForm.GetInstance();
+			var helperForm = new HelperForm();
 			rs.Name = "TruckViolations";
-			rs.Value = list.OrderBy(x => x.ViolationDate);
+			rs.Value = violationsList.OrderBy(x => x.ViolationDate);
 			helperForm.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.TruckViolationReport.rdlc";
 			helperForm.reportViewer.LocalReport.DataSources.Clear();
+			theName = GetNameUC.Instance().txtName.Text;
+			GetNameUC.Instance().txtName.Text = "";
+			GetNameUC.Instance().Hide();
+
 			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("ExploaredTruckCodeParameter", string.Join("", view.TruckCodeChars, view.TruckCodeDigits)));
+			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("NameParameter", theName));
 			helperForm.reportViewer.LocalReport.DataSources.Add(rs);
 			helperForm.ShowDialog();
 		}

@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using ViolationsSystem.Presenter;
@@ -51,7 +52,35 @@ namespace ViolationsSystem
 			{
 				ViolationstSystem.Properties.Settings.Default.SelectedConnectionType = SelectedConnection;
 				ViolationstSystem.Properties.Settings.Default.Save();
+				MessageBox.Show("يرجى إعادة تشغيل البرنامج");
 			}
 		}
+
+		private void btnUpdate_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				// Get the path of the update.exe file in the same directory as the application
+				string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+				string updateFilePath = Path.Combine(appDirectory, "updater.exe");
+
+				// Check if the update.exe file exists
+				if (File.Exists(updateFilePath))
+				{
+					// Start the update.exe process
+					System.Diagnostics.Process.Start(updateFilePath);
+				}
+				else
+				{
+					MessageBox.Show("Update file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			catch (Exception ex)
+			{
+				// Handle any errors that may occur when trying to start the process
+				MessageBox.Show($"An error occurred while trying to start the update: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
 	}
 }

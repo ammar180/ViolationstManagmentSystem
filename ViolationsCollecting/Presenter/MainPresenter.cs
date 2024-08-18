@@ -42,7 +42,6 @@ namespace ViolationsCollecting.Presenter
 		{
 			int monthToExport = view.MonthToExport;
 
-
 			if (Properties.Settings.Default.ExportPath == "")
 			{
 				if (MessageBoxHelper.SelectBath())

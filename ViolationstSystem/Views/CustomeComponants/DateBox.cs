@@ -18,6 +18,12 @@ namespace ViolationsCollecting.View.CustomeComponants
 					return null;
 				}
 			}
+			set
+			{
+				YearNum.Value = value.Value.Year - 2000;
+				MonthNum.Value = value.Value.Month;
+				DayNum.Value = value.Value.Day;
+			}
 		}
 		public DateBox()
 		{

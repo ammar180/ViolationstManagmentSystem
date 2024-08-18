@@ -7,7 +7,7 @@ namespace ViolationSystem.Data.Repositories
 {
 	public interface IRepository
 	{
-		Task AddViolation(Violation violationModel, bool canSaveChanges = true);
+		Task AddViolation(Violation violationModel);
 		Task<bool> EditViolation(Violation violationModel);
 		Task<ICollection<Violation>> GetAllViolations();
 		Task<bool> ValidateIsAdmin(string text1, string text2);

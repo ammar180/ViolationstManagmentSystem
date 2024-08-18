@@ -1,5 +1,4 @@
 using System.Data.Entity;
-using System.Data.Entity.SqlServer;
 using ViolationSystem.Data.Entities;
 
 namespace ViolationSystem.Data.EF

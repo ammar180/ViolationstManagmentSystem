@@ -14,7 +14,7 @@ namespace ViolationsSystem.Views
 		{
 			InitializeComponent();
 			LoadingForm = new LoadingForm();
-			btnGetResult.Click += delegate { GetResultEvent.Invoke(this, EventArgs.Empty); };
+			btnGetResult.Click += delegate { GetResultEvent?.Invoke(this, EventArgs.Empty); };
 
 			LoadingForm.FormShown += LoadingForm_FormShown;
 			LoadingForm.FormHiding += LoadingForm_FormHiding;

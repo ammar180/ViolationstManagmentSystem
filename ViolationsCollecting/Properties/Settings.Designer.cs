@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ViolationsCollecting.Properties {
+namespace ViolationsCollecting_net8.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -68,29 +68,6 @@ namespace ViolationsCollecting.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ViolationsDB." +
-            "mdf;Integrated Security=True;Connect Timeout=30")]
-        public string SQLconnectionFile {
-            get {
-                return ((string)(this["SQLconnectionFile"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ViolationsDB;Integrated Securi" +
-            "ty=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Applicat" +
-            "ion Intent=ReadWrite;Multi Subnet Failover=False")]
-        public string SQLconnectionServer {
-            get {
-                return ((string)(this["SQLconnectionServer"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2024")]
@@ -100,6 +77,29 @@ namespace ViolationsCollecting.Properties {
             }
             set {
                 this["CurrentYear"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v12.0;AttachDbFilename=|DataDirectory|\\ViolationsDB.mdf;Int" +
+            "egrated Security=True;Connect Timeout=30")]
+        public string SQLconnectionFile {
+            get {
+                return ((string)(this["SQLconnectionFile"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ViolationDB;Integrated Securit" +
+            "y=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Applicati" +
+            "on Intent=ReadWrite;Multi Subnet Failover=False")]
+        public string SQLconnectionServer {
+            get {
+                return ((string)(this["SQLconnectionServer"]));
             }
         }
     }

@@ -44,7 +44,7 @@ namespace ViolationSystem.Data.Repositories
 			}
 		}
 
-		public async Task AddViolation(Violation violationModel, bool canSaveChanges = true)
+		public async Task AddViolation(Violation violationModel)
 		{
 			try
 			{
@@ -85,7 +85,6 @@ namespace ViolationSystem.Data.Repositories
 					violations = await truck
 						.SelectMany(x => x.Violations)
 						.Include(x => x.Truck)
-						.Take(500)
 						.ToListAsync();
 					return violations;
 				}
@@ -238,7 +237,7 @@ namespace ViolationSystem.Data.Repositories
 						&& !startDate.HasValue || (v.ViolationDate >= startDate))
 			).Take(trucksCount)
 			.ToListAsync();
-			
+
 			trucks.ForEach(x => x.IsExplored = true);
 			await db.SaveChangesAsync();
 			return trucks;

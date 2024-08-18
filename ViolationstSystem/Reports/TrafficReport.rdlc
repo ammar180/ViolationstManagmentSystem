@@ -69,13 +69,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.05251in</Width>
+                  <Width>2.01084in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.43977in</Width>
+                  <Width>1.3981in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.50771in</Width>
+                  <Width>0.46604in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -240,6 +240,7 @@
                                 <TextRun>
                                   <Value>=Code.FormatTruckCode(Fields!TruckCode.Value)</Value>
                                   <Style>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -325,9 +326,9 @@
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
-            <Left>4in</Left>
+            <Left>4.32in</Left>
             <Height>0.75in</Height>
-            <Width>3.99999in</Width>
+            <Width>3.87498in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -340,13 +341,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.00818in</Width>
+                  <Width>2.08722in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.46194in</Width>
+                  <Width>1.54098in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52988in</Width>
+                  <Width>0.60892in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -511,6 +512,7 @@
                                 <TextRun>
                                   <Value>=Code.FormatTruckCode(Fields!TruckCode.Value)</Value>
                                   <Style>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -532,6 +534,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -596,8 +599,9 @@
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
+            <Left>0.08289in</Left>
             <Height>0.75in</Height>
-            <Width>4in</Width>
+            <Width>4.23712in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -615,10 +619,10 @@
           </Border>
         </Style>
       </Body>
-      <Width>8.02834in</Width>
+      <Width>8.274in</Width>
       <Page>
         <PageHeader>
-          <Height>0.65279in</Height>
+          <Height>0.66668in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -642,8 +646,10 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+              <Top>0.01389in</Top>
+              <Left>0.08289in</Left>
               <Height>0.65279in</Height>
-              <Width>8in</Width>
+              <Width>8.1121in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -663,10 +669,8 @@
             </Border>
           </Style>
         </PageHeader>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>11.69in</PageHeight>
+        <PageWidth>8.27in</PageWidth>
         <Style />
       </Page>
     </ReportSection>

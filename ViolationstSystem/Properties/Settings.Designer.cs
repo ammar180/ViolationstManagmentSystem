@@ -34,18 +34,6 @@ namespace ViolationstSystem.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.1,1433;Initial Catalog=ViolationsDB;User ID=DRAGON;Password" +
-            "=@Zxcv1234;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Applica" +
-            "tion Intent=ReadWrite;Multi Subnet Failover=False")]
-        public string SqlConnectionTCP {
-            get {
-                return ((string)(this["SqlConnectionTCP"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ViolationstSystem.Properties.Settings.SqlConnectionLocal")]
@@ -55,6 +43,41 @@ namespace ViolationstSystem.Properties {
             }
             set {
                 this["SelectedConnectionType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.1,1433;Initial Catalog=ViolationsDB;User ID=DRAGON;Password" +
+            "=@Zxcv1234;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string SqlConnectionTCP {
+            get {
+                return ((string)(this["SqlConnectionTCP"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ValidateOriginal {
+            get {
+                return ((bool)(this["ValidateOriginal"]));
+            }
+            set {
+                this["ValidateOriginal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Pass#123")]
+        public string WorksheetPassword {
+            get {
+                return ((string)(this["WorksheetPassword"]));
+            }
+            set {
+                this["WorksheetPassword"] = value;
             }
         }
     }

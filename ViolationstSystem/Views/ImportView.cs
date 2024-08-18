@@ -1,7 +1,10 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,12 +20,15 @@ namespace ViolationsSystem
 		private IRepository repository;
 		private IXLWorkbook workbook;
 		private bool stopImport = false;
+		private DataTable RowsHasProblem;
 		public ImportView()
 		{
 			InitializeComponent();
 			this.Owner = mainViewInstance;
 			string connectionStr = ViolationstSystem.Properties.Settings.Default.SelectedConnectionType;
 			repository = new Repository(connectionStr);
+
+			checkOriginalFile.Checked = ViolationstSystem.Properties.Settings.Default.ValidateOriginal;
 		}
 
 		private async void btnChooseFile_Click(object sender, EventArgs e)
@@ -35,11 +41,21 @@ namespace ViolationsSystem
 			try
 			{
 				workbook = new XLWorkbook(path);
+				if(checkOriginalFile.Checked)
+					workbook.Unprotect(ViolationstSystem.Properties.Settings.Default.WorksheetPassword);
+
 				await Import();
+				// Call method to save problematic rows to a new Excel file
+				SaveProblematicRowsToExcel(path);
 			}
-			catch
+			catch (IOException)
 			{
-				MessageBox.Show("هناك تطبيق اخر يستخدم الملف، يرجى اغلاقه وإعادة المحاولة");
+				labErrorMessage.Text = "\nيبدو أن هناك تطبيق اخر يستخدم الملف أو مشكله في التعامل معل الملف";
+			}
+			catch (ArgumentException)
+			{
+				labErrorMessage.Text = "تحذير!، تبين أن هذا الملف غير مطابق لمواصفات الملف الاصلي المستخرج من برنامج الوحدات";
+
 			}
 
 			MessageBox.Show("تم الانتهاء من العملية");
@@ -47,117 +63,200 @@ namespace ViolationsSystem
 			labFileName.Text = labCurrentCar.Text = labRowsCount.Text = "";
 			labPresantage.Text = "Processing...0%";
 			progressBar1.Value = 0;
+			labErrorMessage.Text = "";
 		}
 		public async Task Import()
 		{
+			RowsHasProblem = new DataTable("RowsHasProblem");
+
+			RowsHasProblem.Columns.Add("رقم السيارة", typeof(string));
+			RowsHasProblem.Columns.Add("تاريخ المخالفة", typeof(string));
+			RowsHasProblem.Columns.Add("الوحدة", typeof(string));
+			RowsHasProblem.Columns.Add("المنفذ", typeof(string));
+			RowsHasProblem.Columns.Add("عدد النقلات", typeof(string));
+			RowsHasProblem.Columns.Add("رقم البلاغ", typeof(string));
+			RowsHasProblem.Columns.Add("تاريخ الحجز", typeof(string));
+			RowsHasProblem.Columns.Add("تاريخ السداد", typeof(string));
+			RowsHasProblem.Columns.Add("الملاحظات", typeof(string));
+
 			foreach (var worksheet in workbook.Worksheets)
 			{
-				var rows = worksheet.RowsUsed(x => x.Style.Fill.BackgroundColor != XLColor.AppleGreen).Skip(1);  // Assuming the first row is the header
+				var rows = worksheet.RowsUsed(x => x.Style.Fill.BackgroundColor != XLColor.AppleGreen && x.RowNumber() > StartIngRow.Value).Skip(1);  // Assuming the first row is the header
 				int totalRows = rows.Count();
 				int processedRows = 0;
-				int isProgress = 0;
 				foreach (var row in rows)
 				{
 					if (stopImport)
 					{
-						workbook.Save();
+						//workbook.Save();
+
 						stopImport = false;
 						break;
 					}
 					processedRows++;
 					progressBar1.Value = (int)((double)processedRows / totalRows * 100);
 					labPresantage.Text = $"Processing...{progressBar1.Value}%";
-					labRowsCount.Text = $" {processedRows}" +
-						$"من " +
-						$"{totalRows}";
-
-					// formmat the truck 
-					var originalValue = row.Cell("A").GetString().Replace(" ", "");
-					var digits = "";
-					var chars = "";
-					foreach (char c in originalValue)
-					{
-						if (char.IsDigit(c))
-							digits += c;
-						else
-						{
-							switch (c)
-							{
-								case 'ة':
-									chars += 'ه';
-									break;
-								case 'أ':
-									chars += 'ا';
-									break;
-								case 'ى':
-									chars += 'ي';
-									break;
-
-								default:
-									chars += c;
-									break;
-							}
-						}
-					}
-
-					var truckCode = string.Join("", chars, digits);
-					labCurrentCar.Text = truckCode;
+					labRowsCount.Text = $" {processedRows} من {totalRows}";
 					Application.DoEvents();  // This forces the UI to update
+
 
 					try
 					{
+						var truckCode = formatTruckCode(row.Cell("A").GetString().Replace(" ", ""));
+						labCurrentCar.Text = truckCode;
 						var dateCellValue = row.Cell("B").GetString();
-						var violationDate = ParseDate(dateCellValue); // format date
+						var violationDate = ParseDate(dateCellValue, !VDateM_D.Checked); // Format date
+						var Vunit = row.Cell("C").GetString();
+						var Vmanfaz = row.Cell("D").GetString();
+						bool isExploredValue = true;
+						var VreportNumber = row.Cell("F").GetString();
+						var VBlockDate = ParseDate(row.Cell("G").GetString(), BDateD_M.Checked);
+						var VPaymentDate = ParseDate(row.Cell("H").GetString(), PyD_M.Checked);
+						var VCount = !row.Cell("E").IsEmpty() ? row.Cell("E").GetString() : "1";
+						var VComments = row.Cell("I").GetString();
+						try
+						{
+							isExploredValue = row.Cell("A").Style.Fill.BackgroundColor.Color != System.Drawing.Color.Transparent;
+							isExploredValue = isExploredValue || !row.Cell("F").IsEmpty() || !row.Cell("H").IsEmpty();
+						}
+						catch { }
+						
 						var violation = new Violation
 						{
 							TruckCode = truckCode,
 							ViolationDate = violationDate ?? throw new Exception(),
-							Unit = row.Cell("C").GetString(),
-							ElManfaz = row.Cell("D").GetString(),
+							Unit = Vunit,
+							ElManfaz = Vmanfaz,
 							Truck = new Truck
 							{
 								TruckCode = truckCode,
-								IsExplored = (row.Cell("A").Style.Fill.BackgroundColor != XLColor.Transparent),
+								IsExplored = isExploredValue,
 							},
-							ReportNumber = row.Cell("F").GetString(),
-							BlockDate = ParseDate(row.Cell("G").GetString(), false),
-							PaymentDate = ParseDate(row.Cell("H").GetString(), false),
-							Comments = "",
-							VCount = !row.Cell("E").IsEmpty() ? row.Cell("E").GetString() : "1",
+							ReportNumber = VreportNumber,
+							BlockDate = VBlockDate,
+							PaymentDate = VPaymentDate,
+							VCount = VCount,
+							Comments = VComments,
 						};
-						// the approtch to Obtomize db.SaveChanges methode
-						// and savechanges when progress is changes 
-						await repository.AddViolation(violation, progressBar1.Value != isProgress);
-						if (progressBar1.Value != isProgress)
-						{
-							isProgress = progressBar1.Value;
-							//workbook.Save();
-						}
+						// Optimize db.SaveChanges method and save changes when progress changes
+						await repository.AddViolation(violation);
 
-						row.Style.Fill.BackgroundColor = XLColor.AppleGreen;
+						///////row.Style.Fill.BackgroundColor = XLColor.AppleGreen;
 					}
 					catch (Exception ex)
 					{
-						row.Style.Fill.BackgroundColor = XLColor.RedMunsell;
-						// Save the workbook to preserve the changes
+						//////row.Style.Fill.BackgroundColor = XLColor.RedMunsell;
 						labErrorMessage.Text = $"مشكله في الصف : {row.RowNumber()}";
-						//workbook.Save();
+						RowsHasProblem.Rows.Add(row.Cell("A").GetString(),
+												row.Cell("B").GetString(),
+												row.Cell("C").GetString(),
+												row.Cell("D").GetString(),
+												row.Cell("E").GetString(),
+												row.Cell("F").GetString(),
+												row.Cell("G").GetString(),
+												row.Cell("H").GetString(),
+												row.Cell("I").GetString());
 					}
 				}
 			}
-			workbook.Save();
+			//////workbook.Save();
 			progressBar1.Value = 100;
 			labPresantage.Text = "Processing...100%";
 			labCurrentCar.Text = "الاستيراد مكتمل";
 			btnChooseFile.Enabled = true;
 		}
-		private DateTime? ParseDate(string dateString, bool isTraditionalFormate = true)
+
+		private string formatTruckCode(string originalValue)
+		{
+			if (originalValue.Length < 5)
+				throw new Exception();
+			else if (originalValue.Length > 7)
+				return originalValue;
+			// Format the truck 
+			var digits = "";
+			var chars = "";
+			foreach (char c in originalValue)
+			{
+				if (char.IsDigit(c))
+					digits += c;
+				else
+				{
+					switch (c)
+					{
+						case 'ة':
+							chars += 'ه';
+							break;
+						case 'أ':
+							chars += 'ا';
+							break;
+						case 'ى':
+							chars += 'ي';
+							break;
+						default:
+							chars += c;
+							break;
+					}
+				}
+			}
+			return string.Join("", chars, digits);
+		}
+
+		private void SaveProblematicRowsToExcel(string originalFilePath)
+		{
+			string newFilePath = "";
+			if (originalFilePath.Contains("-المشاكل.xlsx"))
+			{
+				File.Delete(originalFilePath);
+				newFilePath = originalFilePath;
+			}
+			else
+			{
+				originalFilePath = originalFilePath.Remove(originalFilePath.Length - 5);
+				newFilePath = originalFilePath + $@"-المشاكل.xlsx";
+				newFilePath = GetUniqueFileName(newFilePath);
+			}
+
+			// Export
+			using (XLWorkbook xLWorkbook = new XLWorkbook())
+			{
+				var worksheet = xLWorkbook.AddWorksheet(RowsHasProblem, "sheet1");
+				// Apply data types and formatting
+				using (MemoryStream ma = new MemoryStream())
+				{
+					xLWorkbook.SaveAs(ma, true);
+					File.WriteAllBytes(newFilePath, ma.ToArray());
+				}
+			}
+
+			// Open the new Excel file
+			System.Diagnostics.Process.Start(newFilePath);
+		}
+		private static string GetUniqueFileName(string fileName)
+		{
+			if (!File.Exists(fileName))
+				return fileName;
+
+			string directory = Path.GetDirectoryName(fileName);
+			string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+			string extension = Path.GetExtension(fileName);
+			int count = 1;
+
+			string newFileName;
+			do
+			{
+				newFileName = Path.Combine(directory, $"{fileNameWithoutExtension} ({count}){extension}");
+				count++;
+			} while (File.Exists(newFileName));
+
+			return newFileName;
+		}
+		private DateTime? ParseDate(string dateString, bool isD_Mformat)
 		{
 			if (dateString == "")
 				return null;
-			string[] formats = isTraditionalFormate ?
-				new string[] { "M/d/yyyy", "MM/dd/yyyy", "d/M/yyyy", "dd/MM/yyyy" }
-				: new string[] { "d/M/yyyy", "dd/MM/yyyy", "M/d/yyyy", "MM/dd/yyyy" };
+			string[] formats = new string[] {"M/d/yyyy", "MM/dd/yyyy", "d/M/yyyy", "dd/MM/yyyy"};
+			if(isD_Mformat)
+				formats = new string[] { "d/M/yyyy", "dd/MM/yyyy" };
 			foreach (var format in formats)
 				if (DateTime.TryParseExact(dateString.Split(' ').First(), format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
 					return date;
@@ -193,5 +292,11 @@ namespace ViolationsSystem
 			}
 		}
 
+		private void checkOriginalFile_CheckedChanged(object sender, EventArgs e)
+		{
+			ViolationstSystem.Properties.Settings.Default.ValidateOriginal = checkOriginalFile.Checked;
+			ViolationstSystem.Properties.Settings.Default.Save();
+
+		}
 	}
 }

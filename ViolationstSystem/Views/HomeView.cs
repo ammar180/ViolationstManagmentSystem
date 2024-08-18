@@ -41,33 +41,64 @@ namespace ViolationsSystem.Views
 			dataGridView.CellFormatting += dataGridView_CellFormatting;
 
 			btnSearch.Click += delegate {
-				HandleGetViolationsList?.Invoke(null, EventArgs.Empty); 
-				dataGridView.Refresh();
-				btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+				if(truckCodeBodx.txtTruckCode.Length >= 4)
+				{
+					HandleGetViolationsList?.Invoke(null, EventArgs.Empty); 
+					dataGridView.Refresh();
+					btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
+				}
 			};
 			truckCodeBodx.msChar.KeyDown += (s, e) => 
 			{
-				if (e.KeyCode == Keys.Enter)
+				if (truckCodeBodx.txtTruckCode.Length >= 4)
 				{
-					HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
-					btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+					if (e.KeyCode == Keys.Enter)
+					{
+						HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
+						btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
+					}
 				}
 			};
 			truckCodeBodx.msDigits.KeyDown += (s, e) => 
 			{
-				if (e.KeyCode == Keys.Enter)
+				if (truckCodeBodx.txtTruckCode.Length >= 4)
 				{
-					HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
-					btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 6;
+					if (e.KeyCode == Keys.Enter)
+					{
+						HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
+						btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
+					}
 				}
 			};
 			
 			btnImportExcel.Click += delegate { HandleImport?.Invoke(null, EventArgs.Empty); };
 			btnApplyChanges.Click += ApplyChanges;
 			filterUserControle1.btnApplyFilter.Click += delegate { UpdateDG?.Invoke(filterUserControle1.FilterList, EventArgs.Empty); dataGridView.Refresh(); };
-			
+
+			dataGridView.SelectionChanged += DataGridView_SelectionChanged;
+
 			this.loading.FormShown += Loading_Shown;
 			this.loading.FormHiding += Loading_FormHiding;
+		}
+
+		private void DataGridView_SelectionChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if (dataGridView.CurrentRow != null)
+				{
+					var violation = (Violation)dataGridView.CurrentRow.DataBoundItem;
+					if (violation != null)
+					{
+						txtReportNumber.Text = violation.ReportNumber;
+						if (violation.BlockDate != null)
+							txtBlockDate.Date = violation.BlockDate;
+						if (violation.PaymentDate != null)
+							txtPaymentDate.Date = violation.PaymentDate;
+					}
+				}
+			}
+			catch { }
 		}
 
 		#region Events
@@ -169,15 +200,15 @@ namespace ViolationsSystem.Views
 					// UpdateDG (UI)
 					foreach (DataGridViewRow item in dataGridView.SelectedRows)
 					{
-						item.Cells[6].Value = txtReportNumber.Text;
-						if (txtPaymentDate.Date.HasValue)
-							item.Cells[7].Value = txtPaymentDate.Date.ToString();
-						else
-							item.Cells[7].Value = "";
+						item.Cells[7].Value = txtReportNumber.Text;
 						if (txtBlockDate.Date.HasValue)
 							item.Cells[8].Value = txtBlockDate.Date.ToString();
 						else
 							item.Cells[8].Value = "";
+						if (txtPaymentDate.Date.HasValue)
+							item.Cells[9].Value = txtPaymentDate.Date.ToString();
+						else
+							item.Cells[9].Value = "";
 
 						var rowToUpdate = (Violation)item.DataBoundItem;
 						ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToUpdate.Id));

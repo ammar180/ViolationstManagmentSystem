@@ -42,25 +42,25 @@ namespace ViolationsSystem.Views
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.flowLayoutPanelOptions = new System.Windows.Forms.FlowLayoutPanel();
+			this.truckCodeBodx = new ViolationsCollecting.View.CustomeComponants.TruckCodeBodx();
 			this.btnSearch = new System.Windows.Forms.Button();
 			this.btnSaveChages = new System.Windows.Forms.Button();
 			this.btnPrint = new System.Windows.Forms.Button();
 			this.btnImportExcel = new System.Windows.Forms.Button();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
+			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.btnApplyChanges = new System.Windows.Forms.Button();
+			this.txtBlockDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.txtPaymentDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtReportNumber = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.btnShowFilter = new System.Windows.Forms.Button();
-			this.violationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.txtBlockDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
-			this.txtPaymentDate = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.filterUserControle1 = new ViolationstSystem.Views.CustomeComponants.FilterUserControle();
-			this.truckCodeBodx = new ViolationsCollecting.View.CustomeComponants.TruckCodeBodx();
+			this.btnShowFilter = new System.Windows.Forms.Button();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NumSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.truckCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,18 +69,18 @@ namespace ViolationsSystem.Views
 			this.elManfazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.VCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.reportNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.blockDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.paymentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.flowLayoutPanelOptions.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// flowLayoutPanelOptions
@@ -97,6 +97,20 @@ namespace ViolationsSystem.Views
 			this.flowLayoutPanelOptions.Name = "flowLayoutPanelOptions";
 			this.flowLayoutPanelOptions.Size = new System.Drawing.Size(1060, 80);
 			this.flowLayoutPanelOptions.TabIndex = 0;
+			// 
+			// truckCodeBodx
+			// 
+			this.truckCodeBodx.FirstNumberTextBox = null;
+			this.truckCodeBodx.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.truckCodeBodx.Location = new System.Drawing.Point(834, 0);
+			this.truckCodeBodx.Margin = new System.Windows.Forms.Padding(0);
+			this.truckCodeBodx.Name = "truckCodeBodx";
+			this.truckCodeBodx.Padding = new System.Windows.Forms.Padding(5);
+			this.truckCodeBodx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.truckCodeBodx.Size = new System.Drawing.Size(226, 80);
+			this.truckCodeBodx.TabIndex = 0;
+			this.truckCodeBodx.txtCodeChars = "";
+			this.truckCodeBodx.txtCodeDigits = "";
 			// 
 			// btnSearch
 			// 
@@ -178,8 +192,8 @@ namespace ViolationsSystem.Views
             this.elManfazDataGridViewTextBoxColumn,
             this.VCount,
             this.reportNumberDataGridViewTextBoxColumn,
-            this.paymentDateDataGridViewTextBoxColumn,
             this.blockDateDataGridViewTextBoxColumn,
+            this.paymentDateDataGridViewTextBoxColumn,
             this.Comments});
 			this.dataGridView.DataSource = this.violationBindingSource;
 			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,6 +218,10 @@ namespace ViolationsSystem.Views
 			this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView.Size = new System.Drawing.Size(693, 679);
 			this.dataGridView.TabIndex = 0;
+			// 
+			// violationBindingSource
+			// 
+			this.violationBindingSource.DataSource = typeof(ViolationSystem.Data.Entities.Violation);
 			// 
 			// splitContainer1
 			// 
@@ -264,6 +282,17 @@ namespace ViolationsSystem.Views
 			this.btnApplyChanges.Text = "تطبيق الاجراء";
 			this.btnApplyChanges.UseVisualStyleBackColor = true;
 			// 
+			// txtBlockDate
+			// 
+			this.txtBlockDate.Dock = System.Windows.Forms.DockStyle.Top;
+			this.txtBlockDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBlockDate.Location = new System.Drawing.Point(3, 278);
+			this.txtBlockDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.txtBlockDate.Name = "txtBlockDate";
+			this.txtBlockDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.txtBlockDate.Size = new System.Drawing.Size(351, 80);
+			this.txtBlockDate.TabIndex = 12;
+			// 
 			// label3
 			// 
 			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -274,6 +303,17 @@ namespace ViolationsSystem.Views
 			this.label3.TabIndex = 10;
 			this.label3.Text = "تاريخ الحجز الإداري";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// txtPaymentDate
+			// 
+			this.txtPaymentDate.Dock = System.Windows.Forms.DockStyle.Top;
+			this.txtPaymentDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPaymentDate.Location = new System.Drawing.Point(3, 160);
+			this.txtPaymentDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.txtPaymentDate.Name = "txtPaymentDate";
+			this.txtPaymentDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.txtPaymentDate.Size = new System.Drawing.Size(351, 81);
+			this.txtPaymentDate.TabIndex = 11;
 			// 
 			// label2
 			// 
@@ -305,44 +345,6 @@ namespace ViolationsSystem.Views
 			this.label1.Text = "رقم البلاغ";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// btnShowFilter
-			// 
-			this.btnShowFilter.BackColor = System.Drawing.Color.Transparent;
-			this.btnShowFilter.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnShowFilter.Location = new System.Drawing.Point(0, 0);
-			this.btnShowFilter.Name = "btnShowFilter";
-			this.btnShowFilter.Size = new System.Drawing.Size(357, 42);
-			this.btnShowFilter.TabIndex = 1;
-			this.btnShowFilter.Text = "الفلاتر 🔽";
-			this.btnShowFilter.UseVisualStyleBackColor = false;
-			this.btnShowFilter.Click += new System.EventHandler(this.btnShowFilter_Click);
-			// 
-			// violationBindingSource
-			// 
-			this.violationBindingSource.DataSource = typeof(ViolationSystem.Data.Entities.Violation);
-			// 
-			// txtBlockDate
-			// 
-			this.txtBlockDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.txtBlockDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBlockDate.Location = new System.Drawing.Point(3, 278);
-			this.txtBlockDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.txtBlockDate.Name = "txtBlockDate";
-			this.txtBlockDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.txtBlockDate.Size = new System.Drawing.Size(351, 80);
-			this.txtBlockDate.TabIndex = 12;
-			// 
-			// txtPaymentDate
-			// 
-			this.txtPaymentDate.Dock = System.Windows.Forms.DockStyle.Top;
-			this.txtPaymentDate.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPaymentDate.Location = new System.Drawing.Point(3, 160);
-			this.txtPaymentDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.txtPaymentDate.Name = "txtPaymentDate";
-			this.txtPaymentDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.txtPaymentDate.Size = new System.Drawing.Size(351, 81);
-			this.txtPaymentDate.TabIndex = 11;
-			// 
 			// filterUserControle1
 			// 
 			this.filterUserControle1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -356,19 +358,17 @@ namespace ViolationsSystem.Views
 			this.filterUserControle1.TabIndex = 12;
 			this.filterUserControle1.Visible = false;
 			// 
-			// truckCodeBodx
+			// btnShowFilter
 			// 
-			this.truckCodeBodx.FirstNumberTextBox = null;
-			this.truckCodeBodx.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.truckCodeBodx.Location = new System.Drawing.Point(834, 0);
-			this.truckCodeBodx.Margin = new System.Windows.Forms.Padding(0);
-			this.truckCodeBodx.Name = "truckCodeBodx";
-			this.truckCodeBodx.Padding = new System.Windows.Forms.Padding(5);
-			this.truckCodeBodx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.truckCodeBodx.Size = new System.Drawing.Size(226, 80);
-			this.truckCodeBodx.TabIndex = 0;
-			this.truckCodeBodx.txtCodeChars = "";
-			this.truckCodeBodx.txtCodeDigits = "";
+			this.btnShowFilter.BackColor = System.Drawing.Color.Transparent;
+			this.btnShowFilter.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnShowFilter.Location = new System.Drawing.Point(0, 0);
+			this.btnShowFilter.Name = "btnShowFilter";
+			this.btnShowFilter.Size = new System.Drawing.Size(357, 42);
+			this.btnShowFilter.TabIndex = 1;
+			this.btnShowFilter.Text = "الفلاتر 🔽";
+			this.btnShowFilter.UseVisualStyleBackColor = false;
+			this.btnShowFilter.Click += new System.EventHandler(this.btnShowFilter_Click);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -444,27 +444,27 @@ namespace ViolationsSystem.Views
 			this.reportNumberDataGridViewTextBoxColumn.Name = "reportNumberDataGridViewTextBoxColumn";
 			this.reportNumberDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// paymentDateDataGridViewTextBoxColumn
-			// 
-			this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
-			dataGridViewCellStyle4.Format = "dd/MM/yyyy";
-			this.paymentDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-			this.paymentDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
-			this.paymentDateDataGridViewTextBoxColumn.HeaderText = "تاريخ السداد";
-			this.paymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-			this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
-			this.paymentDateDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// blockDateDataGridViewTextBoxColumn
 			// 
 			this.blockDateDataGridViewTextBoxColumn.DataPropertyName = "BlockDate";
-			dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-			this.blockDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+			this.blockDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
 			this.blockDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
 			this.blockDateDataGridViewTextBoxColumn.HeaderText = "تاريخ الحجز";
 			this.blockDateDataGridViewTextBoxColumn.MinimumWidth = 6;
 			this.blockDateDataGridViewTextBoxColumn.Name = "blockDateDataGridViewTextBoxColumn";
 			this.blockDateDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// paymentDateDataGridViewTextBoxColumn
+			// 
+			this.paymentDateDataGridViewTextBoxColumn.DataPropertyName = "PaymentDate";
+			dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+			this.paymentDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			this.paymentDateDataGridViewTextBoxColumn.FillWeight = 108.1742F;
+			this.paymentDateDataGridViewTextBoxColumn.HeaderText = "تاريخ السداد";
+			this.paymentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.paymentDateDataGridViewTextBoxColumn.Name = "paymentDateDataGridViewTextBoxColumn";
+			this.paymentDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// Comments
 			// 
@@ -485,6 +485,7 @@ namespace ViolationsSystem.Views
 			this.Size = new System.Drawing.Size(1060, 803);
 			this.flowLayoutPanelOptions.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -492,7 +493,6 @@ namespace ViolationsSystem.Views
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.violationBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -532,8 +532,8 @@ namespace ViolationsSystem.Views
 		private DataGridViewTextBoxColumn elManfazDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn VCount;
 		private DataGridViewTextBoxColumn reportNumberDataGridViewTextBoxColumn;
-		private DataGridViewTextBoxColumn paymentDateDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn blockDateDataGridViewTextBoxColumn;
+		private DataGridViewTextBoxColumn paymentDateDataGridViewTextBoxColumn;
 		private DataGridViewTextBoxColumn Comments;
 	}
 }
