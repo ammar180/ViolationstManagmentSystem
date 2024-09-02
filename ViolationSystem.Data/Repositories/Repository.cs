@@ -138,7 +138,7 @@ namespace ViolationSystem.Data.Repositories
 		}
 		public async Task AddViolationRange(List<Violation> violations)
 		{
-            foreach (var violationModel in violations)
+			Parallel.ForEach(violations, async x =>
 				await AddViolation(violationModel);
 		}
 
