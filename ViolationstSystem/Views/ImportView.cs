@@ -26,13 +26,17 @@ namespace ViolationsSystem
 			InitializeComponent();
 			this.Owner = mainViewInstance;
 			string connectionStr = ViolationstSystem.Properties.Settings.Default.SelectedConnectionType;
-			repository = new Repository(connectionStr);
+			repository = new Repository(connectionStr, true);
 
 			checkOriginalFile.Checked = ViolationstSystem.Properties.Settings.Default.ValidateOriginal;
 		}
 
 		private async void btnChooseFile_Click(object sender, EventArgs e)
 		{
+			/* Optomizations
+			 * Show the compleation rows and whither if no any problems In Message
+			 * Don't Export Porblems File whither no problems.
+			*/
 			string path = GetFilePath();
 			if (path == "")
 				return;
@@ -46,7 +50,8 @@ namespace ViolationsSystem
 
 				await Import();
 				// Call method to save problematic rows to a new Excel file
-				SaveProblematicRowsToExcel(path);
+				if(RowsHasProblem.Rows.Count > 0)
+					SaveProblematicRowsToExcel(path);
 			}
 			catch (IOException)
 			{
@@ -58,7 +63,14 @@ namespace ViolationsSystem
 
 			}
 
-			MessageBox.Show("تم الانتهاء من العملية");
+			MessageBox.Show(
+				"إجمالي الصفوف المضافة" +
+				$" {labRowsCount.Text} " +
+				$"\nإجمالي عدد المشاكل: {RowsHasProblem.Rows.Count}"
+				,"تم الانتهاء من العملية"
+				,MessageBoxButtons.OK
+				,MessageBoxIcon.Information
+				);
 			btnChooseFile.Enabled = true;
 			labFileName.Text = labCurrentCar.Text = labRowsCount.Text = "";
 			labPresantage.Text = "Processing...0%";
@@ -104,14 +116,32 @@ namespace ViolationsSystem
 					{
 						var truckCode = formatTruckCode(row.Cell("A").GetString().Replace(" ", ""));
 						labCurrentCar.Text = truckCode;
-						var dateCellValue = row.Cell("B").GetString();
-						var violationDate = ParseDate(dateCellValue, !VDateM_D.Checked); // Format date
+						var violationDate = new DateTime();
+						try {
+							violationDate = row.Cell("B").GetDateTime(); // Format date
+						}
+						catch { violationDate = ParseDate(row.Cell("B").GetString());  }
+
+						DateTime? VBlockDate = null;
+						DateTime? VPaymentDate = null;
+						if (!row.Cell("G").IsEmpty())
+						{
+							try {
+								VBlockDate = row.Cell("G").GetDateTime();
+							}
+							catch { VBlockDate = ParseDate(row.Cell("G").GetString()); }
+						}
+						if (!row.Cell("H").IsEmpty())
+						{
+							try {
+								VPaymentDate = row.Cell("H").GetDateTime();
+							}
+							catch { VPaymentDate = ParseDate(row.Cell("H").GetString()); }
+						}
 						var Vunit = row.Cell("C").GetString();
 						var Vmanfaz = row.Cell("D").GetString();
 						bool isExploredValue = true;
 						var VreportNumber = row.Cell("F").GetString();
-						var VBlockDate = ParseDate(row.Cell("G").GetString(), BDateD_M.Checked);
-						var VPaymentDate = ParseDate(row.Cell("H").GetString(), PyD_M.Checked);
 						var VCount = !row.Cell("E").IsEmpty() ? row.Cell("E").GetString() : "1";
 						var VComments = row.Cell("I").GetString();
 						try
@@ -120,18 +150,18 @@ namespace ViolationsSystem
 							isExploredValue = isExploredValue || !row.Cell("F").IsEmpty() || !row.Cell("H").IsEmpty();
 						}
 						catch { }
-						
+						var truck = new Truck
+						{
+							TruckCode = truckCode,
+							IsExplored = isExploredValue,
+						};
 						var violation = new Violation
 						{
 							TruckCode = truckCode,
-							ViolationDate = violationDate ?? throw new Exception(),
+							ViolationDate = violationDate,
 							Unit = Vunit,
 							ElManfaz = Vmanfaz,
-							Truck = new Truck
-							{
-								TruckCode = truckCode,
-								IsExplored = isExploredValue,
-							},
+							Truck = truck,
 							ReportNumber = VreportNumber,
 							BlockDate = VBlockDate,
 							PaymentDate = VPaymentDate,
@@ -148,13 +178,13 @@ namespace ViolationsSystem
 						//////row.Style.Fill.BackgroundColor = XLColor.RedMunsell;
 						labErrorMessage.Text = $"مشكله في الصف : {row.RowNumber()}";
 						RowsHasProblem.Rows.Add(row.Cell("A").GetString(),
-												row.Cell("B").GetString(),
+												row.Cell("B").GetString().Split(' ').First(),
 												row.Cell("C").GetString(),
 												row.Cell("D").GetString(),
 												row.Cell("E").GetString(),
 												row.Cell("F").GetString(),
-												row.Cell("G").GetString(),
-												row.Cell("H").GetString(),
+												row.Cell("G").GetString().Split(' ').First(),
+												row.Cell("H").GetString().Split(' ').First(),
 												row.Cell("I").GetString());
 					}
 				}
@@ -220,7 +250,9 @@ namespace ViolationsSystem
 			using (XLWorkbook xLWorkbook = new XLWorkbook())
 			{
 				var worksheet = xLWorkbook.AddWorksheet(RowsHasProblem, "sheet1");
-				// Apply data types and formatting
+				worksheet.RightToLeft = true;
+				worksheet.Column(2).Width = 20.33;
+				worksheet.Column(2).Style.NumberFormat.SetFormat("d/M/yyyy"); // Set date format
 				using (MemoryStream ma = new MemoryStream())
 				{
 					xLWorkbook.SaveAs(ma, true);
@@ -250,13 +282,15 @@ namespace ViolationsSystem
 
 			return newFileName;
 		}
-		private DateTime? ParseDate(string dateString, bool isD_Mformat)
+		private DateTime ParseDate(string dateString)
 		{
-			if (dateString == "")
-				return null;
-			string[] formats = new string[] {"M/d/yyyy", "MM/dd/yyyy", "d/M/yyyy", "dd/MM/yyyy"};
-			if(isD_Mformat)
-				formats = new string[] { "d/M/yyyy", "dd/MM/yyyy" };
+			string[] formats = new string[] { "d/M/yyyy", "dd/MM/yyyy", "M/d/yyyy", "MM/dd/yyyy" };
+			string temp = "";
+			for(int i = 0; i < dateString.Length; i++)
+				if (char.IsDigit(dateString[i]) || dateString[i] == '/')
+					temp += dateString[i];
+			dateString = temp;
+			
 			foreach (var format in formats)
 				if (DateTime.TryParseExact(dateString.Split(' ').First(), format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
 					return date;

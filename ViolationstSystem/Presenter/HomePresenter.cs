@@ -31,23 +31,13 @@ namespace ViolationsSystem.Presenter
 		private void Print(object sender, EventArgs e)
 		{
 			violationsList = sender as List<Violation>;
-			var getNameView = GetNameUC.Instance();
-			getNameView.btnOk.Click += BtnOk_Click;
-			getNameView.Show();
-		}
-
-		private void BtnOk_Click(object sender, EventArgs e)
-		{
-			string theName = " ";
+			string theName = view.PrintName.Length > 0 ? view.PrintName : " ";
 			ReportDataSource rs = new ReportDataSource();
-			var helperForm = new HelperForm();
+			var helperForm = HelperForm.GetInstance();
 			rs.Name = "TruckViolations";
 			rs.Value = violationsList.OrderBy(x => x.ViolationDate);
-			helperForm.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.TruckViolationReport.rdlc";
 			helperForm.reportViewer.LocalReport.DataSources.Clear();
-			theName = GetNameUC.Instance().txtName.Text;
-			GetNameUC.Instance().txtName.Text = "";
-			GetNameUC.Instance().Hide();
+			helperForm.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.TruckViolationReport.rdlc";
 
 			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("ExploaredTruckCodeParameter", string.Join("", view.TruckCodeChars, view.TruckCodeDigits)));
 			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("NameParameter", theName));
@@ -73,7 +63,7 @@ namespace ViolationsSystem.Presenter
 			List<string> list = sender as List<string>;
 			view.HomeViewBS.DataSource = violationsList?.Where(v =>
 				list.Contains(v.TruckCode)
-				&& list.Contains(v.Unit)
+				&& list.Contains(v.Unit.Replace("أ", "ا"))
 				).ToList();
 		}
 
@@ -98,6 +88,7 @@ namespace ViolationsSystem.Presenter
 		{
 			var printView = ImportView.Instance();
 			printView.Show();
+			printView.TopMost = true;
 		}
 
 		#region Methods

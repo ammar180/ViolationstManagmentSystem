@@ -6,102 +6,57 @@ namespace ViolationsCollecting.View.CustomeComponants
 {
 	public partial class TruckCodeBodx : UserControl
 	{
+		// Property for getting the concatenated truck code
 		public string txtTruckCode
 		{
 			get => string.Join("", txtCodeChars, txtCodeDigits);
 		}
-		//public string txtCodeChars { get => txtChars.Text; set => txtChars.Text = value; }
-		//public string txtCodeDigits { get => txtDigits.Text; set => txtDigits.Text = value; }
 
-		public string txtCodeChars { get => msChar.Text.Replace(" ", ""); set => msChar.Text = value; }
-		public string txtCodeDigits { get => msDigits.Text.Replace(" ", ""); set => msDigits.Text = value; }
-		public bool SetBoxesEnable
+		// Property for getting/setting the Arabic characters part of the truck code
+		public string txtCodeChars
 		{
-			set{
-				msChar.Enabled = value;
-				msDigits.Enabled = value;
-			}
+			get => msChar.Text.Replace(" ", "");
+			set => msChar.Text = value;
 		}
-        public TruckCodeBodx()
+
+		// Property for getting/setting the digit part of the truck code
+		public string txtCodeDigits
+		{
+			get => msDigits.Text.Replace(" ", "");
+			set => msDigits.Text = value;
+		}
+
+		// Constructor
+		public TruckCodeBodx()
 		{
 			InitializeComponent();
 			msDigits.Focus();
+			AssosiateEventsToTextBoxes();  // Ensure events are associated
 		}
 
+		// Method to associate events with text boxes
 		private void AssosiateEventsToTextBoxes()
 		{
-			textBoxes = new TextBox[] { };
-			foreach (TextBox textBox in textBoxes)
-			{
-				textBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
-				textBox.TextChanged += new EventHandler(TextBox_TextChanged);
-				textBox.TextChanged += delegate { CodeChange?.Invoke(txtTruckCode, EventArgs.Empty) ; };
-			}
+			// Associate additional TextChanged event for msChar to filter Arabic characters
+			msChar.TextChanged += MsChar_TextChanged;
 		}
-		public event EventHandler CodeChange;
-		private void TextBox_TextChanged(object sender, EventArgs e)
+
+		// TextChanged event handler to filter Arabic characters in msChar
+		private void MsChar_TextChanged(object sender, EventArgs e)
 		{
-			TextBox textBox = sender as TextBox;
-			int currentIndex = Array.IndexOf(textBoxes, textBox);
+			MaskedTextBox textBox = sender as MaskedTextBox;
 
-			if (textBox.Text == " ")
-				textBox.Text = "";
+			// Remove non-Arabic characters
+			textBox.Text = string.Concat(textBox.Text.Where(IsValiedChar));
 
-			if (currentIndex >= 0 && currentIndex <= 2 && textBox.Text != "")
-				if (IsValiedChar(textBox.Text[0]))
-					MoveToNextFaild(currentIndex);
-				else
-					textBox.Text = "";
-
-			else if (currentIndex >= 3 && currentIndex <= 7 && textBox.Text != "")
-				if (IsValidNumber(textBox.Text[0]))
-					MoveToNextFaild(currentIndex);
-				else
-					textBox.Text = "";
-
+			// Keep the cursor at the end of the text
+			textBox.SelectionStart = textBox.Text.Replace(" ", "").Length;
 		}
 
-		private void MoveToNextFaild(int currentIndex)
-		{
-			if (currentIndex < textBoxes.Length - 1)
-			{
-				textBoxes[currentIndex + 1].Focus();
-				textBoxes[currentIndex + 1].SelectAll();
-			}
-		}
-
-		private bool IsValidNumber(char c)
-		{
-			return char.IsDigit(c);
-		}
-
+		// Method to check if a character is a valid Arabic character
 		private bool IsValiedChar(char c)
 		{
-			return (c >= '\u0600' && c <= '\u06FF');
-		}
-
-		private void TextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			TextBox textBox = sender as TextBox;
-			int currentIndex = Array.IndexOf(textBoxes, textBox);
-
-			if (e.KeyCode == Keys.Right && currentIndex > 0)
-			{
-				textBoxes[currentIndex - 1].Focus();
-				textBoxes[currentIndex - 1].SelectAll();
-			}
-			else if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.Space) && currentIndex < textBoxes.Length - 1)
-			{
-				textBoxes[currentIndex + 1].Focus();
-				textBoxes[currentIndex + 1].SelectAll();
-			}
-			else if (e.KeyCode == Keys.Back && currentIndex > 0)
-			{
-				textBoxes[currentIndex - 1].Clear();
-				textBoxes[currentIndex - 1].Focus();
-				//textBoxes[currentIndex - 1].SelectAll();
-			}
-
+			return c >= '\u0600' && c <= '\u06FF';
 		}
 		public void ClearCodeBoxes()
 		{

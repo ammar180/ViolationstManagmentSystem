@@ -106,9 +106,9 @@ namespace ViolationstSystem.Views
 			}
 			var list =  await repository.ViolationReport(Units, VdateStart, VdateEnd, PydateStart, PydateEnd);
 			ReportDataSource rs = new ReportDataSource();
-			var helperForm = HelperForm.GetInstance();
+			var helperForm = new HelperForm();
 			rs.Name = "TruckViolationsDataSet";
-			rs.Value = list.Take(200);
+			rs.Value = list;
 			helperForm.reportViewer.LocalReport.ReportEmbeddedResource = "ViolationstSystem.Reports.ExploreAdminReport.rdlc";
 			helperForm.reportViewer.LocalReport.DataSources.Clear();
 			helperForm.reportViewer.LocalReport.DataSources.Add(rs);

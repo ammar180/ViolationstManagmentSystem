@@ -11,7 +11,7 @@ namespace ViolationsSystem.Views.Interfaces
 		// Fields
 		string TruckCodeChars { get; }
 		string TruckCodeDigits { get; }
-
+		string PrintName { get; }
 		// Properties
 		BindingSource HomeViewBS { get; set; }
 		LoadingForm loading { get; }

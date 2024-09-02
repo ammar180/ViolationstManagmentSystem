@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using ViolationsSystem.Presenter;
 using ViolationsSystem.Views;
@@ -30,6 +31,10 @@ namespace ViolationsSystem
 			string connectionStr = ViolationstSystem.Properties.Settings.Default.SelectedConnectionType;
 			radioBtnLocal.Checked = connectionStr == "ViolationstSystem.Properties.Settings.SqlConnectionLocal";
 			radioBtnTCP.Checked = connectionStr == "ViolationstSystem.Properties.Settings.SqlConnectionTCP";
+
+			Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
+			labCurrentVersion.Text = version.ToString();
 
 			var HomeView = this.homeTP.Controls.OfType<HomeView>().FirstOrDefault();
 

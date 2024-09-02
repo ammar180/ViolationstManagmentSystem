@@ -761,7 +761,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TruckCode.Value</Value>
+                                  <Value>=Code.FormatTruckCode(Fields!TruckCode.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>12pt</FontSize>

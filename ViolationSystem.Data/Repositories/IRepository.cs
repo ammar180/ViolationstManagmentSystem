@@ -12,10 +12,9 @@ namespace ViolationSystem.Data.Repositories
 		Task<ICollection<Violation>> GetAllViolations();
 		Task<bool> ValidateIsAdmin(string text1, string text2);
 		Task<bool> UpdateAdminNamePassword(string userName, string password, string text1, string text2);
-		//Task AddTrucksRange(List<Truck> trucks);
 		Task AddViolationRange(List<Violation> violations);
 		Task<List<Violation>> GetViolationsByCode(string digits, string chars);
-		Task AddTrucksRange(List<Truck> trucks);
+		Task AddTruck(Truck truck);
 		void UpdateViolations(List<Violation> violationsList);
 		void RemoveViolations(List<Violation> deletedViolations);
 		Task AddTruckViolations(List<Violation> list);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace ViolationsCollector.View
 		public DateTime TheDate { get => dateBox1.Date; }
 		public BindingSource MainViewBS { get => violationBindingSource; set => violationBindingSource = value; }
 		public int UpdatedViolationId { get; set; }
-		public int MonthToExport { get => (int)NumMonthToExport.Value; }
+		public int MonthToExport { get => (int)dateBox1.MonthNum.Value; }
 		public LoadingForm loading { get => LoadingForm.Instance(this); }
 		// Validations Message
 		public string CodeMessage { set => labCodeMessage.Text = value; }
@@ -74,8 +75,6 @@ namespace ViolationsCollector.View
 
 		private void InitializeValues()
 		{
-			NumMonthToExport.Value = DateTime.Now.Month;
-
 			panelWP.Visible = Properties.Settings.Default.ShowWeightAndPyload;
 			payloadDataGridViewTextBoxColumn.Visible = Properties.Settings.Default.ShowWeightAndPyload;
 			weightDataGridViewTextBoxColumn.Visible = Properties.Settings.Default.ShowWeightAndPyload;
@@ -179,7 +178,7 @@ namespace ViolationsCollector.View
 				case "العياط":
 					ListOfElMnafez = new string[] { "الرقة", "الضبعي", "الملطة خارجي", "جرزا", "طهما", "السبيل" };
 					break;
-				case "ابو نمرس":
+				case "ابو النمرس":
 					ListOfElMnafez = new string[] { "شبرامنت", "نزلة الأشطر", "المزلقان" };
 					break;
 				case "الواحات البحرية":
@@ -189,7 +188,7 @@ namespace ViolationsCollector.View
 					ListOfElMnafez = new string[] { "المرتبة", "صول", "الكريمات", "الحللف" };
 					break;
 				case "اكتوبر":
-					ListOfElMnafez = new string[] { "النشية", "الحرانية", "السفارة", "المنصورية", "المريوطية", "السياحي", "الفصبجي" };
+					ListOfElMnafez = new string[] { "النشية", "الحرانية", "السفارة", "المنصورية", "المريوطية", "السياحي", "القصبجي" };
 					break;
 
 				default:
@@ -211,6 +210,32 @@ namespace ViolationsCollector.View
 			{
 				Properties.Settings.Default.ExportPath = path;
 				Properties.Settings.Default.Save();
+			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				// Get the path of the update.exe file in the same directory as the application
+				string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+				string updateFilePath = Path.Combine(appDirectory, "updater.exe");
+
+				// Check if the update.exe file exists
+				if (File.Exists(updateFilePath))
+				{
+					// Start the update.exe process
+					System.Diagnostics.Process.Start(updateFilePath);
+				}
+				else
+				{
+					MessageBox.Show("Update file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			catch (Exception ex)
+			{
+				// Handle any errors that may occur when trying to start the process
+				MessageBox.Show($"An error occurred while trying to start the update: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

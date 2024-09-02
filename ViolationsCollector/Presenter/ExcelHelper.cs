@@ -28,7 +28,7 @@ namespace ViolationsCollector.Presenter
 					worksheet.Protect(Properties.Settings.Default.WorkSheetPassword, XLProtectionAlgorithm.DefaultProtectionAlgorithm, XLSheetProtectionElements.SelectUnlockedCells);
 					worksheet.RightToLeft = true;
 					// Apply data types and formatting
-					worksheet.Column(2).Width = 20.33;
+					worksheet.Column(2).Width = 15;
 					//xlViolationDateColumn.Style.NumberFormat.SetFormat("d/M/yyyy"); // Set date format
 
 					using (MemoryStream ma = new MemoryStream())
@@ -61,7 +61,7 @@ namespace ViolationsCollector.Presenter
 			dataTable.Columns["TruckCode"].ColumnName = "رقم السيارة";
 			
 			dataTable.Columns["ViolationDate"].SetOrdinal(1);
-			dataTable.Columns["ViolationDate"].ColumnName = "تاريخ المخالفة: سنه/يوم/شهر";
+			dataTable.Columns["ViolationDate"].ColumnName = "تاريخ المخالفة";
 
 			dataTable.Columns["Unit"].SetOrdinal(2);
 			dataTable.Columns["Unit"].ColumnName = "الوحدة";

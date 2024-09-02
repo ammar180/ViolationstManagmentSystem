@@ -14,6 +14,7 @@ namespace ViolationsSystem.Views
 		#region Failds
 		public string TruckCodeChars { get => truckCodeBodx.txtCodeChars; }
 		public string TruckCodeDigits { get => truckCodeBodx.txtCodeDigits; }
+		public string PrintName { get => txtName.Text; }
 		public LoadingForm loading { get => LoadingForm.Instance(); }
 		public BindingSource HomeViewBS { get => violationBindingSource; set => violationBindingSource = value; }
 		#endregion
@@ -41,36 +42,44 @@ namespace ViolationsSystem.Views
 			dataGridView.CellFormatting += dataGridView_CellFormatting;
 
 			btnSearch.Click += delegate {
-				if(truckCodeBodx.txtTruckCode.Length >= 4)
-				{
-					HandleGetViolationsList?.Invoke(null, EventArgs.Empty); 
-					dataGridView.Refresh();
-					btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
-				}
+				HandleGetViolationsList?.Invoke(null, EventArgs.Empty); 
+				dataGridView.Refresh();
 			};
 			truckCodeBodx.msChar.KeyDown += (s, e) => 
 			{
-				if (truckCodeBodx.txtTruckCode.Length >= 4)
-				{
+				if (truckCodeBodx.txtTruckCode.Length >= 3)
 					if (e.KeyCode == Keys.Enter)
-					{
 						HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
-						btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
-					}
-				}
+				
 			};
+			truckCodeBodx.msChar.TextChanged += change_enable;
 			truckCodeBodx.msDigits.KeyDown += (s, e) => 
 			{
-				if (truckCodeBodx.txtTruckCode.Length >= 4)
-				{
+				if (truckCodeBodx.txtTruckCode.Length >= 3)
 					if (e.KeyCode == Keys.Enter)
-					{
 						HandleGetViolationsList?.Invoke(null, EventArgs.Empty);
-						btnPrint.Enabled = truckCodeBodx.txtCodeDigits.Length >= 3;
+			};
+			truckCodeBodx.msDigits.TextChanged += change_enable;
+			txtName.KeyDown += (s, e) =>
+			{
+				if (e.KeyCode == Keys.Enter)
+				{
+					loading.Show();
+					var list = new List<Violation>();
+					var item = new Violation();
+					for (int i = 0; i < dataGridView.Rows.Count; i++)
+					{
+						item = (Violation)dataGridView.Rows[i].DataBoundItem;
+						item.TruckCode = dataGridView.Rows[i].Cells[2].Value.ToString();
+						list.Add(item);
 					}
+
+					PrintEvent?.Invoke(list, EventArgs.Empty);
+					loading.Hide();
 				}
 			};
-			
+
+
 			btnImportExcel.Click += delegate { HandleImport?.Invoke(null, EventArgs.Empty); };
 			btnApplyChanges.Click += ApplyChanges;
 			filterUserControle1.btnApplyFilter.Click += delegate { UpdateDG?.Invoke(filterUserControle1.FilterList, EventArgs.Empty); dataGridView.Refresh(); };
@@ -79,6 +88,22 @@ namespace ViolationsSystem.Views
 
 			this.loading.FormShown += Loading_Shown;
 			this.loading.FormHiding += Loading_FormHiding;
+		}
+		#region Events
+
+		public event EventHandler HandleImport;
+		public event EventHandler HandleGetViolationsList;
+		public event EventHandler UpdateDG;
+		public event EventHandler SaveChangesEvent;
+		public event EventHandler PrintEvent;
+		#endregion
+
+		#region ViewMethods
+
+		private void change_enable(object sender, EventArgs e)
+		{
+			btnSearch.Enabled = truckCodeBodx.txtTruckCode.Length >= 3;
+			btnPrint.Enabled = truckCodeBodx.txtTruckCode.Length >= 3;
 		}
 
 		private void DataGridView_SelectionChanged(object sender, EventArgs e)
@@ -101,31 +126,9 @@ namespace ViolationsSystem.Views
 			catch { }
 		}
 
-		#region Events
-
-		public event EventHandler HandleImport;
-		public event EventHandler HandleGetViolationsList;
-		public event EventHandler UpdateDG;
-		public event EventHandler SaveChangesEvent;
-		public event EventHandler PrintEvent;
-		#endregion
-		
-		#region ViewMethods
-
 		private void btnPrint_Click(object sender, EventArgs e)
 		{
-			loading.Show();
-			var list = new List<Violation>();
-			var item = new Violation();
-			for (int i = 0; i < dataGridView.Rows.Count; i++)
-			{
-				item = (Violation)dataGridView.Rows[i].DataBoundItem;
-				item.TruckCode = dataGridView.Rows[i].Cells[2].FormattedValue.ToString();
-				list.Add(item);
-			}
-
-			PrintEvent?.Invoke(list, EventArgs.Empty);
-			loading.Hide();
+			txtName.Visible = !txtName.Visible;
 		}
 		private void HandleCellEdite(object sender, DataGridViewCellEventArgs e)
 		{
@@ -200,15 +203,22 @@ namespace ViolationsSystem.Views
 					// UpdateDG (UI)
 					foreach (DataGridViewRow item in dataGridView.SelectedRows)
 					{
-						item.Cells[7].Value = txtReportNumber.Text;
-						if (txtBlockDate.Date.HasValue)
-							item.Cells[8].Value = txtBlockDate.Date.ToString();
-						else
-							item.Cells[8].Value = "";
-						if (txtPaymentDate.Date.HasValue)
-							item.Cells[9].Value = txtPaymentDate.Date.ToString();
-						else
-							item.Cells[9].Value = "";
+						if(txtReportNumber.Enabled)
+							item.Cells[7].Value = txtReportNumber.Text;
+						if (txtBlockDate.Enabled)
+						{
+							if (txtBlockDate.Date.HasValue)
+								item.Cells[8].Value = txtBlockDate.Date.ToString();
+							else
+								item.Cells[8].Value = "";
+						}
+						if (txtPaymentDate.Enabled)
+						{
+							if(txtPaymentDate.Date.HasValue)
+								item.Cells[9].Value = txtPaymentDate.Date.ToString();
+							else
+								item.Cells[9].Value = "";
+						}
 
 						var rowToUpdate = (Violation)item.DataBoundItem;
 						ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToUpdate.Id));
@@ -254,7 +264,6 @@ namespace ViolationsSystem.Views
 			=> SetBtnsEnabled(false);
 		private void SetBtnsEnabled(bool v) 
 			=> btnShowFilter.Enabled =
-			btnSearch.Enabled =
 			btnSaveChages.Enabled =
 			btnImportExcel.Enabled =
 			btnApplyChanges.Enabled = v;
@@ -266,8 +275,26 @@ namespace ViolationsSystem.Views
 
 		private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
 			=> originalCellValue = dataGridView[e.ColumnIndex, e.RowIndex].Value?.ToString() ?? "";
+		private void checkState_CheckedChanged(object sender, EventArgs e)
+		{
+			CheckBox checkBox = sender as CheckBox;
+			switch (checkBox.Text)
+			{
+				case "رقم البلاغ":
+					txtReportNumber.Enabled = checkBox.Checked;
+					break;
+				case "تاريخ السداد":
+					txtPaymentDate.Enabled = checkBox.Checked;
+					break;
+				case "تاريخ الحجز":
+					txtBlockDate.Enabled = checkBox.Checked;
+					break;
+
+				default:
+					break;
+			}
+		}
 
 		#endregion
-
 	}
 }

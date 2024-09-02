@@ -25,5 +25,6 @@ namespace ViolationstSystem.Views
 				instance = new HelperForm();
 			return instance;
 		}
+
 	}
 }

@@ -18,9 +18,11 @@ namespace ViolationSystem.Data.Repositories
         {
 			db = new Model("ViolationstSystem.Properties.Settings.SqlConnectionLocal");
 		}
-		public Repository(string sqlConnection)
+		public Repository(string sqlConnection, bool importBehev = false)
         {
 			db = new Model(sqlConnection);
+			db.Configuration.AutoDetectChangesEnabled = !importBehev;
+			db.Configuration.ValidateOnSaveEnabled = !importBehev;
 		}
 		public async Task<bool> EditViolation(Violation violationModel)
 		{
@@ -57,7 +59,6 @@ namespace ViolationSystem.Data.Repositories
 				{
 					db.Entry(violationModel.Truck).State = EntityState.Detached;
 					db.Violations.Add(violationModel);
-					//if(canSaveChanges)
 					await db.SaveChangesAsync();
 				}
 				catch (Exception ex) {
@@ -85,6 +86,7 @@ namespace ViolationSystem.Data.Repositories
 					violations = await truck
 						.SelectMany(x => x.Violations)
 						.Include(x => x.Truck)
+						.OrderBy(v => v.ViolationDate)
 						.ToListAsync();
 					return violations;
 				}
@@ -122,24 +124,28 @@ namespace ViolationSystem.Data.Repositories
 			return false; 
 		}
 
-		public async Task AddTrucksRange(List<Truck> trucks)
+		public async Task AddTruck(Truck truck)
 		{
-            foreach (var item in trucks)
-            {
-				try
-				{
-					db.Trucks.Add(item);
-					await db.SaveChangesAsync();
-				}
-				catch (DbUpdateException)
-				{ }
-            }
-			
+			try
+			{
+				db.Trucks.Add(truck);
+				await db.SaveChangesAsync();
+			}
+			catch (DbUpdateException)
+			{
+			}
+
 		}
 		public async Task AddViolationRange(List<Violation> violations)
 		{
-			Parallel.ForEach(violations, async x =>
-				await AddViolation(violationModel);
+			try
+			{
+				db.Violations.AddRange(violations);
+				await db.SaveChangesAsync();
+			}
+			catch(Exception)
+			{
+			}
 		}
 
 		public void UpdateViolations(List<Violation> violationsList)
@@ -233,7 +239,7 @@ namespace ViolationSystem.Data.Repositories
 				.Where(x =>
 				!(x.IsExplored)
 				&& x.Violations
-					.Any(v => v.Unit == targetUnit
+					.Any(v => v.Unit.Replace("أ", "ا") == targetUnit
 						&& !startDate.HasValue || (v.ViolationDate >= startDate))
 			).Take(trucksCount)
 			.ToListAsync();
@@ -246,7 +252,7 @@ namespace ViolationSystem.Data.Repositories
 		public async Task<List<Violation>> ViolationReport(List<string> units, DateTime? vdateStart, DateTime? vdateEnd, DateTime? pydateStart, DateTime? pydateEnd)
 		{
 			return await db.Violations.Where(v =>
-				units.Contains(v.Unit)
+				units.Contains(v.Unit.Replace("أ", "ا"))
 				&& (!vdateStart.HasValue || (v.ViolationDate >= vdateStart && v.ViolationDate < vdateEnd))
 				&& (!pydateStart.HasValue || (v.PaymentDate >= pydateStart && v.PaymentDate < pydateEnd))
 			).OrderBy(v => v.ViolationDate)
