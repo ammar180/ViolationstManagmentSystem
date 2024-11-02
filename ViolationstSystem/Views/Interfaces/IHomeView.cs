@@ -15,8 +15,8 @@ namespace ViolationsSystem.Views.Interfaces
 		// Properties
 		BindingSource HomeViewBS { get; set; }
 		LoadingForm loading { get; }
-		bool[] ExploredCodesOfTrucks { get; set; }
-		bool[] dublicatedDateCode { get; set; }
+		List<bool> ExploredCodesOfTrucks { get; set; }
+		List<bool> DublicatedDateCode { get; set; }
 		List<string> FillCodeFiltercheckedList { set; }
 		List<Violation> ModifiedViolations { get; set; }
 		List<Violation> DeletedViolations { get; set; }

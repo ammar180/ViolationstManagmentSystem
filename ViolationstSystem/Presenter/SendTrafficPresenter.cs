@@ -16,6 +16,7 @@ namespace ViolationsSystem.Presenter
 
 		private ReportDataSource rs1;
 		private ReportDataSource rs2;
+		private List<Truck> list;
 		public SendTrafficPresenter(ISendTrafficView view, IRepository repository)
 		{
 			this.view = view;
@@ -25,12 +26,18 @@ namespace ViolationsSystem.Presenter
 			rs2 = new ReportDataSource("TrafficReportDataSet2");
 			//Subscribe event handler methods to view events
 			view.GetResultEvent += GetResult;
+			view.report.PrintingBegin += Report_PrintingBegin;
+		}
+
+		private void Report_PrintingBegin(object sender, ReportPrintEventArgs e)
+		{
+			repository.UpdateTrucksToExplored(list);
 		}
 
 		private async void GetResult(object sender, EventArgs e)
 		{
 			view.LoadingForm.Show();
-			var list = await repository.GetTrafficTrucks(view.TrucksCount, view.TargetUnit, view.StartDate);
+			list = await repository.GetTrafficTrucks(view.TrucksCount, view.TargetUnit, view.StartDate);
 			var l1 = new List<Truck>();
 			var l2 = new List<Truck>();
 

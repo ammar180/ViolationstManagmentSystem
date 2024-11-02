@@ -34,12 +34,13 @@ namespace ViolationsSystem
 
 			Version version = Assembly.GetExecutingAssembly().GetName().Version;
 
-			labCurrentVersion.Text = version.ToString();
+			labCurrentVersion.Text += version.ToString();
 
 			var HomeView = this.homeTP.Controls.OfType<HomeView>().FirstOrDefault();
+			var TrafficView = this.sendTrafficTP.Controls.OfType<SendTrafficView>().FirstOrDefault();
 
 			new HomePresenter(HomeView, new Repository(connectionStr));
-			new SendTrafficPresenter(this.sendTrafficTP.Controls.OfType<SendTrafficView>().FirstOrDefault(), new Repository(connectionStr));
+			new SendTrafficPresenter(TrafficView, new Repository(connectionStr));
 
 			homeTP.Enter += HomeTP_Enter;
 		}
@@ -48,7 +49,9 @@ namespace ViolationsSystem
 		{
 			var HomeView = this.homeTP.Controls.OfType<HomeView>().FirstOrDefault();
 			HomeView.dataGridView.AllowUserToDeleteRows = AdminLogin.IsAdmin;
-			HomeView.dataGridView.Columns[2].ReadOnly = !AdminLogin.IsAdmin;
+
+			for (int i = 2; i< HomeView.dataGridView.Columns.Count; i++)
+				HomeView.dataGridView.Columns[i].ReadOnly = !AdminLogin.IsAdmin;
 		}
 
 		private void btnOk_Click(object sender, EventArgs e)

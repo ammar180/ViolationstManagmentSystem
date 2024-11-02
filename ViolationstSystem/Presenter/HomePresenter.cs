@@ -12,8 +12,8 @@ namespace ViolationsSystem.Presenter
 {
 	public class HomePresenter
 	{
-		private IHomeView view;
-		private IRepository repository;
+		private readonly IHomeView view;
+		private readonly IRepository repository;
 		private List<Violation> violationsList;
 
 		public HomePresenter(IHomeView _view, IRepository _repository)
@@ -42,10 +42,10 @@ namespace ViolationsSystem.Presenter
 			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("ExploaredTruckCodeParameter", string.Join("", view.TruckCodeChars, view.TruckCodeDigits)));
 			helperForm.reportViewer.LocalReport.SetParameters(new ReportParameter("NameParameter", theName));
 			helperForm.reportViewer.LocalReport.DataSources.Add(rs);
-			helperForm.ShowDialog();
+			helperForm.Show();
 		}
 
-		private async void SaveChanges(object sender, EventArgs e)
+		private void SaveChanges(object sender, EventArgs e)
 		{
 			if(view.ModifiedViolations.Any() || view.DeletedViolations.Any())
 			{
@@ -53,7 +53,6 @@ namespace ViolationsSystem.Presenter
 				violationsList = sender as List<Violation>;
 				repository.UpdateViolations(view.ModifiedViolations);
 				repository.RemoveViolations(view.DeletedViolations);
-				//GetList(null, EventArgs.Empty);
 				view.loading.Hide();
 			}
 		}
@@ -75,7 +74,7 @@ namespace ViolationsSystem.Presenter
 
 			view.ExploredCodesOfTrucks = GetExploredCodesOfTrucks();
 
-			view.dublicatedDateCode = GetdublicatedDateCodeIndcies();
+			view.DublicatedDateCode = GetDublicatedDateCodeIndcies();
 
 			view.HomeViewBS.DataSource = violationsList;
 
@@ -93,22 +92,20 @@ namespace ViolationsSystem.Presenter
 
 		#region Methods
 
-		private bool[] GetExploredCodesOfTrucks()
+		private List<bool> GetExploredCodesOfTrucks()
 		{
-			bool[] result = new bool[violationsList.Count];
-			result.Initialize();
-			for (int i = 0; i < result.Length; i++)
-				result[i] = violationsList.ElementAt(i).Truck.IsExplored;
+			List<bool> result = Enumerable.Repeat(false, violationsList.Count).ToList();
+			for (int i = 0; i < result.Count; i++)
+				result[i] = violationsList.ElementAt(i).Truck?.IsExplored??false;
 
 			return result;
 		}
-		private bool[] GetdublicatedDateCodeIndcies()
+		private List<bool> GetDublicatedDateCodeIndcies()
 		{
 			var seenValues = new HashSet<DateCode>(new DateCodeComparer());
 
-			bool[] result = new bool[violationsList.Count];
-			result.Initialize();
-			for (int i = 0; i < result.Length; i++)
+			List<bool> result = Enumerable.Repeat(false, violationsList.Count).ToList();
+			for (int i = 0; i < result.Count; i++)
 			{
 				if (seenValues.Contains(
 					new DateCode

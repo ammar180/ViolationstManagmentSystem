@@ -117,35 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="sendTrafficView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="sendTrafficView1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cairo, 12pt</value>
-  </data>
-  <data name="sendTrafficView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="sendTrafficView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="sendTrafficView1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="sendTrafficView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1048, 617</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="sendTrafficView1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;sendTrafficView1.Name" xml:space="preserve">
     <value>sendTrafficView1</value>
   </data>
   <data name="&gt;&gt;sendTrafficView1.Type" xml:space="preserve">
-    <value>ViolationsSystem.Views.SendTrafficView, ViolationstSystem, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ViolationsSystem.Views.SendTrafficView, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;sendTrafficView1.Parent" xml:space="preserve">
     <value>sendTrafficTP</value>
@@ -153,15 +129,18 @@
   <data name="&gt;&gt;sendTrafficView1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="sendTrafficTP.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 46</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="sendTrafficTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="sendTrafficTP.Size" type="System.Drawing.Size, System.Drawing">
     <value>1054, 623</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="sendTrafficTP.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -179,6 +158,279 @@
   </data>
   <data name="&gt;&gt;sendTrafficTP.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Name" xml:space="preserve">
+    <value>homeView1</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Type" xml:space="preserve">
+    <value>ViolationsSystem.Views.HomeView, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;homeView1.Parent" xml:space="preserve">
+    <value>homeTP</value>
+  </data>
+  <data name="&gt;&gt;homeView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="homeTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="homeTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="homeTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="homeTP.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="homeTP.Text" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Name" xml:space="preserve">
+    <value>homeTP</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;homeTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;homeTP.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Name" xml:space="preserve">
+    <value>adminLogin1</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Type" xml:space="preserve">
+    <value>ViolationstSystem.Views.AdminLogin, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.Parent" xml:space="preserve">
+    <value>AdminTP</value>
+  </data>
+  <data name="&gt;&gt;adminLogin1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="AdminTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="AdminTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="AdminTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="AdminTP.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AdminTP.Text" xml:space="preserve">
+    <value>صلاحيات المدير</value>
+  </data>
+  <data name="&gt;&gt;AdminTP.Name" xml:space="preserve">
+    <value>AdminTP</value>
+  </data>
+  <data name="&gt;&gt;AdminTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdminTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;AdminTP.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labCurrentVersion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labCurrentVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labCurrentVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>899, 175</value>
+  </data>
+  <data name="labCurrentVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 37</value>
+  </data>
+  <data name="labCurrentVersion.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="labCurrentVersion.Text" xml:space="preserve">
+    <value>الاصدار الحالي</value>
+  </data>
+  <data name="&gt;&gt;labCurrentVersion.Name" xml:space="preserve">
+    <value>labCurrentVersion</value>
+  </data>
+  <data name="&gt;&gt;labCurrentVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labCurrentVersion.Parent" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;labCurrentVersion.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>865, 215</value>
+  </data>
+  <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 46</value>
+  </data>
+  <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>تحديث البرنامج</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
+    <value>btnUpdate</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.Parent" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>924, 113</value>
+  </data>
+  <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 40</value>
+  </data>
+  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
+    <value>btnOk</value>
+  </data>
+  <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radioBtnLocal.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioBtnLocal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioBtnLocal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>865, 66</value>
+  </data>
+  <data name="radioBtnLocal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 41</value>
+  </data>
+  <data name="radioBtnLocal.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radioBtnLocal.Text" xml:space="preserve">
+    <value>Local connection</value>
+  </data>
+  <data name="&gt;&gt;radioBtnLocal.Name" xml:space="preserve">
+    <value>radioBtnLocal</value>
+  </data>
+  <data name="&gt;&gt;radioBtnLocal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioBtnLocal.Parent" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;radioBtnLocal.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="radioBtnTCP.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioBtnTCP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioBtnTCP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>876, 19</value>
+  </data>
+  <data name="radioBtnTCP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 41</value>
+  </data>
+  <data name="radioBtnTCP.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioBtnTCP.Text" xml:space="preserve">
+    <value>TCP connection</value>
+  </data>
+  <data name="&gt;&gt;radioBtnTCP.Name" xml:space="preserve">
+    <value>radioBtnTCP</value>
+  </data>
+  <data name="&gt;&gt;radioBtnTCP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioBtnTCP.Parent" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;radioBtnTCP.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="SettingTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 46</value>
+  </data>
+  <data name="SettingTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1054, 623</value>
+  </data>
+  <data name="SettingTP.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="SettingTP.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Name" xml:space="preserve">
+    <value>SettingTP</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;SettingTP.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1062, 673</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="homeView1.DeletedViolations" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -231,7 +483,7 @@
     <value>homeView1</value>
   </data>
   <data name="&gt;&gt;homeView1.Type" xml:space="preserve">
-    <value>ViolationsSystem.Views.HomeView, ViolationstSystem, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ViolationsSystem.Views.HomeView, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;homeView1.Parent" xml:space="preserve">
     <value>homeTP</value>
@@ -239,31 +491,37 @@
   <data name="&gt;&gt;homeView1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="homeTP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
+  <data name="sendTrafficView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="homeTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="sendTrafficView1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cairo, 12pt</value>
   </data>
-  <data name="homeTP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1054, 623</value>
+  <data name="sendTrafficView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="homeTP.TabIndex" type="System.Int32, mscorlib">
+  <data name="sendTrafficView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="sendTrafficView1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="sendTrafficView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1048, 617</value>
+  </data>
+  <data name="sendTrafficView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="homeTP.Text" xml:space="preserve">
-    <value>الرئيسية</value>
+  <data name="&gt;&gt;sendTrafficView1.Name" xml:space="preserve">
+    <value>sendTrafficView1</value>
   </data>
-  <data name="&gt;&gt;homeTP.Name" xml:space="preserve">
-    <value>homeTP</value>
+  <data name="&gt;&gt;sendTrafficView1.Type" xml:space="preserve">
+    <value>ViolationsSystem.Views.SendTrafficView, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;homeTP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;sendTrafficView1.Parent" xml:space="preserve">
+    <value>sendTrafficTP</value>
   </data>
-  <data name="&gt;&gt;homeTP.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;homeTP.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;sendTrafficView1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adminLogin1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -291,252 +549,12 @@
     <value>adminLogin1</value>
   </data>
   <data name="&gt;&gt;adminLogin1.Type" xml:space="preserve">
-    <value>ViolationstSystem.Views.AdminLogin, ViolationstSystem, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>ViolationstSystem.Views.AdminLogin, ViolationstSystem, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;adminLogin1.Parent" xml:space="preserve">
     <value>AdminTP</value>
   </data>
   <data name="&gt;&gt;adminLogin1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="AdminTP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
-  </data>
-  <data name="AdminTP.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="AdminTP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1054, 623</value>
-  </data>
-  <data name="AdminTP.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="AdminTP.Text" xml:space="preserve">
-    <value>صلاحيات المدير</value>
-  </data>
-  <data name="&gt;&gt;AdminTP.Name" xml:space="preserve">
-    <value>AdminTP</value>
-  </data>
-  <data name="&gt;&gt;AdminTP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AdminTP.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;AdminTP.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>919, 173</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 39</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>الاصدار الحالي</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="labCurrentVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>720, 173</value>
-  </data>
-  <data name="labCurrentVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 39</value>
-  </data>
-  <data name="labCurrentVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;labCurrentVersion.Name" xml:space="preserve">
-    <value>labCurrentVersion</value>
-  </data>
-  <data name="&gt;&gt;labCurrentVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labCurrentVersion.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;labCurrentVersion.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>865, 215</value>
-  </data>
-  <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 46</value>
-  </data>
-  <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnUpdate.Text" xml:space="preserve">
-    <value>تحديث البرنامج</value>
-  </data>
-  <data name="&gt;&gt;btnUpdate.Name" xml:space="preserve">
-    <value>btnUpdate</value>
-  </data>
-  <data name="&gt;&gt;btnUpdate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdate.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>929, 110</value>
-  </data>
-  <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 40</value>
-  </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnOk.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
-    <value>btnOk</value>
-  </data>
-  <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="radioBtnLocal.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioBtnLocal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioBtnLocal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>865, 66</value>
-  </data>
-  <data name="radioBtnLocal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 41</value>
-  </data>
-  <data name="radioBtnLocal.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioBtnLocal.Text" xml:space="preserve">
-    <value>Local connection</value>
-  </data>
-  <data name="&gt;&gt;radioBtnLocal.Name" xml:space="preserve">
-    <value>radioBtnLocal</value>
-  </data>
-  <data name="&gt;&gt;radioBtnLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioBtnLocal.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;radioBtnLocal.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="radioBtnTCP.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioBtnTCP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioBtnTCP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>876, 19</value>
-  </data>
-  <data name="radioBtnTCP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 41</value>
-  </data>
-  <data name="radioBtnTCP.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="radioBtnTCP.Text" xml:space="preserve">
-    <value>TCP connection</value>
-  </data>
-  <data name="&gt;&gt;radioBtnTCP.Name" xml:space="preserve">
-    <value>radioBtnTCP</value>
-  </data>
-  <data name="&gt;&gt;radioBtnTCP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioBtnTCP.Parent" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;radioBtnTCP.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="SettingTP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 46</value>
-  </data>
-  <data name="SettingTP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1054, 623</value>
-  </data>
-  <data name="SettingTP.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="SettingTP.Text" xml:space="preserve">
-    <value>الإعدادات</value>
-  </data>
-  <data name="&gt;&gt;SettingTP.Name" xml:space="preserve">
-    <value>SettingTP</value>
-  </data>
-  <data name="&gt;&gt;SettingTP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SettingTP.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;SettingTP.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.RightToLeftLayout" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1062, 673</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -3415,6 +3433,9 @@
         CCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCEuIv8f6YBQS4fuBjIA
         AAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>

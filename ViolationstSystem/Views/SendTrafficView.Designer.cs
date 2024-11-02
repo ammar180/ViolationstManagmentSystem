@@ -39,12 +39,12 @@ namespace ViolationsSystem.Views
 			this.label2 = new System.Windows.Forms.Label();
 			this.comboUnits = new System.Windows.Forms.ComboBox();
 			this.lable3 = new System.Windows.Forms.Label();
+			this.dateBox1 = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.btnGetResult = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-			this.dateBox1 = new ViolationsCollecting.View.CustomeComponants.DateBox();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.countTrucks)).BeginInit();
@@ -153,7 +153,7 @@ namespace ViolationsSystem.Views
             "الصف",
             "العياط",
             "منشاة القناطر",
-            "ابو نمرس",
+            "ابو النمرس",
             "الواحات البحرية",
             "اطفيح",
             "اكتوبر"});
@@ -175,6 +175,16 @@ namespace ViolationsSystem.Views
 			this.lable3.TabIndex = 3;
 			this.lable3.Text = "التاريخ المبدأي";
 			this.lable3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// dateBox1
+			// 
+			this.dateBox1.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dateBox1.Location = new System.Drawing.Point(19, 14);
+			this.dateBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.dateBox1.Name = "dateBox1";
+			this.dateBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.dateBox1.Size = new System.Drawing.Size(401, 81);
+			this.dateBox1.TabIndex = 4;
 			// 
 			// btnGetResult
 			// 
@@ -229,16 +239,6 @@ namespace ViolationsSystem.Views
 			this.reportViewer.ServerReport.BearerToken = null;
 			this.reportViewer.Size = new System.Drawing.Size(1011, 497);
 			this.reportViewer.TabIndex = 1;
-			// 
-			// dateBox1
-			// 
-			this.dateBox1.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateBox1.Location = new System.Drawing.Point(19, 14);
-			this.dateBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.dateBox1.Name = "dateBox1";
-			this.dateBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.dateBox1.Size = new System.Drawing.Size(401, 81);
-			this.dateBox1.TabIndex = 4;
 			// 
 			// SendTrafficView
 			// 

@@ -69,7 +69,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.01084in</Width>
+                  <Width>1.95251in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.3981in</Width>
@@ -326,9 +326,9 @@
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
-            <Left>4.32in</Left>
+            <Left>4.23712in</Left>
             <Height>0.75in</Height>
-            <Width>3.87498in</Width>
+            <Width>3.81665in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -534,7 +534,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -599,7 +598,6 @@
                 <Value>Number</Value>
               </SortExpression>
             </SortExpressions>
-            <Left>0.08289in</Left>
             <Height>0.75in</Height>
             <Width>4.23712in</Width>
             <ZIndex>1</ZIndex>
@@ -619,7 +617,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>8.274in</Width>
+      <Width>8.14067in</Width>
       <Page>
         <PageHeader>
           <Height>0.66668in</Height>
@@ -646,10 +644,10 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.01389in</Top>
+              <Top>0in</Top>
               <Left>0.08289in</Left>
               <Height>0.65279in</Height>
-              <Width>8.1121in</Width>
+              <Width>7.97088in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>

@@ -33,10 +33,6 @@ namespace ViolationsSystem
 
 		private async void btnChooseFile_Click(object sender, EventArgs e)
 		{
-			/* Optomizations
-			 * Show the compleation rows and whither if no any problems In Message
-			 * Don't Export Porblems File whither no problems.
-			*/
 			string path = GetFilePath();
 			if (path == "")
 				return;
@@ -93,7 +89,7 @@ namespace ViolationsSystem
 
 			foreach (var worksheet in workbook.Worksheets)
 			{
-				var rows = worksheet.RowsUsed(x => x.Style.Fill.BackgroundColor != XLColor.AppleGreen && x.RowNumber() > StartIngRow.Value).Skip(1);  // Assuming the first row is the header
+				var rows = worksheet.RowsUsed().Skip(1);//x => x.Style.Fill.BackgroundColor != XLColor.AppleGreen && x.RowNumber() > StartIngRow.Value).Skip(1);  // Assuming the first row is the header
 				int totalRows = rows.Count();
 				int processedRows = 0;
 				foreach (var row in rows)
@@ -114,7 +110,7 @@ namespace ViolationsSystem
 
 					try
 					{
-						var truckCode = formatTruckCode(row.Cell("A").GetString().Replace(" ", ""));
+						var truckCode = formatTruckCode(row.Cell("A").GetString());
 						labCurrentCar.Text = truckCode;
 						var violationDate = new DateTime();
 						try {
@@ -147,7 +143,7 @@ namespace ViolationsSystem
 						try
 						{
 							isExploredValue = row.Cell("A").Style.Fill.BackgroundColor.Color != System.Drawing.Color.Transparent;
-							isExploredValue = isExploredValue || !row.Cell("F").IsEmpty() || !row.Cell("H").IsEmpty();
+							isExploredValue = isExploredValue || !VreportNumber.Length.Equals(0) || VPaymentDate.HasValue;
 						}
 						catch { }
 						var truck = new Truck
@@ -176,7 +172,7 @@ namespace ViolationsSystem
 					catch (Exception ex)
 					{
 						//////row.Style.Fill.BackgroundColor = XLColor.RedMunsell;
-						labErrorMessage.Text = $"مشكله في الصف : {row.RowNumber()}";
+						labErrorMessage.Text = $"مشكله في الصف : {row.RowNumber()} \n {ex.Message}";
 						RowsHasProblem.Rows.Add(row.Cell("A").GetString(),
 												row.Cell("B").GetString().Split(' ').First(),
 												row.Cell("C").GetString(),
@@ -198,10 +194,12 @@ namespace ViolationsSystem
 
 		private string formatTruckCode(string originalValue)
 		{
-			if (originalValue.Length < 5)
-				throw new Exception();
-			else if (originalValue.Length > 7)
+			if (originalValue.Replace(" ", "").Length < 5)
+				throw new Exception("رقم سيارة غير صحيح");
+			else if (originalValue.Replace(" ", "").Length > 7)
 				return originalValue;
+
+			originalValue = originalValue.Replace(" ", "");
 			// Format the truck 
 			var digits = "";
 			var chars = "";
@@ -311,10 +309,8 @@ namespace ViolationsSystem
 		}
 
 		private static ImportView printv;
-		public static ImportView Instance()
-		{
-			return printv ?? (printv = new ImportView());
-		}
+		public static ImportView Instance() 
+			=> printv ?? (printv = new ImportView());
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
 			base.OnFormClosing(e);

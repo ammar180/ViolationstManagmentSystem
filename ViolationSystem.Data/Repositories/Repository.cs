@@ -14,35 +14,26 @@ namespace ViolationSystem.Data.Repositories
 	public class Repository : IRepository
 	{
 		private readonly Model db;
-        public Repository()
-        {
+		public Repository()
+		{
 			db = new Model("ViolationstSystem.Properties.Settings.SqlConnectionLocal");
 		}
 		public Repository(string sqlConnection, bool importBehev = false)
-        {
+		{
 			db = new Model(sqlConnection);
 			db.Configuration.AutoDetectChangesEnabled = !importBehev;
 			db.Configuration.ValidateOnSaveEnabled = !importBehev;
 		}
-		public async Task<bool> EditViolation(Violation violationModel)
+		public void UpdateViolation(Violation violationModel)
 		{
 			try
 			{
-				var existingViolation = await db.Violations.FindAsync(violationModel.Id);
-				if (existingViolation != null)
-				{
-					db.Entry(existingViolation).State = EntityState.Detached;
-				}
-
-				db.Violations.AddOrUpdate(violationModel);
-				await db.SaveChangesAsync();
-				return true;
+				db.SaveChanges();
 			}
-			catch (Exception ex)
+			catch (DbUpdateException)
 			{
-				// Log exception
-				return false;
-				throw new InvalidOperationException("An error occurred while editing the violation.", ex);
+				db.Trucks.Add(new Truck { TruckCode = violationModel.TruckCode, IsExplored = false });
+				db.SaveChanges();
 			}
 		}
 
@@ -53,7 +44,7 @@ namespace ViolationSystem.Data.Repositories
 				db.Violations.Add(violationModel);
 				await db.SaveChangesAsync();
 			}
-			catch(DbUpdateException)
+			catch (DbUpdateException)
 			{
 				try
 				{
@@ -61,7 +52,8 @@ namespace ViolationSystem.Data.Repositories
 					db.Violations.Add(violationModel);
 					await db.SaveChangesAsync();
 				}
-				catch (Exception ex) {
+				catch (Exception ex)
+				{
 					throw ex;
 				}
 			}
@@ -76,10 +68,8 @@ namespace ViolationSystem.Data.Repositories
 			try
 			{
 				var truck = db.Trucks
-					.Where(x => 
-					x.TruckCode.Substring(2).Contains(digits)
-					&& x.TruckCode.Substring(0,3).Contains(chars)
-					);
+					.Where(x => x.TruckCode.Contains(digits)
+							 && x.TruckCode.Contains(chars));
 				if (truck.Any())
 				{
 					var violations = new List<Violation>();
@@ -93,18 +83,15 @@ namespace ViolationSystem.Data.Repositories
 				else
 					throw new Exception("لم يتم العثور على سيارة مطابقة");
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 				return new List<Violation>();
 			}
 		}
 
-
-		public async Task<bool> ValidateIsAdmin(string txtName, string txtPass)
-		{
-			return await db.Users.AnyAsync(x => x.UserName == txtName && x.Password == txtPass);
-		}
+		public async Task<bool> ValidateIsAdmin(string txtName, string txtPass) 
+			=> await db.Users.AnyAsync(x => x.UserName == txtName && x.Password == txtPass);
 
 		public async Task<bool> UpdateAdminNamePassword(string OlduserName, string Oldpassword, string NewUserName, string NewPassword)
 		{
@@ -113,15 +100,15 @@ namespace ViolationSystem.Data.Repositories
 			{
 				db.Users.AddOrUpdate(new User
 				{
-					Id = user.Id, 
+					Id = user.Id,
 					UserName = NewUserName,
 					Password = NewPassword
 				});
 				await db.SaveChangesAsync();
 				return true;
 			}
-			
-			return false; 
+
+			return false;
 		}
 
 		public async Task AddTruck(Truck truck)
@@ -136,37 +123,24 @@ namespace ViolationSystem.Data.Repositories
 			}
 
 		}
-		public async Task AddViolationRange(List<Violation> violations)
+		public async Task AddViolationRange(List<Violation> addedViolations)
 		{
-			try
-			{
-				db.Violations.AddRange(violations);
-				await db.SaveChangesAsync();
-			}
-			catch(Exception)
-			{
-			}
+			if (addedViolations == null || addedViolations.Count == 0)
+				return;
+
+			for (int i = 0; i < addedViolations.Count; i++)
+				await AddViolation(addedViolations[i]);
 		}
 
 		public void UpdateViolations(List<Violation> violationsList)
 		{
+			if (violationsList.Count == 0 || violationsList == null)
+				return;
 			try
 			{
-				foreach (var updatedViolation in violationsList)
-				{
-					try
-					{
-						db.SaveChanges();
-					}
-					catch (DbUpdateException)
-					{
-						db.Trucks.Add(new Truck { TruckCode = updatedViolation.TruckCode, IsExplored = false });
-						db.SaveChanges();
-					}
-				}
-			
-				//await RemoveViolations(violationsList);
-			}
+				for (int i = 0; i < violationsList.Count; i++)
+					UpdateViolation(violationsList[i]);
+            }
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
@@ -175,30 +149,29 @@ namespace ViolationSystem.Data.Repositories
 
 		public void RemoveViolations(List<Violation> deletedViolations)
 		{
-			foreach (var item in deletedViolations)
-				RemoveViolation(item);
+			if (deletedViolations.Count == 0 || deletedViolations == null)
+				return;
+
+			for(int i = 0; i < deletedViolations.Count; i++)
+				RemoveViolation(deletedViolations[i]);
 		}
 
 		private void RemoveViolation(Violation item)
 		{
 			try
 			{
-				//db.Entry(item).State = EntityState.Deleted;
-				//db.Violations.Attach(item);
 				db.Violations.Remove(item);
 				db.SaveChanges();
 			}
 			catch { }
 		}
 
-		public async Task AddTruckViolations(List<Violation> list)
+		public async Task AddTruckViolations(List<Violation> addedViolations)
 		{
-			if (list == null || list.Count == 0)
-			{
-				throw new ArgumentException("List of violations is empty or null.");
-			}
-
-			string code = list.FirstOrDefault()?.TruckCode;
+			if (addedViolations == null || addedViolations.Count == 0)
+				return;
+            
+			string code = addedViolations.FirstOrDefault()?.TruckCode;
 			if (code == null)
 			{
 				throw new ArgumentException("List of violations does not contain a valid TruckCode.");
@@ -219,14 +192,14 @@ namespace ViolationSystem.Data.Repositories
 			}
 
 			// Iterate through each violation
-			foreach (var violation in list)
+			foreach (var violation in addedViolations)
 			{
 				// Check if the violation already exists in the truck's violations collection
-				
+
 				violation.TruckCode = truck.TruckCode; // Ensure the violation has the correct TruckCode
 				violation.Truck = truck; // Associate the violation with the truck
 				truck.Violations.Add(violation); // Add the violation to the context
-				
+
 			}
 
 			await db.SaveChangesAsync();
@@ -237,15 +210,13 @@ namespace ViolationSystem.Data.Repositories
 			var trucks = await db.Trucks
 				.Include(t => t.Violations)
 				.Where(x =>
-				!(x.IsExplored)
+				!x.IsExplored
 				&& x.Violations
 					.Any(v => v.Unit.Replace("أ", "ا") == targetUnit
-						&& !startDate.HasValue || (v.ViolationDate >= startDate))
+						&& (!startDate.HasValue || v.ViolationDate >= startDate))
 			).Take(trucksCount)
 			.ToListAsync();
 
-			trucks.ForEach(x => x.IsExplored = true);
-			await db.SaveChangesAsync();
 			return trucks;
 		}
 
@@ -257,6 +228,12 @@ namespace ViolationSystem.Data.Repositories
 				&& (!pydateStart.HasValue || (v.PaymentDate >= pydateStart && v.PaymentDate < pydateEnd))
 			).OrderBy(v => v.ViolationDate)
 			.ToListAsync();
+		}
+
+		public async void UpdateTrucksToExplored(List<Truck> trucks)
+		{
+			trucks.ForEach(x => x.IsExplored = true);
+			await db.SaveChangesAsync();
 		}
 	}
 }

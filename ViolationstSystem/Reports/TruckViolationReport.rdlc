@@ -523,7 +523,7 @@
                                   <Value>=Fields!PaymentDate.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
+                                    <Format>d/M/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -558,7 +558,7 @@
                                   <Value>=Fields!BlockDate.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
+                                    <Format>d/M/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

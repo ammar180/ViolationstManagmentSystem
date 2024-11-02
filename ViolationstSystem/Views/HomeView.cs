@@ -20,8 +20,8 @@ namespace ViolationsSystem.Views
 		#endregion
 
 		#region Properties
-		public bool[] ExploredCodesOfTrucks { get; set; }
-		public bool[] dublicatedDateCode { get; set; }
+		public List<bool> ExploredCodesOfTrucks { get; set; }
+		public List<bool> DublicatedDateCode { get; set; }
 		public List<string> FillCodeFiltercheckedList { set => filterUserControle1.FilterList = value; }
 		public List<Violation> ModifiedViolations { get; set; }
 		public List<Violation> DeletedViolations { get; set; }
@@ -160,7 +160,8 @@ namespace ViolationsSystem.Views
 			var rowToDelete = (Violation)e.Row.DataBoundItem;
 			DeletedViolations.Add(rowToDelete);
 			ModifiedViolations.Remove(ModifiedViolations.FirstOrDefault(x => x.Id == rowToDelete.Id));
-			dublicatedDateCode[e.Row.Index] = false;
+			DublicatedDateCode.RemoveAt(e.Row.Index);
+			ExploredCodesOfTrucks.RemoveAt(e.Row.Index);
 			btnSaveChages.BackColor = Color.DeepSkyBlue;
 		}
 
@@ -182,13 +183,14 @@ namespace ViolationsSystem.Views
 					e.Value = formattedValue;
 					e.FormattingApplied = true;
 				}
-				if (ExploredCodesOfTrucks[e.RowIndex])
-					e.CellStyle.BackColor = Color.FromArgb(255, 255, 128);
+				if(ExploredCodesOfTrucks.Count > e.RowIndex)
+					if (ExploredCodesOfTrucks?[e.RowIndex]??false)
+						e.CellStyle.BackColor = Color.FromArgb(255, 255, 128);
 
 			}
-			if (e.ColumnIndex == 3)
+			if (e.ColumnIndex == 3 && DublicatedDateCode.Count > e.RowIndex)
 			{
-				if (dublicatedDateCode[e.RowIndex])
+				if (DublicatedDateCode?[e.RowIndex] ?? false)
 					e.CellStyle.BackColor = Color.FromArgb(255, 192, 128);
 
 			}
@@ -226,8 +228,6 @@ namespace ViolationsSystem.Views
 						ModifiedViolations.Add(rowToUpdate);
 					}
 					btnSaveChages.BackColor = Color.DeepSkyBlue;
-
-					//SwitchToSaveMode(true);
 				}
 			}
 			catch { }
@@ -238,7 +238,6 @@ namespace ViolationsSystem.Views
 			for (int i = 0; i < dataGridView.Rows.Count; i++)
 			{
 				var row = (Violation)dataGridView.Rows[i].DataBoundItem;
-				//row.Truck.TruckCode = row.TruckCode;
 				list.Add(row);
 			}
 			return list;
@@ -248,13 +247,11 @@ namespace ViolationsSystem.Views
 		{
 			loading.Show();
 			var list = GetRowsData();
-            
 			SaveChangesEvent?.Invoke(list, EventArgs.Empty);
+
 			ModifiedViolations.Clear();
 			DeletedViolations.Clear();
 			btnSaveChages.BackColor = DefaultBackColor;
-
-			//SwitchToSaveMode(false);
 			loading.Hide();
 		}
 
