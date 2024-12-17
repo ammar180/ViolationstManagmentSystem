@@ -12,6 +12,7 @@ namespace ViolationsSystem.Views.Interfaces
 		int TrucksCount { get;}
 		DateTime? StartDate { get;}
 		string TargetUnit { get; }
+		int minViolationsCountTruaffic { get;}
 		//Events
 		event EventHandler GetResultEvent;
 		ReportViewer report { get; }

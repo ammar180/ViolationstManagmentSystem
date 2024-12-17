@@ -37,7 +37,7 @@ namespace ViolationsSystem.Presenter
 		private async void GetResult(object sender, EventArgs e)
 		{
 			view.LoadingForm.Show();
-			list = await repository.GetTrafficTrucks(view.TrucksCount, view.TargetUnit, view.StartDate);
+			list = await repository.GetTrafficTrucks(view.TrucksCount, view.TargetUnit, view.StartDate, view.minViolationsCountTruaffic);
 			var l1 = new List<Truck>();
 			var l2 = new List<Truck>();
 

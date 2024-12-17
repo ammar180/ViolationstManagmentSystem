@@ -59,14 +59,17 @@ namespace ViolationsSystem
 
 			}
 
-			MessageBox.Show(
+			using (Form form =  new Form { TopMost = true}) {
+				MessageBox.Show(
+				form,
 				"إجمالي الصفوف المضافة" +
 				$" {labRowsCount.Text} " +
 				$"\nإجمالي عدد المشاكل: {RowsHasProblem.Rows.Count}"
-				,"تم الانتهاء من العملية"
-				,MessageBoxButtons.OK
-				,MessageBoxIcon.Information
+				, "تم الانتهاء من العملية"
+				, MessageBoxButtons.OK
+				, MessageBoxIcon.Information
 				);
+			}
 			btnChooseFile.Enabled = true;
 			labFileName.Text = labCurrentCar.Text = labRowsCount.Text = "";
 			labPresantage.Text = "Processing...0%";
@@ -86,6 +89,7 @@ namespace ViolationsSystem
 			RowsHasProblem.Columns.Add("تاريخ الحجز", typeof(string));
 			RowsHasProblem.Columns.Add("تاريخ السداد", typeof(string));
 			RowsHasProblem.Columns.Add("الملاحظات", typeof(string));
+			RowsHasProblem.Columns.Add("السبب", typeof(string));
 
 			foreach (var worksheet in workbook.Worksheets)
 			{
@@ -155,7 +159,7 @@ namespace ViolationsSystem
 						{
 							TruckCode = truckCode,
 							ViolationDate = violationDate,
-							Unit = Vunit,
+							Unit = Vunit == string.Empty? throw new Exception("الوحدة فارغة") : Vunit,
 							ElManfaz = Vmanfaz,
 							Truck = truck,
 							ReportNumber = VreportNumber,
@@ -181,7 +185,8 @@ namespace ViolationsSystem
 												row.Cell("F").GetString(),
 												row.Cell("G").GetString().Split(' ').First(),
 												row.Cell("H").GetString().Split(' ').First(),
-												row.Cell("I").GetString());
+												row.Cell("I").GetString(),
+												$"{ex.Message}");
 					}
 				}
 			}
@@ -192,25 +197,26 @@ namespace ViolationsSystem
 			btnChooseFile.Enabled = true;
 		}
 
-		private string formatTruckCode(string originalValue)
+		private string formatTruckCode(string truckCodeValue)
 		{
-			if (originalValue.Replace(" ", "").Length < 5)
+			string turkCodeWithNoSpaces = truckCodeValue.Replace(" ", "");
+			if (turkCodeWithNoSpaces.Length < 5)
 				throw new Exception("رقم سيارة غير صحيح");
-			else if (originalValue.Replace(" ", "").Length > 7)
-				return originalValue;
 
-			originalValue = originalValue.Replace(" ", "");
-			// Format the truck 
+			truckCodeValue = turkCodeWithNoSpaces;
+			// Format the truck
 			var digits = "";
 			var chars = "";
-			foreach (char c in originalValue)
+			foreach (char c in truckCodeValue)
 			{
 				if (char.IsDigit(c))
 					digits += c;
-				else
+				else if(IsValiedArabicChar(c))
 				{
 					switch (c)
 					{
+						case 'ـ':
+							break;
 						case 'ة':
 							chars += 'ه';
 							break;
@@ -219,6 +225,12 @@ namespace ViolationsSystem
 							break;
 						case 'ى':
 							chars += 'ي';
+							break;
+						case 'ئ':
+							chars += 'ي';
+							break;
+						case 'ؤ':
+							chars += 'و';
 							break;
 						default:
 							chars += c;
@@ -327,6 +339,11 @@ namespace ViolationsSystem
 			ViolationstSystem.Properties.Settings.Default.ValidateOriginal = checkOriginalFile.Checked;
 			ViolationstSystem.Properties.Settings.Default.Save();
 
+		}
+
+		private bool IsValiedArabicChar(char c)
+		{
+			return (c >= '\u0600' && c <= '\u06FF');
 		}
 	}
 }

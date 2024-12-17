@@ -1,8 +1,7 @@
 ﻿CREATE TABLE [dbo].[Trucks] (
-    [TruckId] INT           IDENTITY (1, 1) NOT NULL,
-    [Code]    NVARCHAR (50) NOT NULL,
+    [TruckCode]    NVARCHAR (50) NOT NULL,
     [IsExplored]    BIT NULL,
-    CONSTRAINT [PK_Trucks] PRIMARY KEY CLUSTERED ([TruckId] ASC)
+    CONSTRAINT [PK_Trucks] PRIMARY KEY CLUSTERED ([TruckCode] ASC)
 );
 
 

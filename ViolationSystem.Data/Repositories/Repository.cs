@@ -205,12 +205,13 @@ namespace ViolationSystem.Data.Repositories
 			await db.SaveChangesAsync();
 		}
 
-		public async Task<List<Truck>> GetTrafficTrucks(int trucksCount, string targetUnit, DateTime? startDate)
+		public async Task<List<Truck>> GetTrafficTrucks(int trucksCount, string targetUnit, DateTime? startDate, int minViolationsCount)
 		{
 			var trucks = await db.Trucks
 				.Include(t => t.Violations)
 				.Where(x =>
 				!x.IsExplored
+				&& x.Violations.Count >= minViolationsCount
 				&& x.Violations
 					.Any(v => v.Unit.Replace("أ", "ا") == targetUnit
 						&& (!startDate.HasValue || v.ViolationDate >= startDate))

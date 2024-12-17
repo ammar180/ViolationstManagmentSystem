@@ -18,7 +18,7 @@ namespace ViolationSystem.Data.Repositories
 		void UpdateViolations(List<Violation> violationsList);
 		void RemoveViolations(List<Violation> deletedViolations);
 		Task AddTruckViolations(List<Violation> list);
-		Task<List<Truck>> GetTrafficTrucks(int trucksCount, string targetUnit, DateTime? startDate);
+		Task<List<Truck>> GetTrafficTrucks(int trucksCount, string targetUnit, DateTime? startDate,int minViolationsCount);
 		Task<List<Violation>> ViolationReport(List<string> units, DateTime? vdateStart, DateTime? vdateEnd, DateTime? pydateStart, DateTime? pydateEnd);
 		void UpdateTrucksToExplored(List<Truck> list);
 	}

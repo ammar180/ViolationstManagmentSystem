@@ -23,6 +23,7 @@ namespace ViolationsSystem.Views
 		public int TrucksCount { get => ((int)countTrucks.Value); }
 		public DateTime? StartDate { get => dateBox1.Date; }
 		public string TargetUnit { get => comboUnits.Text; }
+		public int minViolationsCountTruaffic { get => (int)minViolationCount.Value; }
 		public ReportViewer report { get => reportViewer; }
 
 

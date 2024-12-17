@@ -41,7 +41,7 @@
         public Truck Truck { get; set; }
 
 
-		public static bool Equals(Violation v1, Violation v2)
+        public static bool Equals(Violation v1, Violation v2)
 		{
 			return v1.TruckCode == v2.TruckCode
 				&& v1.ViolationDate == v2.ViolationDate

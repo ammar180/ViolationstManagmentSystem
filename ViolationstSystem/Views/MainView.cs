@@ -52,6 +52,8 @@ namespace ViolationsSystem
 
 			for (int i = 2; i< HomeView.dataGridView.Columns.Count; i++)
 				HomeView.dataGridView.Columns[i].ReadOnly = !AdminLogin.IsAdmin;
+
+			HomeView.dataGridView.Columns[10].ReadOnly = false;
 		}
 
 		private void btnOk_Click(object sender, EventArgs e)
